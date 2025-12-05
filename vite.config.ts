@@ -10,6 +10,7 @@ import fullReload from "vite-plugin-full-reload";
 const pages = ["index.html", "pages/second.html"];
 
 export default defineConfig({
+  base: "/ClubTravel/",
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
@@ -49,9 +50,7 @@ export default defineConfig({
       cache: false,
       cacheLocation: undefined,
     }),
-    fullReload([
-      "src/components/**/*.html", 
-    ]),
+    fullReload(["src/components/**/*.html"]),
   ],
 
   build: {
