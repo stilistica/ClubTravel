@@ -6,7 +6,13 @@ import Inspect from "vite-plugin-inspect";
 import { defineConfig } from "vite";
 import fullReload from "vite-plugin-full-reload";
 
-const pages = ["index.html", "pages/second.html"];
+const pages = [
+  "index.html", 
+  "pages/hotPage.html",
+  "pages/searchPage.html",
+  "pages/hotelPage.html",
+  "pages/directionsPage.html",
+];
 const repoBase = "/ClubTravel/";
 
 export default defineConfig({
@@ -20,17 +26,25 @@ export default defineConfig({
   plugins: [
     Inspect(),
     handlebars({
-      partialDirectory: resolve(__dirname, "src/components"),
+      partialDirectory: [
+        resolve(__dirname, "src/components"),
+        resolve(__dirname, "src/components/homepage"),
+        resolve(__dirname, "src/components/filter"),
+        resolve(__dirname, "src/components/hotpage"),
+        resolve(__dirname, "src/components/searchpage"),
+        resolve(__dirname, "src/components/hotelpage"),
+        resolve(__dirname, "src/components/directionspage"),
+      ],
       helpers: {
         link: (path) => repoBase + path,
       },
     }),
-    hulakTools({
-      enableHandlebars: true,
-      handlebarsOptions: {
-        partialDirectory: resolve(__dirname, "src/components"), // твої components
-      },
-    }),
+    // hulakTools({
+    //   enableHandlebars: true,
+    //   handlebarsOptions: {
+    //     partialDirectory: resolve(__dirname, "src/components"), // твої components
+    //   },
+    // }),
     fullReload(["src/components/**/*.html"]),
   ],
 
