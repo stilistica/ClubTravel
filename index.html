@@ -2,20 +2,26 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <!-- <link rel="icon" type="image/svg+xml" href="/vite.svg" /> -->
+    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>vite-js-template</title>
+    <title>Главная</title>
   </head>
   <body>
     {{> header}}
-    <img src="/src/assets/images/image.jpg" preset="presetWebp" />
+    {{> heroHome}}
+    {{> filterSection}}
+    {{> newsHome}}
+    {{> hotHome}}
+    {{> winterHome}}
+    {{> summerHome}}
+    {{> tourBooking}}
+    {{> footer}}
+    <!-- <img src="/src/assets/images/image.jpg" preset="presetWebp" /> -->
 
-    <svg>
+    <!-- <svg>
       <use href="/images/sprite.svg#icon-point"></use>
-      <!-- <use href="./images/sprite.svg#icon-point"></use> -->
-      <!-- <use href="{{link './images/sprite.svg'}}#icon-point"></use> -->
-    </svg>
-    <a href="{{link 'pages/second.html'}}">Second page</a>
+    </svg> -->
+    <!-- <a href="{{link 'pages/second.html'}}">Second page</a> -->
     <script type="module" src="/src/js/main.js"></script>
   </body>
 </html>
