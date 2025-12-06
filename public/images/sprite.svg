@@ -1,5 +1,13 @@
 <svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <defs>
+<symbol id="icon-flag" viewBox="0 0 86 32">
+<path fill="#f68521" style="fill: var(--color1, #f68521)" d="M0 3.2l3.097-3.2v6.4l-3.097-3.2z"></path>
+<path fill="#f68521" style="fill: var(--color1, #f68521)" d="M0 16l3.097-3.2v6.4l-3.097-3.2z"></path>
+<path fill="#f68521" style="fill: var(--color1, #f68521)" d="M0 22.4l3.097-3.2v6.4l-3.097-3.2z"></path>
+<path fill="#f68521" style="fill: var(--color1, #f68521)" d="M0 9.6l3.097-3.2v6.4l-3.097-3.2z"></path>
+<path fill="#f68521" style="fill: var(--color1, #f68521)" d="M0 28.8l3.097-3.2v6.4l-3.097-3.2z"></path>
+<path fill="#f68521" style="fill: var(--color1, #f68521)" d="M3.097 0h82.581v32h-82.581v-32z"></path>
+</symbol>
 <symbol id="icon-menu" viewBox="0 0 32 32">
 <path d="M1.332 14.222h21.333v3.556h-21.333v-3.556zM1.332 5.333h28.444v3.556h-28.444v-3.556zM1.332 26.667h12.862v-3.556h-12.862v3.556z"></path>
 </symbol>
