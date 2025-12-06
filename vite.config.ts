@@ -15,6 +15,7 @@ const pages = [
   "pages/newsPage.html",
   "pages/bookingPage.html",
   "pages/accountPage.html",
+  "pages/contactsPage.html",
 ];
 const repoBase = "/ClubTravel/";
 
@@ -40,6 +41,7 @@ export default defineConfig({
         resolve(__dirname, "src/components/newspage"),
         resolve(__dirname, "src/components/bookingpage"),
         resolve(__dirname, "src/components/accountpage"),
+        resolve(__dirname, "src/components/contactspage"),
       ],
       helpers: {
         link: (path) => repoBase + path,
