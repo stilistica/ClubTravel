@@ -46,12 +46,12 @@ export default defineConfig(({ command }) => {
           link: (p) => repoBase + p,
         },
       }),
-      hulakTools({ // краще вимкнути, бо підтримує перегляд лише однієї папки
-        enableHandlebars: true,
-        handlebarsOptions: {
-          partialDirectory: resolve(__dirname, "src/components"),
-        },
-      }),
+      // hulakTools({ // краще вимкнути, бо підтримує перегляд лише однієї папки
+      //   enableHandlebars: true,
+      //   handlebarsOptions: {
+      //     partialDirectory: resolve(__dirname, "src/components"),
+      //   },
+      // }),
       injectHTML(),
       FullReload(["./src/**/**.html"]),
     ],
