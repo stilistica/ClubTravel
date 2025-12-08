@@ -1,4 +1,4 @@
-import '@/scss/style.scss'
+import '@/styles/style.scss'
 // import javascriptLogo from './javascript.svg'
 // import viteLogo from '/vite.svg'
 
@@ -7,3 +7,4 @@ import '@/scss/style.scss'
 // const headerEl = Header({ name: "Dima" })
 // document.body.appendChild(headerEl)
 
+// сonsole.log('Hello')
