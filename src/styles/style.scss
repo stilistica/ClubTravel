@@ -7,4 +7,10 @@
 @use "./basic/base.scss";
 @use "./basic/container.scss";
 
+
+@use "./layout/header.scss" as *;
+
+
+
+// під всіма use
 @import "normalize.css";

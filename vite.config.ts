@@ -3,12 +3,28 @@ import path from "path";
 import { resolve } from "path";
 import { glob } from "glob";
 import handlebars from "vite-plugin-handlebars";
-import hulakTools from "vite-plugin-hulak-tools";
-import injectHTML from "vite-plugin-html-inject";
 import FullReload from "vite-plugin-full-reload";
 import Inspect from "vite-plugin-inspect";
 
-const repoBase = "/ClubTravel/"; //приклад для Гіт Хаб "/ClubTravel/"
+const repoBase = "/ClubTravel/";
+const partialDir = [
+  resolve(__dirname, "src/components"),
+
+  resolve(__dirname, "src/pages/layout"),
+  resolve(__dirname, "src/pages/homepage"),
+  resolve(__dirname, "src/pages/filter"),
+  resolve(__dirname, "src/pages/hotpage"),
+  resolve(__dirname, "src/pages/searchpage"),
+  resolve(__dirname, "src/pages/hotelpage"),
+  resolve(__dirname, "src/pages/directionspage"),
+  resolve(__dirname, "src/pages/newspage"),
+  resolve(__dirname, "src/pages/bookingpage"),
+  resolve(__dirname, "src/pages/accountpage"),
+  resolve(__dirname, "src/pages/contactspage"),
+  resolve(__dirname, "src/pages/textpage"),
+  resolve(__dirname, "src/pages/errorpage"),
+  resolve(__dirname, "src/pages/auth"),
+];
 
 export default defineConfig(({ command }) => {
   return {
@@ -26,33 +42,11 @@ export default defineConfig(({ command }) => {
     plugins: [
       Inspect(),
       handlebars({
-        partialDirectory: [
-          resolve(__dirname, "src/components"),
-          resolve(__dirname, "src/components/homepage"),
-          resolve(__dirname, "src/components/filter"),
-          resolve(__dirname, "src/components/hotpage"),
-          resolve(__dirname, "src/components/searchpage"),
-          resolve(__dirname, "src/components/hotelpage"),
-          resolve(__dirname, "src/components/directionspage"),
-          resolve(__dirname, "src/components/newspage"),
-          resolve(__dirname, "src/components/bookingpage"),
-          resolve(__dirname, "src/components/accountpage"),
-          resolve(__dirname, "src/components/contactspage"),
-          resolve(__dirname, "src/components/textpage"),
-          resolve(__dirname, "src/components/errorpage"),
-          resolve(__dirname, "src/components/auth"),
-        ],
+        partialDirectory: partialDir,
         helpers: {
           link: (p) => repoBase + p,
         },
       }),
-      // hulakTools({ // краще вимкнути, бо підтримує перегляд лише однієї папки
-      //   enableHandlebars: true,
-      //   handlebarsOptions: {
-      //     partialDirectory: resolve(__dirname, "src/components"),
-      //   },
-      // }),
-      injectHTML(),
       FullReload(["./src/**/**.html"]),
     ],
 
