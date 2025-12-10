@@ -1,0 +1,71 @@
+{
+  "kind": "collectionType",
+  "collectionName": "hotels",
+  "info": {
+    "singularName": "hotel",
+    "pluralName": "hotels",
+    "displayName": "Hotels"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": [
+        "Budget",
+        "Economy",
+        "Standard",
+        "Comfort",
+        "Premium",
+        "Apartments"
+      ]
+    },
+    "description": {
+      "type": "blocks"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "tourPackage": {
+      "type": "enumeration",
+      "enum": [
+        "Туристический пакет",
+        "Только перелет"
+      ]
+    },
+    "meals": {
+      "type": "enumeration",
+      "enum": [
+        "Без питания",
+        "Завтрак",
+        "Затрак и ужин",
+        "Завтрак, обед, ужин",
+        "Всё включено",
+        "Ультра: всё включено"
+      ]
+    },
+    "price": {
+      "type": "integer"
+    },
+    "nights": {
+      "type": "integer"
+    },
+    "tour": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::tour.tour"
+    }
+  }
+}
