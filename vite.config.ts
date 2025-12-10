@@ -8,22 +8,22 @@ import Inspect from "vite-plugin-inspect";
 
 const repoBase = "/ClubTravel/";
 const partialDir = [
-  resolve(__dirname, "src/components"),
+  resolve(__dirname, "src/html/components"),
 
-  resolve(__dirname, "src/pages/layout"),
-  resolve(__dirname, "src/pages/homepage"),
-  resolve(__dirname, "src/pages/filter"),
-  resolve(__dirname, "src/pages/hotpage"),
-  resolve(__dirname, "src/pages/searchpage"),
-  resolve(__dirname, "src/pages/hotelpage"),
-  resolve(__dirname, "src/pages/directionspage"),
-  resolve(__dirname, "src/pages/newspage"),
-  resolve(__dirname, "src/pages/bookingpage"),
-  resolve(__dirname, "src/pages/accountpage"),
-  resolve(__dirname, "src/pages/contactspage"),
-  resolve(__dirname, "src/pages/textpage"),
-  resolve(__dirname, "src/pages/errorpage"),
-  resolve(__dirname, "src/pages/auth"),
+  resolve(__dirname, "src/html/pages/layout"),
+  resolve(__dirname, "src/html/pages/homepage"),
+  resolve(__dirname, "src/html/pages/filter"),
+  resolve(__dirname, "src/html/pages/hotpage"),
+  resolve(__dirname, "src/html/pages/searchpage"),
+  resolve(__dirname, "src/html/pages/hotelpage"),
+  resolve(__dirname, "src/html/pages/directionspage"),
+  resolve(__dirname, "src/html/pages/newspage"),
+  resolve(__dirname, "src/html/pages/bookingpage"),
+  resolve(__dirname, "src/html/pages/accountpage"),
+  resolve(__dirname, "src/html/pages/contactspage"),
+  resolve(__dirname, "src/html/pages/textpage"),
+  resolve(__dirname, "src/html/pages/errorpage"),
+  resolve(__dirname, "src/html/pages/auth"),
 ];
 
 export default defineConfig(({ command }) => {
@@ -59,9 +59,9 @@ export default defineConfig(({ command }) => {
 
           ...Object.fromEntries(
             glob
-              .sync("./src/pages/*.html")
+              .sync("./src/html/pages/*.html")
               .map((file) => [
-                file.replace("./src/pages/", "").replace(".html", ""),
+                file.replace("./src/html/pages/", "").replace(".html", ""),
                 resolve(__dirname, file),
               ])
           ),
