@@ -430,6 +430,52 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiHotelOptionHotelOption extends Struct.CollectionTypeSchema {
+  collectionName: 'hotel_options';
+  info: {
+    displayName: 'HotelOptions';
+    pluralName: 'hotel-options';
+    singularName: 'hotel-option';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    days: Schema.Attribute.Integer;
+    hotel: Schema.Attribute.Relation<'manyToOne', 'api::hotel.hotel'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::hotel-option.hotel-option'
+    > &
+      Schema.Attribute.Private;
+    meals: Schema.Attribute.Enumeration<
+      [
+        '\u0411\u0435\u0437 \u043F\u0438\u0442\u0430\u043D\u0438\u044F',
+        '\u0417\u0430\u0432\u0442\u0440\u0430\u043A',
+        '\u0417\u0430\u0442\u0440\u0430\u043A \u0438 \u0443\u0436\u0438\u043D',
+        '\u0417\u0430\u0432\u0442\u0440\u0430\u043A, \u043E\u0431\u0435\u0434, \u0443\u0436\u0438\u043D',
+        '\u0412\u0441\u0451 \u0432\u043A\u043B\u044E\u0447\u0435\u043D\u043E',
+        '\u0423\u043B\u044C\u0442\u0440\u0430: \u0432\u0441\u0451 \u0432\u043A\u043B\u044E\u0447\u0435\u043D\u043E',
+      ]
+    >;
+    price: Schema.Attribute.Integer;
+    publishedAt: Schema.Attribute.DateTime;
+    tourPackage: Schema.Attribute.Enumeration<
+      [
+        '\u0422\u0443\u0440\u0438\u0441\u0442\u0438\u0447\u0435\u0441\u043A\u0438\u0439 \u043F\u0430\u043A\u0435\u0442',
+        '\u0422\u043E\u043B\u044C\u043A\u043E \u043F\u0435\u0440\u0435\u043B\u0435\u0442',
+      ]
+    >;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiHotelHotel extends Struct.CollectionTypeSchema {
   collectionName: 'hotels';
   info: {
@@ -447,31 +493,30 @@ export interface ApiHotelHotel extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    description: Schema.Attribute.Blocks;
+    description: Schema.Attribute.Enumeration<
+      [
+        '\u041F\u043B\u044F\u0436: \u043F\u0435\u0441\u043E\u043A, <50 m',
+        '\u0411\u0430\u0441\u0441\u0435\u0439\u043D: \u0437\u0430\u043A\u0440\u044B\u0442\u044B\u0439 \u0431\u0430\u0441\u0441\u0435\u0439\u043D',
+        '\u041B\u044B\u0436\u043D\u044B\u0435 \u0442\u0440\u0430\u0441\u0441\u044B, <300 m',
+        '\u0426\u0435\u043D\u0442\u0440 \u0433\u043E\u0440\u043E\u0434\u0430, <10 min',
+        '\u0421\u0430\u0443\u043D\u0430 \u0438 \u043A\u0430\u043C\u0438\u043D',
+        '\u0412\u0438\u0434 \u043D\u0430 \u0433\u043E\u0440\u044B',
+      ]
+    >;
+    hotel_options: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::hotel-option.hotel-option'
+    >;
     image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::hotel.hotel'> &
       Schema.Attribute.Private;
-    meals: Schema.Attribute.Enumeration<
-      [
-        '\u0411\u0435\u0437 \u043F\u0438\u0442\u0430\u043D\u0438\u044F',
-        '\u0417\u0430\u0432\u0442\u0440\u0430\u043A',
-        '\u0417\u0430\u0442\u0440\u0430\u043A \u0438 \u0443\u0436\u0438\u043D',
-        '\u0417\u0430\u0432\u0442\u0440\u0430\u043A, \u043E\u0431\u0435\u0434, \u0443\u0436\u0438\u043D',
-        '\u0412\u0441\u0451 \u0432\u043A\u043B\u044E\u0447\u0435\u043D\u043E',
-        '\u0423\u043B\u044C\u0442\u0440\u0430: \u0432\u0441\u0451 \u0432\u043A\u043B\u044E\u0447\u0435\u043D\u043E',
-      ]
-    >;
-    name: Schema.Attribute.String;
-    nights: Schema.Attribute.Integer;
-    price: Schema.Attribute.Integer;
+    nameHotel: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
-    tour: Schema.Attribute.Relation<'oneToOne', 'api::tour.tour'>;
-    tourPackage: Schema.Attribute.Enumeration<
-      [
-        '\u0422\u0443\u0440\u0438\u0441\u0442\u0438\u0447\u0435\u0441\u043A\u0438\u0439 \u043F\u0430\u043A\u0435\u0442',
-        '\u0422\u043E\u043B\u044C\u043A\u043E \u043F\u0435\u0440\u0435\u043B\u0435\u0442',
-      ]
+    region: Schema.Attribute.String;
+    tour_option: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::tour-option.tour-option'
     >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -518,6 +563,52 @@ export interface ApiOrderOrder extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiTourOptionTourOption extends Struct.CollectionTypeSchema {
+  collectionName: 'tour_options';
+  info: {
+    displayName: 'TourOptions';
+    pluralName: 'tour-options';
+    singularName: 'tour-option';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    adults: Schema.Attribute.Integer;
+    children: Schema.Attribute.Integer;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    days: Schema.Attribute.Integer;
+    departureCity: Schema.Attribute.Enumeration<
+      [
+        '\u0422\u0430\u043B\u043B\u0438\u043D',
+        '\u0420\u0438\u0433\u0430',
+        '\u0412\u0438\u043B\u044C\u043D\u0443\u0441',
+      ]
+    >;
+    hotels: Schema.Attribute.Relation<'oneToMany', 'api::hotel.hotel'>;
+    hotOffer: Schema.Attribute.Boolean;
+    imageTour: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::tour-option.tour-option'
+    > &
+      Schema.Attribute.Private;
+    minPrice: Schema.Attribute.Integer;
+    publishedAt: Schema.Attribute.DateTime;
+    season: Schema.Attribute.Enumeration<
+      ['winter', 'spring', 'summer', 'autumn']
+    >;
+    startDate: Schema.Attribute.Date;
+    tour: Schema.Attribute.Relation<'manyToOne', 'api::tour.tour'>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiTourTour extends Struct.CollectionTypeSchema {
   collectionName: 'tours';
   info: {
@@ -529,18 +620,9 @@ export interface ApiTourTour extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    adults: Schema.Attribute.Integer;
-    children: Schema.Attribute.JSON;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    departureCity: Schema.Attribute.Enumeration<
-      [
-        '\u0422\u0430\u043B\u043B\u0438\u043D',
-        '\u0420\u0438\u0433\u0430',
-        '\u0412\u0438\u043B\u044C\u043D\u0443\u0441',
-      ]
-    >;
     destination: Schema.Attribute.Enumeration<
       [
         '\u0415\u0433\u0438\u043F\u0435\u0442',
@@ -555,33 +637,16 @@ export interface ApiTourTour extends Struct.CollectionTypeSchema {
         '\u041A\u0438\u043F\u0440',
       ]
     >;
-    discount: Schema.Attribute.Integer;
-    duration: Schema.Attribute.Integer;
-    hotels: Schema.Attribute.Relation<'oneToMany', 'api::hotel.hotel'>;
-    hotOffer: Schema.Attribute.Boolean;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::tour.tour'> &
       Schema.Attribute.Private;
-    minPrice: Schema.Attribute.Integer;
+    nameTour: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
-    region: Schema.Attribute.Enumeration<
-      [
-        '\u0410\u043B\u0431\u0435\u043D\u0430',
-        '\u0411a\u043D\u0441\u043A\u043E',
-        '\u0411\u0443\u0440\u0433\u0430\u0441',
-        '\u0414\u044E\u043D\u044B',
-        '\u0415\u043B\u0438\u043D\u0438\u0442\u0435',
-        '\u0417\u043E\u043B\u043E\u0442\u044B\u0435 \u043F\u0435\u0441\u043A\u0438',
-        '\u041A\u0440\u0430\u043D\u0435\u0432\u043E',
-        'Hece\u0431p',
-        '\u041E\u0431\u0437\u043E\u0440',
-        '\u041F\u043E\u043C\u0438\u0440\u0438\u0435',
-        '\u0420\u0430\u0432\u0434\u0430',
-        '\u0420\u0438\u0432\u044C\u0435\u0440\u0430',
-        '\u0421\u0430\u0440\u0430\u0444\u043E\u0432\u043E',
-      ]
+    regions: Schema.Attribute.Component<'tour-components.regions', true>;
+    tour_options: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::tour-option.tour-option'
     >;
-    startDate: Schema.Attribute.Date;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1098,8 +1163,10 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::hotel-option.hotel-option': ApiHotelOptionHotelOption;
       'api::hotel.hotel': ApiHotelHotel;
       'api::order.order': ApiOrderOrder;
+      'api::tour-option.tour-option': ApiTourOptionTourOption;
       'api::tour.tour': ApiTourTour;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;

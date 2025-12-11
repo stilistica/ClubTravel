@@ -11,7 +11,10 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "name": {
+    "nameHotel": {
+      "type": "string"
+    },
+    "region": {
       "type": "string"
     },
     "category": {
@@ -26,7 +29,15 @@
       ]
     },
     "description": {
-      "type": "blocks"
+      "type": "enumeration",
+      "enum": [
+        "Пляж: песок, <50 m",
+        "Бассейн: закрытый бассейн",
+        "Лыжные трассы, <300 m",
+        "Центр города, <10 min",
+        "Сауна и камин",
+        "Вид на горы"
+      ]
     },
     "image": {
       "type": "media",
@@ -38,34 +49,17 @@
         "audios"
       ]
     },
-    "tourPackage": {
-      "type": "enumeration",
-      "enum": [
-        "Туристический пакет",
-        "Только перелет"
-      ]
-    },
-    "meals": {
-      "type": "enumeration",
-      "enum": [
-        "Без питания",
-        "Завтрак",
-        "Затрак и ужин",
-        "Завтрак, обед, ужин",
-        "Всё включено",
-        "Ультра: всё включено"
-      ]
-    },
-    "price": {
-      "type": "integer"
-    },
-    "nights": {
-      "type": "integer"
-    },
-    "tour": {
+    "hotel_options": {
       "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::tour.tour"
+      "relation": "oneToMany",
+      "target": "api::hotel-option.hotel-option",
+      "mappedBy": "hotel"
+    },
+    "tour_option": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::tour-option.tour-option",
+      "inversedBy": "hotels"
     }
   }
 }

@@ -11,8 +11,8 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "startDate": {
-      "type": "date"
+    "nameTour": {
+      "type": "string"
     },
     "destination": {
       "type": "enumeration",
@@ -29,54 +29,16 @@
         "Кипр"
       ]
     },
-    "duration": {
-      "type": "integer"
-    },
-    "adults": {
-      "type": "integer"
-    },
-    "children": {
-      "type": "json"
-    },
-    "region": {
-      "type": "enumeration",
-      "enum": [
-        "Албена",
-        "Бaнско",
-        "Бургас",
-        "Дюны",
-        "Елините",
-        "Золотые пески",
-        "Кранево",
-        "Heceбp",
-        "Обзор",
-        "Помирие",
-        "Равда",
-        "Ривьера",
-        "Сарафово"
-      ]
-    },
-    "departureCity": {
-      "type": "enumeration",
-      "enum": [
-        "Таллин",
-        "Рига",
-        "Вильнус"
-      ]
-    },
-    "hotOffer": {
-      "type": "boolean"
-    },
-    "discount": {
-      "type": "integer"
-    },
-    "minPrice": {
-      "type": "integer"
-    },
-    "hotels": {
+    "tour_options": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::hotel.hotel"
+      "target": "api::tour-option.tour-option",
+      "mappedBy": "tour"
+    },
+    "regions": {
+      "type": "component",
+      "component": "tour-components.regions",
+      "repeatable": true
     }
   }
 }

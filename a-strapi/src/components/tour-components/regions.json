@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_tour_components_regions",
+  "info": {
+    "displayName": "Regions"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

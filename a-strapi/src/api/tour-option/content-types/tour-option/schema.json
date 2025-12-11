@@ -1,0 +1,72 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tour_options",
+  "info": {
+    "singularName": "tour-option",
+    "pluralName": "tour-options",
+    "displayName": "TourOptions"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "startDate": {
+      "type": "date"
+    },
+    "days": {
+      "type": "integer"
+    },
+    "minPrice": {
+      "type": "integer"
+    },
+    "adults": {
+      "type": "integer"
+    },
+    "children": {
+      "type": "integer"
+    },
+    "departureCity": {
+      "type": "enumeration",
+      "enum": [
+        "Таллин",
+        "Рига",
+        "Вильнус"
+      ]
+    },
+    "hotOffer": {
+      "type": "boolean"
+    },
+    "season": {
+      "type": "enumeration",
+      "enum": [
+        "winter",
+        "spring",
+        "summer",
+        "autumn"
+      ]
+    },
+    "imageTour": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "tour": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::tour.tour",
+      "inversedBy": "tour_options"
+    },
+    "hotels": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::hotel.hotel",
+      "mappedBy": "tour_option"
+    }
+  }
+}
