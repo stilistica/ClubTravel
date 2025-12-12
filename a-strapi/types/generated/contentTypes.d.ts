@@ -444,8 +444,7 @@ export interface ApiHotelOptionHotelOption extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    days: Schema.Attribute.Integer;
-    hotel: Schema.Attribute.Relation<'manyToOne', 'api::hotel.hotel'>;
+    hotels: Schema.Attribute.Relation<'manyToMany', 'api::hotel.hotel'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -504,7 +503,7 @@ export interface ApiHotelHotel extends Struct.CollectionTypeSchema {
       ]
     >;
     hotel_options: Schema.Attribute.Relation<
-      'oneToMany',
+      'manyToMany',
       'api::hotel-option.hotel-option'
     >;
     image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
@@ -514,10 +513,6 @@ export interface ApiHotelHotel extends Struct.CollectionTypeSchema {
     nameHotel: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     region: Schema.Attribute.String;
-    tour_option: Schema.Attribute.Relation<
-      'manyToOne',
-      'api::tour-option.tour-option'
-    >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -587,6 +582,7 @@ export interface ApiTourOptionTourOption extends Struct.CollectionTypeSchema {
         '\u0412\u0438\u043B\u044C\u043D\u0443\u0441',
       ]
     >;
+    endDate: Schema.Attribute.Date;
     hotels: Schema.Attribute.Relation<'oneToMany', 'api::hotel.hotel'>;
     hotOffer: Schema.Attribute.Boolean;
     imageTour: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
@@ -642,7 +638,7 @@ export interface ApiTourTour extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     nameTour: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
-    regions: Schema.Attribute.Component<'tour-components.regions', true>;
+    regions: Schema.Attribute.JSON;
     tour_options: Schema.Attribute.Relation<
       'oneToMany',
       'api::tour-option.tour-option'

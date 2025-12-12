@@ -29,16 +29,14 @@
         "Кипр"
       ]
     },
+    "regions": {
+      "type": "json"
+    },
     "tour_options": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::tour-option.tour-option",
       "mappedBy": "tour"
-    },
-    "regions": {
-      "type": "component",
-      "component": "tour-components.regions",
-      "repeatable": true
     }
   }
 }

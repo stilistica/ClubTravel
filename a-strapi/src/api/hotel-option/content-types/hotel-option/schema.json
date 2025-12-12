@@ -32,12 +32,9 @@
         "Ультра: всё включено"
       ]
     },
-    "days": {
-      "type": "integer"
-    },
-    "hotel": {
+    "hotels": {
       "type": "relation",
-      "relation": "manyToOne",
+      "relation": "manyToMany",
       "target": "api::hotel.hotel",
       "inversedBy": "hotel_options"
     }

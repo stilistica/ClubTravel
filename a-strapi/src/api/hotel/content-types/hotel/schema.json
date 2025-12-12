@@ -51,15 +51,9 @@
     },
     "hotel_options": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "manyToMany",
       "target": "api::hotel-option.hotel-option",
-      "mappedBy": "hotel"
-    },
-    "tour_option": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::tour-option.tour-option",
-      "inversedBy": "hotels"
+      "mappedBy": "hotels"
     }
   }
 }

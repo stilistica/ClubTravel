@@ -14,6 +14,9 @@
     "startDate": {
       "type": "date"
     },
+    "endDate": {
+      "type": "date"
+    },
     "days": {
       "type": "integer"
     },
@@ -65,8 +68,7 @@
     "hotels": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::hotel.hotel",
-      "mappedBy": "tour_option"
+      "target": "api::hotel.hotel"
     }
   }
 }
