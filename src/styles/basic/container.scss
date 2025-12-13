@@ -11,10 +11,9 @@
 
 .container {
   width: 100%;
-  box-sizing: border-box;
 
   @media (min-width: s.$media_1366) {
-    width: 1366x;
+    width: 1366px;
     margin: 0 auto;
   }
   @media (min-width: s.$media_1440) {
@@ -27,7 +26,7 @@
 }
 .container-padding {
   padding: 0 17px;
-  box-sizing: border-box;
+  // box-sizing: border-box;
 
   @media (min-width: s.$media_768) {
     padding: 0 65px;

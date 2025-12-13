@@ -5,6 +5,7 @@ import { glob } from "glob";
 import handlebars from "vite-plugin-handlebars";
 import FullReload from "vite-plugin-full-reload";
 import Inspect from "vite-plugin-inspect";
+import fs from "fs";
 
 const repoBase = "/ClubTravel/";
 const partialDir = [
@@ -26,10 +27,13 @@ const partialDir = [
   resolve(__dirname, "src/html/pages/auth"),
 ];
 
+const dataDir = resolve(__dirname, "src/data");
+
 export default defineConfig(({ command }) => {
   return {
     base: repoBase,
     root: "src",
+    assetsInclude: ["**/*.hbs"],
     resolve: {
       alias: {
         "@": path.resolve(__dirname, "./src"),
@@ -44,10 +48,19 @@ export default defineConfig(({ command }) => {
       handlebars({
         partialDirectory: partialDir,
         helpers: {
-          link: (p) => repoBase + p,
+          link: (p) => `${repoBase}${p}`.replace(/\/{2,}/g, "/"),
+
+          data: (name) => {
+            const file = resolve(dataDir, `${name}.json`);
+            return JSON.parse(fs.readFileSync(file, "utf-8"));
+          },
         },
       }),
-      FullReload(["./src/**/**.html"]),
+      FullReload([
+        "./src/**/**.html",
+        "./src/**/*.hbs",
+        "./src/data/**/*.json",
+      ]),
     ],
 
     build: {

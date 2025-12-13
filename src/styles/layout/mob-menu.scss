@@ -1,0 +1,65 @@
+@use "../basic/globals.scss" as s;
+.mob-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 640px;
+  display: none;
+  background: #fff;
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  padding: 24px 62px 77px 22px;
+  flex-direction: column;
+
+  &.is-open {
+    display: flex;
+  }
+
+  &__logo-link {
+    margin-bottom: 22px;
+  }
+
+  &__list-top {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  &__line-top {
+    width: 100%;
+    color: #000;
+    opacity: 0.1;
+    margin: 16px 0;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 12px;
+  }
+
+  &__list-bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  &__line {
+    width: 100%;
+    color: #000;
+    opacity: 0.1;
+    margin: 23px 0;
+  }
+
+  &__user {
+    display: flex;
+    flex-direction: row;
+    gap: 13px;
+
+    p {
+      font-size: 16px;
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "logo": {
+    "src": "/img/header/logo.svg",
+    "alt": "Image logo"
+  },
+  "topLinks": [
+    { "text": "Страховки", "href": "#" },
+    { "text": "Визы", "href": "#" },
+    { "text": "Контакты", "href": "pages/contactsPage.html" }
+  ],
+  "phone": {
+    "raw": "+3726130633",
+    "display": "+372 6 130 633"
+  },
+  "email": "contact@email.ee",
+  "profileLink": "#",
+  "languageLink": "#",
+  "languageIcon": "/img/header/language.svg",
+  "navLinks": [
+    { "text": "Поиск тура", "href": "#" },
+    { "text": "Направления", "href": "#" },
+    {
+      "text": "Кампании",
+      "href": "#",
+      "class": "header__nav-item-company",
+      "icon": "/img/sprite.svg#icon-offer"
+    },
+    {
+      "text": "Горящие предложения",
+      "href": "#",
+      "class": "header__nav-item-company",
+      "icon": "/img/sprite.svg#icon-fast-time"
+    },
+    { "text": "Запрос тура", "href": "#" },
+    { "text": "Авиабилеты", "href": "#" }
+  ]
+}
