@@ -1,4 +1,4 @@
-import '@/styles/style.scss'
+import "@/styles/style.scss";
 // import javascriptLogo from './javascript.svg'
 // import viteLogo from '/vite.svg'
 
@@ -8,3 +8,6 @@ import '@/styles/style.scss'
 // document.body.appendChild(headerEl)
 
 // сonsole.log('Hello')
+
+// import "./header.js";
+import "./mob-menu.js";

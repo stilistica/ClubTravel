@@ -1,0 +1,83 @@
+<header class="header">
+  <div class="header__container container">
+    <div class="header__logo-wrapper">
+      <a href="/" class="header__logo-link">
+        <img width="48" height="67" src="{{logo.src}}" alt="{{logo.alt}}" />
+      </a>
+    </div>
+
+    <div class="header__top-bar">
+      <ul class="header__top-bar-list">
+        {{#each topLinks}}
+          <li class="header__top-bar-item">
+            <a href="{{link href}}" class="header__top-bar-link"> {{text}} </a>
+          </li>
+        {{/each}}
+      </ul>
+
+      <hr class="header__line-right" />
+
+      <div class="header__top-bar-contact">
+        <a href="tel:{{phone.raw}}" class="header__top-bar-contact-link">
+          <svg width="16" height="16">
+            <use href="/img/sprite.svg#icon-phone"></use>
+          </svg>
+          {{phone.display}}
+        </a>
+
+        <a href="mailto:{{email}}" class="header__top-bar-contact-link">
+          <svg width="16" height="16">
+            <use href="/img/sprite.svg#icon-mail"></use>
+          </svg>
+          {{email}}
+        </a>
+      </div>
+
+      <hr class="header__line-right" />
+
+      <div class="header__top-bar-profile">
+        <a href="{{profileLink}}" class="header__top-bar-profile-link">
+          <svg width="32" height="32">
+            <use href="/img/sprite.svg#icon-user"></use>
+          </svg>
+        </a>
+
+        <a href="{{languageLink}}" class="header__top-bar-profile-link">
+          <img width="24" height="24" src="{{languageIcon}}" alt="Language" />
+        </a>
+      </div>
+    </div>
+
+    <nav class="header__nav">
+      <ul class="header__nav-list">
+        {{#each navLinks}}
+          <li class="header__nav-item">
+            <a href="{{link href}}" class="header__nav-item-link {{class}}">
+              {{#if icon}}
+                <svg width="24" height="24">
+                  <use href="{{icon}}"></use>
+                </svg>
+              {{/if}}
+              {{text}}
+            </a>
+          </li>
+        {{/each}}
+      </ul>
+    </nav>
+
+    <div class="header__mob-nav">
+      <button class="header__burger open-menu">
+        <svg width="30" height="25">
+          <use href="/img/sprite.svg#icon-menu"></use>
+        </svg>
+      </button>
+      <a href="" class="header__mob-nav-profile-link">
+        <svg width="32" height="32">
+          <use href="/img/sprite.svg#icon-user"></use>
+        </svg>
+      </a>
+    </div>
+  </div>
+  
+</header>
+

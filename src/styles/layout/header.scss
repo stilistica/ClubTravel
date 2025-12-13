@@ -1,1 +1,174 @@
 @use "../basic/globals.scss" as s;
+
+.header {
+  padding: 8px 0 9px;
+  @media (min-width: s.$media_1366) {
+    padding: 7px 0 18px;
+  }
+  &__container {
+    padding: 0 14px 0 19px;
+    @media (min-width: s.$media_768) {
+      padding: 0 40px;
+    }
+    @media (min-width: s.$media_1366) {
+      padding: 0 98px 0 50px;
+    }
+  }
+
+  &__logo-wrapper {
+    position: absolute;
+    left: 50%;
+    top: 2px;
+    transform: translateX(-50%);
+    width: 110px;
+    height: 91px;
+    background: s.$color__white;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @media (min-width: s.$media_1366) {
+      left: 10%;
+      top: -7px;
+      width: 189px;
+      height: 154px;
+
+      img {
+        width: 82px;
+        height: 114px;
+      }
+    }
+  }
+
+  &__top-bar {
+    display: none;
+    @media (min-width: s.$media_1366) {
+      @include s.d-flex($align: center, $justify: flex-end);
+      width: 100%;
+    }
+  }
+
+  &__top-bar-list {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+  }
+
+  &__line-right {
+    @media (min-width: s.$media_1366) {
+      height: 24px;
+      width: 0;
+      margin: 0 24px;
+      color: #000;
+      opacity: 0.5;
+    }
+  }
+
+  &__top-bar-link {
+    font-size: 12px;
+    color: #666;
+  }
+
+  &__top-bar-contact {
+    @include s.d-flex($align: center);
+    gap: 27px;
+
+    @media (min-width: s.$media_1920) {
+      gap: 24px;
+    }
+  }
+
+  &__top-bar-contact-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: #666;
+
+    svg {
+      fill: #999;
+    }
+  }
+
+  &__top-bar-profile {
+    @include s.d-flex($align: center);
+    gap: 24px;
+    svg {
+      fill: #606c81;
+      width: 24px;
+      height: 24px;
+    }
+    @media (min-width: s.$media_1920) {
+      gap: 24px;
+    }
+  }
+
+  &__nav {
+    display: none;
+    @media (min-width: s.$media_1366) {
+      @include s.d-flex($direction: row, $align: center, $justify: flex-end);
+      padding: 24px 0;
+    }
+  }
+
+  &__nav-list {
+    @include s.d-flex($direction: row, $align: center);
+    gap: 21px;
+    @media (min-width: s.$media_1920) {
+      gap: 24px;
+    }
+  }
+
+  &__nav-item-link {
+    font-size: 16px;
+    text-transform: uppercase;
+    text-align: center;
+    color: s.$color__blue;
+  }
+
+  &__nav-item-company {
+    @include s.d-flex($direction: row, $align: center);
+    gap: 6px;
+    font-weight: 600;
+    color: s.$color__red;
+
+    svg {
+      fill: s.$color__red;
+    }
+  }
+
+  &__mob-nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+    @media (min-width: s.$media_1366) {
+      display: none;
+    }
+  }
+
+  &__burger {
+    background-color: transparent;
+    border: none;
+    width: 22px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+
+    svg {
+      fill: #606c81;
+      flex-shrink: 0;
+    }
+  }
+
+  &__mob-nav-profile-link {
+    svg {
+      fill: #606c81;
+      flex-shrink: 0;
+    }
+  }
+}
+
+
