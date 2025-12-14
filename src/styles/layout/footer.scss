@@ -1,0 +1,196 @@
+@use "../basic/globals.scss" as s;
+
+.footer {
+  @include s.d-flex($direction: column);
+  &__div {
+    padding: 43px 10px 60px 16px;
+    @include s.d-flex($direction: column, $align: center);
+    gap: 62px;
+
+    &-info {
+      @include s.d-flex($direction: column);
+
+      gap: 66px;
+
+      &-direct {
+        @include s.d-flex($direction: column);
+        gap: 29px;
+
+        h3 {
+          font-weight: 400;
+          font-size: 16px;
+          letter-spacing: -0.01em;
+          text-transform: uppercase;
+          color: s.$color__gray;
+        }
+        div {
+          @include s.d-flex($direction: row);
+          gap: 47px;
+          ul {
+            @include s.d-flex($direction: column);
+            gap: 14px;
+            li {
+              font-weight: 400;
+              font-size: 18px;
+            }
+          }
+        }
+      }
+      &-contacts {
+        @include s.d-flex($direction: column);
+        gap: 28px;
+        h3 {
+          font-weight: 400;
+          font-size: 16px;
+          text-transform: uppercase;
+          color: s.$color__gray;
+        }
+        span {
+          font-weight: 700;
+          font-size: 16px;
+        }
+        &-list {
+          margin-top: -7px;
+          @include s.d-flex($direction: column);
+          gap: 23px;
+
+          li {
+            @include s.d-flex($direction: row, $align: center);
+            gap: 14px;
+
+            svg {
+              width: 24px;
+              height: 24px;
+              fill: s.$color__green;
+            }
+            p {
+              font-weight: 400;
+              font-size: 16px;
+            }
+          }
+          &-item {
+            a {
+              font-weight: 400;
+              font-size: 16px;
+              text-decoration: underline;
+              text-decoration-skip-ink: none;
+              color: #255296;
+              transition: color 0.5s ease;
+
+              &:hover {
+                color: s.$color__text;
+              }
+            }
+          }
+        }
+      }
+    }
+    &-inst {
+      @include s.d-flex($direction: column);
+      gap: 19px;
+      &-title {
+        @include s.d-flex($direction: row, $align: center);
+        gap: 16px;
+
+        svg {
+          width: 32px;
+          height: 32px;
+        }
+        p {
+          font-weight: 400;
+          font-size: 16px;
+          letter-spacing: 0.02em;
+          color: #f03a53;
+        }
+      }
+      &-image {
+        margin-left: -6px;
+        width: 287px;
+        @media (min-width: s.$media_366) {
+          width: 332px;
+          height: 224px;
+        }
+      }
+    }
+  }
+  &__police {
+    padding: 17px 57px 14px 56px;
+
+    background: #f4f4f4;
+    @include s.d-flex($direction: row, $align: center, $justify: center);
+    gap: 16px;
+    &-text {
+      width: 280px;
+      font-weight: 400;
+      font-size: 14px;
+
+      text-align: center;
+      color: #575757;
+      opacity: 0.5;
+    }
+    &-div {
+      display: none;
+    }
+  }
+  @media (min-width: s.$media_768) {
+    &__div {
+      padding: 63px 50px 60px 50px;
+      @include s.d-flex($direction: column);
+
+      &-info {
+        @include s.d-flex($direction: row);
+        &-contacts {
+          &-list {
+            margin-top: 0px;
+          }
+        }
+      }
+      &-inst {
+        gap: 22px;
+        &-image {
+          margin-left: 0px;
+        }
+      }
+    }
+  }
+  @media (min-width: s.$media_1366) {
+    &__div {
+      padding: 82px 76px 69px 93px;
+      @include s.d-flex($direction: row, $justify: space-between);
+      gap: none;
+      &-inst {
+        padding: 0 0 12px 64px;
+
+        border-left: 1px solid #9d9d9d;
+      }
+    }
+    &__police {
+      padding: 17px 76px 14px 93px;
+      &-text {
+        margin-left: -65px;
+        letter-spacing: 0.02em;
+      }
+      &-div {
+        @include s.d-flex($direction: row, $align: center);
+        gap: 5px;
+        p {
+          cursor: pointer;
+
+          font-weight: 400;
+          font-size: 14px;
+          letter-spacing: 0.05em;
+        opacity: 0.5;
+
+          text-decoration: underline;
+          text-align: center;
+          color: s.$color__blue;
+
+          transition: color 0.5s ease;
+          &:hover {
+            color: s.$color__text;
+          }
+        }
+      }
+    }
+  }
+}
