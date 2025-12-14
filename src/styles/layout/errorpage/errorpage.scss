@@ -1,0 +1,96 @@
+@use "../../basic/globals.scss" as s;
+
+.errorpage-bgr {
+  width: 100%;
+  min-height: 417px;
+
+  background-image: url("/img/backgraund-big.webp");
+  @include s.bgr();
+
+  @media (min-width: s.$media_768) {
+    height: 589px;
+  }
+  @media (min-width: s.$media_1366) {
+    height: 689px;
+  }
+}
+.errorpage {
+  @include s.d-flex($direction: column, $justify: center, $align: center);
+  gap: 29px;
+  padding: 69px 15px;
+
+  color: s.$color__white;
+
+  &__info {
+    @include s.d-flex($direction: column, $align: center);
+    gap: 13px;
+
+    &-title {
+      font-weight: 700;
+      font-size: 64px;
+      text-align: center;
+    }
+    &-desc {
+      font-weight: 400;
+      font-size: 16px;
+      letter-spacing: 0.02em;
+      text-align: center;
+    }
+  }
+  &__nav {
+    @include s.d-flex($direction: column, $align: center);
+    gap: 18px;
+
+    &-desc {
+      font-weight: 400;
+      font-size: 14px;
+      letter-spacing: 0.02em;
+    }
+    &-list {
+      @include s.d-flex($direction: column, $align: center);
+      gap: 12px;
+      &-item {
+        a {
+          font-weight: 400;
+          font-size: 16px;
+          letter-spacing: 0.02em;
+          text-decoration: underline;
+          text-align: center;
+
+          transition: all 0.5s ease;
+
+          &:hover {
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+  @media (min-width: s.$media_768) {
+    gap: 39px;
+    padding: 100px 0px;
+
+    &__info {
+      &-title {
+        font-size: 74px;
+      }
+      &-desc {
+        font-size: 20px;
+      }
+    }
+  }
+  @media (min-width: s.$media_1366) {
+    gap: 49px;
+    padding: 139px 0;
+
+    &__info {
+      &-title {
+        font-size: 84px;
+        line-height: 1.4;
+      }
+      &-desc {
+        font-size: 24px;
+      }
+    }
+  }
+}

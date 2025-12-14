@@ -7,9 +7,9 @@
     <title>404</title>
   </head>
   <body>
-    {{> header}} 
-		{{> errorSection}} 
-		{{> footer}}
+    {{#with (data "headerData")}} {{> header this}} {{/with}} 
+    {{> errorSection}}
+    {{> footer}}
     <script type="module" src="/js/main.js"></script>
   </body>
 </html>
