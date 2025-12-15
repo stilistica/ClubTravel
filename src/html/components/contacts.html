@@ -1,4 +1,5 @@
 <span>Clubs Travel OÜ</span>
+{{#if footer}}
 <ul class="footer__div-info-contacts-list">
   <li>
     <svg>
@@ -31,3 +32,37 @@
     </p>
   </li>
 </ul>
+{{/if}} {{#if contactsSection}}
+<ul class="footer__div-info-contacts-list">
+  <li class="footer__div-info-contacts-list-item">
+    <svg>
+      <use href="/img/sprite.svg#icon-mail"></use>
+    </svg>
+    <p>
+      <a href="mailto:info@clubstravel.ee">info@clubstravel.ee</a>
+    </p>
+  </li>
+  <li class="footer__div-info-contacts-list-item">
+    <svg>
+      <use href="/img/sprite.svg#icon-phone"></use>
+    </svg>
+    <p>
+      <a href="tel:+37255560310">+372 555 60 310</a>
+      |
+      <a href="tel:+3726130633">+372 61 30 633</a>
+    </p>
+  </li>
+  <li>
+    <svg>
+      <use href="/img/sprite.svg#icon-clock"></use>
+    </svg>
+    <p>Пн-Пт 9:30-18:00, Сб 11:00-15:00</p>
+  </li>
+  <li>
+    <svg>
+      <use href="/img/sprite.svg#icon-point"></use>
+    </svg>
+    <p>Narva mnt 7D, Tallinn (корпус B) 4 этаж</p>
+  </li>
+</ul>
+{{/if}}
