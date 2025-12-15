@@ -7,7 +7,7 @@
     <title>Контакты</title>
   </head>
   <body>
-    {{> header}} 
+    {{#with (data "headerData")}} {{> header this}} {{/with}}
 		{{> heroBase}} 
 		{{> contactsSection}} 
 		{{> footer}}

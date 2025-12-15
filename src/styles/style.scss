@@ -10,6 +10,8 @@
 @use "./layout/header.scss" as *;
 @use "./layout/mob-menu.scss" as *;
 
+@use "./layout/hero/herobase.scss" as *;
+
 @use "./layout/footer.scss" as *;
 
 @use "./layout/errorpage/errorpage.scss" as *;
