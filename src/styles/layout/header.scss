@@ -1,9 +1,7 @@
 @use "../basic/globals.scss" as s;
-
 .header {
   padding: 8px 0 9px;
   @media (min-width: s.$media_1366) {
-    // padding: 7px 0 18px;
     padding: 7px 0 0px;
   }
   &__container {

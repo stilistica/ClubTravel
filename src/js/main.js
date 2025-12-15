@@ -10,4 +10,6 @@ import "@/styles/style.scss";
 // сonsole.log('Hello')
 
 // import "./header.js";
-import "./mob-menu.js";
+import "./module/mob-menu.js";
+import "./module/pages/auth/login.js";
+import "./module/pages/auth/register.js";
