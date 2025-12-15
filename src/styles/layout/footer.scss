@@ -3,11 +3,12 @@
 .footer {
   @include s.d-flex($direction: column);
   &__div {
-    padding: 43px 10px 60px 16px;
     @include s.d-flex($direction: column, $align: center);
     gap: 62px;
 
     &-info {
+      padding: 43px 10px 0px 16px;
+
       @include s.d-flex($direction: column);
 
       gap: 66px;
@@ -86,9 +87,12 @@
       }
     }
     &-inst {
+      padding: 0 10px 60px 17px;
+
       @include s.d-flex($direction: column);
       gap: 19px;
       &-title {
+        padding-left: 5px;
         @include s.d-flex($direction: row, $align: center);
         gap: 16px;
 
@@ -104,8 +108,6 @@
         }
       }
       &-image {
-        margin-left: -6px;
-        width: 287px;
         @media (min-width: s.$media_366) {
           width: 332px;
           height: 224px;
@@ -179,7 +181,7 @@
           font-weight: 400;
           font-size: 14px;
           letter-spacing: 0.05em;
-        opacity: 0.5;
+          opacity: 0.5;
 
           text-decoration: underline;
           text-align: center;
