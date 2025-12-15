@@ -6,32 +6,32 @@
   "topLinks": [
     { "text": "Страховки", "href": "#" },
     { "text": "Визы", "href": "#" },
-    { "text": "Контакты", "href": "pages/contactsPage.html" }
+    { "text": "Контакты", "href": "html/pages/contactsPage.html" }
   ],
   "phone": {
     "raw": "+3726130633",
     "display": "+372 6 130 633"
   },
   "email": "contact@email.ee",
-  "profileLink": "#",
+  "profileLink": "html/pages/loginPage.html",
   "languageLink": "#",
   "languageIcon": "/img/header/language.svg",
   "navLinks": [
-    { "text": "Поиск тура", "href": "#" },
-    { "text": "Направления", "href": "#" },
+    { "text": "Поиск тура", "href": "html/pages/searchPage.html" },
+    { "text": "Направления", "href": "html/pages/directionsPage.html" },
     {
       "text": "Кампании",
-      "href": "#",
+      "href": "html/pages/newsPage.html",
       "class": "header__nav-item-company",
       "icon": "/img/sprite.svg#icon-offer"
     },
     {
       "text": "Горящие предложения",
-      "href": "#",
+      "href": "html/pages/hotPage.html",
       "class": "header__nav-item-company",
       "icon": "/img/sprite.svg#icon-fast-time"
     },
-    { "text": "Запрос тура", "href": "#" },
+    { "text": "Запрос тура", "href": "html/pages/bookingPage.html" },
     { "text": "Авиабилеты", "href": "#" }
   ]
 }

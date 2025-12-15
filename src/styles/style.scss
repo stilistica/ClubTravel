@@ -14,5 +14,8 @@
 
 @use "./layout/errorpage/errorpage.scss" as *;
 
+// Auth
+@use "./auth/login.scss" as *;
+
 // під всіма use
 @import "normalize.css";
