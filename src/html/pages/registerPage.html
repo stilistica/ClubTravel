@@ -7,8 +7,8 @@
     <title>Регистрация</title>
   </head>
   <body>
-    {{> header}} 
-		{{> registerSection}} 
+    {{#with (data "headerData")}} {{> header this}} {{/with}}
+		{{#with (data "registerFormData")}} {{> registerSection this}} {{/with}}
 		{{> footer}}
    <script type="module" src="/js/main.js"></script>
   </body>

@@ -33,6 +33,7 @@ export default defineConfig(({ command }) => {
   return {
     base: repoBase,
     root: "src",
+    appType: "mpa",
     assetsInclude: ["**/*.hbs"],
     resolve: {
       alias: {
