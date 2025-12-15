@@ -1,0 +1,65 @@
+<section class="login">
+  <div class="login__container container">
+    <div class="login__form">
+      <div class="login__form-wrapper">
+        <h3 class="login__form-title">{{title}}</h3>
+        {{#if social}}
+          <button class="login__form-btn-facebook" type="button">
+            <svg width="24" height="24">
+              <use href="/img/sprite.svg#icon-icon-facebook"></use>
+            </svg>
+            {{social.facebookText}}
+          </button>
+          <a href="#" class="login__form-btn-google" type="button">
+            <svg width="24" height="24">
+              <use href="/img/sprite.svg#icon-icon-google"></use>
+            </svg>
+            {{social.googleText}}
+          </a>
+        {{/if}}
+        <form id="loginForm">
+          <p class="login__form-text">или</p>
+          <div class="login__form-input">
+            <p>E-mail</p>
+            <input
+              class="login__form-input-email"
+              type="email"
+              name="email"
+              id="{{email.id}}"
+              required
+            />
+          </div>
+          <div class="login__form-input">
+            <div class="login__form-input-text">
+              <p>Пароль</p>
+              {{#if forgot}}
+                <a href="{{link forgot.href}}" class="login__form-input-link">
+                  {{forgot.text}}
+                </a>
+              {{/if}}
+            </div>
+            <input
+              type="password"
+              name="password"
+              id="{{password.id}}"
+              required
+            />
+          </div>
+          <div class="login__btns-wrapper">
+            {{#if register}}
+              <a href="{{link register.href}}"> {{register.text}} </a>
+            {{/if}}
+
+            <button class="login__btn-register enter" type="submit">
+              {{submitText}}
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+    {{#if policy}}
+      <p class="login__policy">{{policy.privacy}}</p>
+      <p class="login__policy">{{policy.terms}}</p>
+    {{/if}}
+  </div>
+</section>

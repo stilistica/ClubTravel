@@ -11,3 +11,5 @@ import "@/styles/style.scss";
 
 // import "./header.js";
 import "./module/mob-menu.js";
+import "./module/pages/auth/login.js";
+import "./module/pages/auth/register.js";
