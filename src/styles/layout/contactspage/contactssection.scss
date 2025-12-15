@@ -1,0 +1,172 @@
+@use "../../basic/globals.scss" as s;
+
+.contactsSection {
+  padding: 40px 15px 95px 25px;
+  @include s.d-flex($direction: column);
+  gap: 32px;
+
+  &__wrapper {
+    @include s.d-flex($direction: column);
+    gap: none;
+    gap: 39px;
+    &-info {
+      @include s.d-flex($direction: column);
+      gap: 33px;
+      &-desc {
+        width: 100%;
+        @include s.d-flex($direction: column);
+        gap: 23px;
+        h1 {
+          font-weight: 700;
+          font-size: 36px;
+          letter-spacing: 0.12rem;
+          line-height: 2.5rem;
+        }
+        span {
+          font-weight: 400;
+          font-size: 18px;
+          letter-spacing: 0.05rem;
+          line-height: 1rem;
+        }
+        p {
+          font-weight: 400;
+          font-size: 16px;
+          letter-spacing: 0.03rem;
+          line-height: 1.4rem;
+          opacity: 0.5;
+        }
+      }
+      &-contacts {
+        @include s.d-flex($direction: column);
+        gap: 40px;
+        span {
+          font-weight: 700;
+          font-size: 16px;
+        }
+        ul {
+          gap: 25px;
+        }
+      }
+    }
+    &-form {
+      padding: 24px 18.37px 24px 18.37px;
+      width: 100%;
+      border-radius: 10px;
+      background-color: s.$color__white;
+      box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
+      form {
+        @include s.d-flex($direction: column);
+        gap: 17px;
+        div {
+          @include s.d-flex($direction: column);
+          gap: 7px;
+          label {
+            padding-left: 12px;
+            font-weight: 400;
+            font-size: 13px;
+            line-height: 1;
+            letter-spacing: 0.02rem;
+
+            color: #888;
+          }
+          input {
+            padding: 7px 15px;
+            border: 1px solid #e2e2e2;
+            border-radius: 6px;
+            width: 100%;
+            height: 42px;
+
+            font-weight: 400;
+            font-size: 13px;
+          }
+          textarea {
+            border: 1px solid #e2e2e2;
+            border-radius: 6px;
+            width: 100%;
+            height: 83px;
+
+            padding: 7px 15px;
+            margin-bottom: 14px;
+
+            font-weight: 400;
+            font-size: 13px;
+          }
+        }
+      }
+    }
+  }
+  &__map {
+    iframe {
+      width: 100%;
+      height: 192px;
+    }
+  }
+
+  @media (min-width: s.$media_768) {
+    padding: 30px 65px 95px 65px;
+    gap: 32px;
+
+    &__wrapper {
+      gap: 49px;
+      &-info {
+        &-desc {
+          gap: 22px;
+        }
+        &-contacts {
+          gap: 32px;
+        }
+      }
+      &-form {
+        max-width: 450px;
+        form {
+          div {
+            label {
+              padding-left: 15px;
+            }
+          }
+        }
+      }
+    }
+    &__map {
+      iframe {
+        height: 292px;
+      }
+    }
+  }
+  @media (min-width: s.$media_1366) {
+    padding: 26px 111px 95px 98px;
+    gap: 70px;
+
+    &__wrapper {
+      @include s.d-flex($direction: row, $justify: space-between);
+      gap: none;
+      &-info {
+        &-desc {
+          width: 370px;
+        }
+      }
+      &-form {
+        margin-top: -67px;
+        padding: 26px 24px 24px 24px;
+        width: 418px;
+      }
+    }
+    &__map {
+      iframe {
+        height: 395px;
+      }
+    }
+  }
+  // @media (min-width: s.$media_1440) {
+  // }
+  // @media (min-width: s.$media_1920) {
+  // }
+}
+
+.contactsSection-hr {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  border: 1px solid #000;
+  opacity: 0.1;
+}

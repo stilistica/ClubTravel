@@ -1,0 +1,17 @@
+{{#if href}}
+<a
+  href="{{href}}"
+  class="button-org"
+  style="--btn-width: {{width}}; --btn-height: {{height}};"
+>
+  {{#if text}}{{text}}{{/if}}
+</a>
+{{else}}
+<button
+  type="{{#if type}}{{type}}{{else}}button{{/if}}"
+  class="button-org"
+  style="--btn-width: {{width}}; --btn-height: {{height}};"
+>
+  {{text}}
+</button>
+{{/if}}
