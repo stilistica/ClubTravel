@@ -12,8 +12,10 @@
 
 @use "./layout/hero/herobase.scss" as *;
 
+@use "./layout/button.scss" as *;
 @use "./layout/footer.scss" as *;
 
+@use "./layout/contactspage/contactssection.scss" as *;
 @use "./layout/errorpage/errorpage.scss" as *;
 
 // Auth

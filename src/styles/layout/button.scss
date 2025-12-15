@@ -1,0 +1,26 @@
+@use "../basic/globals.scss" as s;
+
+.button-org {
+  @include s.d-flex($direction: column, $align: center, $justify: center);
+
+  border-radius: 6px;
+  width: var(--btn-width, auto);
+  height: var(--btn-height, auto);
+  background: s.$color__primary;
+  border: 1px solid s.$color__primary;
+
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-align: center;
+  color: s.$color__white;
+
+  transition: all 0.5s ease;
+
+  &:hover {
+    background: s.$color__white;
+    border: 1px solid s.$color__primary;
+    color: s.$color__primary;
+  }
+}
