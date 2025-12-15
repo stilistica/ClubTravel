@@ -109,6 +109,7 @@
       }
       &-image {
         @media (min-width: s.$media_366) {
+          margin-left: -6px;
           width: 332px;
           height: 224px;
         }
@@ -140,6 +141,7 @@
       @include s.d-flex($direction: column);
 
       &-info {
+        padding: 0;
         @include s.d-flex($direction: row);
         &-contacts {
           &-list {
@@ -148,7 +150,12 @@
         }
       }
       &-inst {
+        padding: 0px 10px 60px 16px;
+
         gap: 22px;
+        &-title {
+          padding-left: 0px;
+        }
         &-image {
           margin-left: 0px;
         }
