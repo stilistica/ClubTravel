@@ -11,6 +11,10 @@ import "@/styles/style.scss";
 
 // import "./header.js";
 import "./module/mob-menu.js";
+
+// filter section 
+import "./module/filter/filter.js";
+
 import "./module/pages/auth/login.js";
 import "./module/pages/auth/register.js";
 import "./module/pages/auth/forgot.js";
