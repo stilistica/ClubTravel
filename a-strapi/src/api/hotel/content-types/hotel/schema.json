@@ -54,6 +54,17 @@
       "relation": "manyToMany",
       "target": "api::hotel-option.hotel-option",
       "mappedBy": "hotels"
+    },
+    "tour": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::tour.tour"
+    },
+    "tour_option": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::tour-option.tour-option",
+      "inversedBy": "hotels"
     }
   }
 }

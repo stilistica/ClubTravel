@@ -513,6 +513,11 @@ export interface ApiHotelHotel extends Struct.CollectionTypeSchema {
     nameHotel: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     region: Schema.Attribute.String;
+    tour: Schema.Attribute.Relation<'oneToOne', 'api::tour.tour'>;
+    tour_option: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::tour-option.tour-option'
+    >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -636,7 +641,6 @@ export interface ApiTourTour extends Struct.CollectionTypeSchema {
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::tour.tour'> &
       Schema.Attribute.Private;
-    nameTour: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     regions: Schema.Attribute.JSON;
     tour_options: Schema.Attribute.Relation<
