@@ -7,7 +7,8 @@
     <title>Главная</title>
   </head>
   <body>
-    {{#with (data "headerData")}} {{> header this}} {{/with}}
+
+    {{> header (data "headerData")}}
     {{> heroBase class="herohome"}}
     {{> filterSection title="Найти тур"}}
     <!-- {{> newsHome}}

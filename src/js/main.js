@@ -17,3 +17,4 @@ import "./module/filter/filter.js";
 
 import "./module/pages/auth/login.js";
 import "./module/pages/auth/register.js";
+import "./module/pages/auth/forgot.js";

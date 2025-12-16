@@ -7,8 +7,8 @@
     <title>Личный кабинет клиента</title>
   </head>
   <body>
-    {{#with (data "headerData")}} {{> header this}} {{/with}}
-		{{> heroBase class="herobase"}} 
+    {{> header (data "headerData")}}
+		{{> heroBase}} 
 		{{> accountSection}} 
 		{{> footer}}
     <script type="module" src="/js/main.js"></script>
