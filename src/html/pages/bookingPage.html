@@ -7,7 +7,7 @@
     <title>Запрос тура</title>
   </head>
   <body>
-    {{> header}} 
+    {{#with (data "headerData")}} {{> header this}} {{/with}}
 		{{> heroBase}} 
 	  {{> bookingSection}} 
 		{{> footer}}

@@ -7,7 +7,7 @@
     <title>Горящие предложения</title>
   </head>
   <body>
-    {{> header}}
+    {{#with (data "headerData")}} {{> header this}} {{/with}}
     {{> heroBase}}
     {{> infoHotel}}
     {{> tourBooking}}

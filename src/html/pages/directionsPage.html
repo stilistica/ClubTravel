@@ -7,7 +7,7 @@
     <title>Направления</title>
   </head>
   <body>
-    {{> header}} 
+    {{#with (data "headerData")}} {{> header this}} {{/with}}
 		{{> heroBase}} 
 		{{> filterSection}}
 	  {{> directionsSection}} 

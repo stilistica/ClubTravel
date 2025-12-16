@@ -7,7 +7,7 @@
     <title>Восстановление пароля</title>
   </head>
   <body>
-    {{> header}} 
+    {{#with (data "headerData")}} {{> header this}} {{/with}}
 		{{> forgotSection}} 
 		{{> footer}}
     <script type="module" src="/js/main.js"></script>
