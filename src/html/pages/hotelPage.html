@@ -7,7 +7,7 @@
     <title>Отель</title>
   </head>
   <body>
-    {{> header}}
+    {{#with (data "headerData")}} {{> header this}} {{/with}}
     {{> heroHotel}}
     {{> infoHotel}}
     {{> moreHotel}}
