@@ -68,7 +68,8 @@
     "hotels": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::hotel.hotel"
+      "target": "api::hotel.hotel",
+      "mappedBy": "tour_option"
     }
   }
 }

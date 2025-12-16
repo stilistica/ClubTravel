@@ -11,9 +11,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "nameTour": {
-      "type": "string"
-    },
     "destination": {
       "type": "enumeration",
       "enum": [
