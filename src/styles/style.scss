@@ -21,6 +21,7 @@
 // Auth
 @use "./auth/login.scss" as *;
 @use "./auth/registerSection.scss" as *;
+@use "./auth/forgotSection.scss" as *;
 
 // під всіма use
 @import "normalize.css";
