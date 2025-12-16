@@ -1,16 +1,12 @@
 @use "../../basic/globals.scss" as s;
 
-.herobase {
-	z-index: -1;
+.hero {
+  z-index: -1;
   position: relative;
   width: 100%;
-  height: 191px;
   &__image {
     width: 100%;
     height: 100%;
-
-    background-image: url("/img/hero/hero-mob.webp");
-    @include s.bgr();
   }
   &__wave {
     position: absolute;
@@ -24,11 +20,6 @@
   }
 
   @media (min-width: s.$media_768) {
-    height: 220px;
-
-    &__image {
-      background-image: url("/img/hero/herobase.webp");
-    }
     &__wave {
       height: 68px;
     }
@@ -123,5 +114,45 @@
         );
       }
     }
+  }
+}
+
+.herobase {
+  height: 191px;
+
+  & .hero__image {
+    background-image: url("/img/hero/hero-mob.webp");
+    @include s.bgr();
+  }
+
+  @media (min-width: s.$media_768) {
+    height: 220px;
+    & .hero__image {
+      background-image: url("/img/hero/herobase.webp");
+      @include s.bgr();
+    }
+  }
+  @media (min-width: s.$media_1366) {
+    height: 320px;
+  }
+}
+
+.herohome {
+  height: 191px;
+
+  & .hero__image {
+    background-image: url("/img/hero/hero-mob.webp");
+    @include s.bgr();
+  }
+
+  @media (min-width: s.$media_768) {
+    height: 320px;
+    & .hero__image {
+      background-image: url("/img/hero/herohome.webp");
+      @include s.bgr();
+    }
+  }
+  @media (min-width: s.$media_1366) {
+    height: 550px;
   }
 }

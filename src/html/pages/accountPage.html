@@ -7,7 +7,7 @@
     <title>Личный кабинет клиента</title>
   </head>
   <body>
-    {{> header}} 
+    {{#with (data "headerData")}} {{> header this}} {{/with}}
 		{{> heroBase}} 
 		{{> accountSection}} 
 		{{> footer}}
