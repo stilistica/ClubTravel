@@ -1,0 +1,38 @@
+<div class="consultant-card {{class}}">
+  <div class="consultant-card__row">
+    <div class="consultant-card__img">
+      <picture>
+        <source srcset="/img/booking/image.webp" media="(max-width: 1920px)" />
+        <source
+          srcset="/img/booking/image-mob.webp"
+          media="(max-width: 767px)"
+        />
+        <img src="/img/booking/image-mob.webp" alt="Photo consultanta" />
+      </picture>
+    </div>
+    <div class="consultant-card__column">
+      <p class="consultant-card__name">Марина Каасик</p>
+      <p class="consultant-card__position">Специалист по подбору туров</p>
+      <div class="consultant-card__contacts">
+        <a href="tel:+3726130633" class="consultant-card__link">
+          <svg width="24" height="24">
+            <use href="/img/sprite.svg#icon-phone"></use>
+          </svg>
+          +372 6 130 633
+        </a>
+        <a href="mailto:contact@email.ee" class="consultant-card__link">
+          <svg width="24" height="24">
+            <use href="/img/sprite.svg#icon-mail"></use>
+          </svg>
+          contact@email.ee
+        </a>
+        <a href="#" class="consultant-card__link">
+          <svg width="24" height="24">
+            <use href="/img/sprite.svg#icon-messanger"></use>
+          </svg>
+          Написать в Messenger
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,1 +1,32 @@
-<p>tourBooking</p>
+<section class="tourbooking">
+  <div class="tourbooking__container container">
+    <h3 class="tourbooking__title">
+      НЕТ ВРЕМЕНИ <br />
+      ИСКАТЬ ТУР?
+    </h3>
+    <p class="tourbooking__sub-title">
+      Просто скажите нам как должен выглядеть отдых вашей мечты и мы найдём
+      лучший тур для вас!
+    </p>
+    <div class="tourbooking__content">
+      <div class="tourbooking__request">
+        <p class="tourbooking__request-text">
+          Заполните короткую форму запроса на нашем сайте и мы свяжемся с вами в
+          течении 1 часа в рабочее время
+        </p>
+        <a
+          href="{{link 'html/pages/bookingPage.html'}}"
+          class="tourbooking__request-link"
+          >ЗАПОЛНИТЬ ЗАЯВКУ НА ПОИСК ТУРА</a
+        >
+      </div>
+      <p class="tourbooking__or">или</p>
+      <div class="tourbooking__consultant">
+        <p class="tourbooking__consultant-title">
+          Связаться с нашим консультантом
+        </p>
+        {{> consultantCard class="tourbooking__card"}}
+      </div>
+    </div>
+  </div>
+</section>
