@@ -7,12 +7,12 @@
     <title>Авторизация</title>
   </head>
   <body>
-    {{#with (data "headerData")}} {{> header this}} {{/with}} 
-    {{#with (data "authFormData")}} {{> loginSection this}} {{/with}} 
+    {{> header (data "headerData")}} 
+    {{> loginSection (data "authFormData")}}
 
      {{>footer}} 
      
-     {{#with (data "headerData")}} {{> mobile-menu this}} {{/with}}
+    {{> mobile-menu (data "headerData")}}
     <script type="module" src="/js/main.js"></script>
   </body>
 </html>

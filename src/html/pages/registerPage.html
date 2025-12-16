@@ -7,9 +7,11 @@
     <title>Регистрация</title>
   </head>
   <body>
-    {{#with (data "headerData")}} {{> header this}} {{/with}}
-		{{#with (data "registerFormData")}} {{> registerSection this}} {{/with}}
+    {{> header (data "headerData")}} 
+		{{> registerSection (data "registerFormData")}} 
 		{{> footer}}
+
+    {{> mobile-menu (data "headerData")}}
    <script type="module" src="/js/main.js"></script>
   </body>
 </html>

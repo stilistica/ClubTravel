@@ -13,3 +13,4 @@ import "@/styles/style.scss";
 import "./module/mob-menu.js";
 import "./module/pages/auth/login.js";
 import "./module/pages/auth/register.js";
+import "./module/pages/auth/forgot.js";
