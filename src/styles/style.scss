@@ -9,13 +9,19 @@
 
 @use "./layout/header.scss" as *;
 @use "./layout/mob-menu.scss" as *;
-
 @use "./layout/hero/hero.scss" as *;
-
 @use "./layout/button.scss" as *;
 @use "./layout/footer.scss" as *;
 
+// filter
+@use "./layout/filter/filter.scss" as *;
+
+//homePage
+
+// contactsPage
 @use "./layout/contactspage/contactssection.scss" as *;
+
+// errorPage
 @use "./layout/errorpage/errorpage.scss" as *;
 
 // Auth
