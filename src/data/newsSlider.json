@@ -1,0 +1,38 @@
+{
+  "className": "news-home__slider-news",
+  "slides": [
+    {
+      "image": "/img/news/image-one.webp",
+      "title": "Бархатный сезон в Греции!",
+      "price": "509€",
+      "date": "25 июня 2020"
+    },
+    {
+      "image": "/img/news/image-two.webp",
+      "title": "Туры в Турцию на осень и в Египет на 2020 и 21 год!",
+      "date": "25 июня 2020"
+    },
+    {
+      "image": "/img/news/image-three.webp",
+      "title": "Бархатный сезон в Греции!",
+      "price": "509€",
+      "date": "25 июня 2020"
+    },
+    {
+      "image": "/img/news/image-four.webp",
+      "title": "Бархатный сезон в Греции!",
+      "date": "25 июня 2020"
+    },
+    {
+      "image": "/img/news/image-five.webp",
+      "title": "Туры в Турцию на осень и в Египет на 2020 и 21 год!",
+      "price": "509€",
+      "date": "25 июня 2020"
+    },
+    {
+      "image": "/img/news/image-six.webp",
+      "title": "Бархатный сезон в Греции!",
+      "date": "25 июня 2020"
+    }
+  ]
+}
