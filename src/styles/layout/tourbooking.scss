@@ -1,0 +1,138 @@
+@use "../basic/globals.scss" as s;
+
+.tourbooking {
+  background-image: url(../../img/booking/background-mob.webp);
+  @include s.bgr($size: cover, $position: center, $repeat: no-repeat);
+  height: 923px;
+  padding: 30px 0 44px;
+  @media (min-width: s.$media_768) {
+    padding: 60px 0 74px;
+    height: 770px;
+  }
+  @media (min-width: s.$media_1366) {
+    background-image: url(../../img/booking/background.webp);
+    height: 570px;
+    padding: 80px 0 94px;
+  }
+
+  &__container {
+    padding: 0 10px;
+    @media (min-width: s.$media_1366) {
+      padding: 0 128px 0 203px;
+    }
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 26px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    text-align: center;
+    color: s.$color__white;
+    margin-bottom: 26px;
+    @media (min-width: s.$media_768) {
+      br {
+        display: none;
+      }
+    }
+    @media (min-width: s.$media_1366) {
+      margin-bottom: 16px;
+    }
+  }
+
+  &__sub-title {
+    font-size: 16px;
+    text-align: center;
+    color: s.$color__white;
+    margin-bottom: 32px;
+    @media (min-width: s.$media_1366) {
+      width: 514px;
+      margin: 0 auto 95px;
+    }
+  }
+
+  &__content {
+    @include s.d-flex($direction: column);
+    @media (min-width: s.$media_1366) {
+      @include s.d-flex($direction: row);
+    }
+  }
+
+  &__request {
+    @include s.d-flex($direction: column, $align: center, $justify: center);
+    gap: 36px;
+  }
+
+  &__request-text {
+    font-size: 18px;
+    text-align: center;
+    color: s.$color__white;
+    width: 328px;
+    @media (min-width: s.$media_1366) {
+      width: 380px;
+    }
+  }
+
+  &__request-link {
+    font-size: 14px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    text-align: center;
+    color: #fff;
+    border-radius: 6px;
+    height: 42px;
+    background: s.$color__primary;
+    padding: 12px 33px 11px 32px;
+    @media (min-width: s.$media_1366) {
+      padding: 12px 49px 11px 50px;
+    }
+  }
+
+  &__or {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    font-size: 14px;
+    text-align: center;
+    color: s.$color__white;
+    margin: 32px 0;
+    @media (min-width: s.$media_1366) {
+      flex-direction: column;
+      margin: 0 94px 0 87px;
+    }
+
+    &::before,
+    &::after {
+      content: "";
+      height: 1px;
+      width: 77px;
+      background: s.$color__white;
+      opacity: 0.5;
+      @media (min-width: s.$media_1366) {
+        width: 1px;
+        height: 77px;
+      }
+    }
+  }
+
+  &__consultant {
+    @include s.d-flex($direction: column);
+    padding: 0 18px 0 16px;
+    @media (min-width: s.$media_1366) {
+      padding: 0;
+    }
+  }
+
+  &__consultant-title {
+    font-size: 18px;
+    color: s.$color__white;
+    margin-bottom: 16px;
+    @media (min-width: s.$media_768) {
+      text-align: center;
+    }
+    @media (min-width: s.$media_1366) {
+      text-align: left;
+    }
+  }
+}

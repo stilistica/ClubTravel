@@ -1,0 +1,44 @@
+@use "../basic/globals.scss" as s;
+
+.consultant-card {
+  &__row {
+    @include s.d-flex($direction: column);
+    @media (min-width: s.$media_768) {
+      @include s.d-flex($direction: row, $justify: center);
+      gap: 32px;
+    }
+  }
+
+  &__column {
+    @include s.d-flex($direction: column);
+  }
+
+  &__name {
+    font-size: 22px;
+    color: s.$color__white;
+    margin-bottom: 4px;
+  }
+
+  &__position {
+    font-size: 14px;
+    color: s.$color__white;
+    margin-bottom: 24px;
+  }
+
+  &__contacts {
+    @include s.d-flex($direction: column);
+    gap: 8px;
+  }
+
+  &__link {
+    @include s.d-flex($direction: row, $align: center);
+    gap: 12px;
+    font-size: 16px;
+    color: s.$color__white;
+
+    svg {
+      fill: s.$color__white;
+      opacity: 0.5;
+    }
+  }
+}

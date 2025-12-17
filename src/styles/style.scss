@@ -7,10 +7,14 @@
 @use "./basic/base.scss";
 @use "./basic/container.scss";
 
+// Components
+@use "./components/consultant-card.scss" as *;
+
 @use "./layout/header.scss" as *;
 @use "./layout/mob-menu.scss" as *;
 @use "./layout/hero/hero.scss" as *;
 @use "./layout/button.scss" as *;
+@use "./layout/tourbooking.scss" as *;
 @use "./layout/footer.scss" as *;
 
 // filter
