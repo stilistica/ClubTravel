@@ -13,7 +13,7 @@
   box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
 
   &__title {
-    padding: 20px 32px 11px 32px;
+    padding: 20px 32px 13px 32px;
     h1 {
       font-weight: 700;
       font-size: 18px;
@@ -21,6 +21,7 @@
       text-transform: uppercase;
     }
   }
+
   &__section {
     padding: 15px 32px 14px 32px;
     box-shadow: inset 0 0 4px 0 rgba(0, 0, 0, 0.15);
@@ -33,9 +34,44 @@
       background: s.$color__white;
 
       &-item {
-				padding: 9px 8px 9px 16px;
+        padding: 9px 8px 9px 16px;
         @include s.d-flex($direction: column);
-				gap: 8px;
+        gap: 8px;
+        &-title {
+          font-weight: 400;
+          font-size: 13px;
+          line-height: 1;
+          color: #c0c0c0;
+        }
+        &-variant {
+          width: 100%;
+          position: relative;
+
+          &__trigger {
+            width: 100%;
+            border: none;
+            background: transparent;
+            @include s.d-flex(
+              $direction: row,
+              $justify: space-between,
+              $align: center
+            );
+
+            span {
+              font-family: s.$font__roboto;
+              font-weight: 400;
+              font-size: 16px;
+            }
+            svg {
+              width: 24px;
+              height: 24px;
+              fill: #a9a9a9;
+            }
+          }
+        }
+      }
+      &-destination {
+        width: 259px;
       }
     }
   }

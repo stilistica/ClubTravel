@@ -1,1 +1,75 @@
-<p>{{title}}</p>
+<div class="filter__section">
+  <div class="filter__section-form">
+    <div
+      class="filter__section-form-item filter__section-form-destination"
+      data-name="filter-destination"
+    >
+      <p class="filter__section-form-item-title">Направление</p>
+      <div class="filter__section-form-item-variant">
+        <button
+          type="button"
+          class="filter__section-form-item-variant__trigger"
+        >
+          <span>Все направления</span>
+          <svg>
+            <use href="/img/sprite.svg#icon-more"></use>
+          </svg>
+        </button>
+
+        <ul class="filter__section-form-item-variant__dropdown">
+          <li data-value="">Все направления</li>
+          <li data-value="Египет">Египет</li>
+          <li data-value="АОЭ">АОЭ</li>
+          <li data-value="Тайланд">Тайланд</li>
+          <li data-value="Болгария">Болгария</li>
+          <li data-value="Тенерифе">Тенерифе</li>
+          <li data-value="Бали">Бали</li>
+          <li data-value="Грузия">Грузия</li>
+          <li data-value="Греция">Греция</li>
+          <li data-value="Турция">Турция</li>
+          <li data-value="Кипр">Кипр</li>
+        </ul>
+
+        <input type="hidden" name="filter-destination" />
+      </div>
+    </div>
+
+    <hr />
+    <div class="filter__section-form-item filter__section-form-days">
+      <label for="filter-days">Длительность тура</label>
+      <select name="filter-days" id="filter-days">
+        <option value="">Любая</option>
+        <option value="5">5 дней</option>
+        <option value="7">7 дней</option>
+        <option value="14">14 дней</option>
+        <option value="21">21 день</option>
+        <option value="24">24 дня</option>
+      </select>
+    </div>
+    <hr />
+    <div class="filter__section-form-item filter__section-form-date">
+      <label for="filter-date">Дата вылета</label>
+      <input type="date" name="filter-date" id="filter-date" />
+    </div>
+    <hr />
+    <div class="filter__section-form-item filter__section-form-guests">
+      <label>Гости</label>
+
+      <div>
+        <div>
+          <span>Взрослые</span>
+          <input type="number" name="filter-adults" min="1" placeholder="0" />
+        </div>
+
+        <div>
+          <span>Дети</span>
+          <input type="number" name="filter-children" min="0" placeholder="0" />
+        </div>
+      </div>
+    </div>
+
+    <div class="filter__item filter__submit">
+      <button type="submit" class="button">Найти</button>
+    </div>
+  </div>
+</div>
