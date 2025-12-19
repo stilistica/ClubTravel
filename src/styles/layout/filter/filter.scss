@@ -1,19 +1,20 @@
 @use "../../basic/globals.scss" as s;
 
 .filter-container {
-  padding: 0 103px 0 93px;
+  @media (min-width: s.$media_768) {
+    padding: 0 103px 0 93px;
+  }
 }
 .filter {
-  margin-top: -98px;
-  @include s.d-flex($direction: column);
+  margin-top: -4px;
+  @include s.d-flex($direction: column, $align: center);
   width: 100%;
 
-  border-radius: 10px;
   background: s.$color__white;
   box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
 
   &__title {
-    padding: 20px 32px 13px 32px;
+    padding: 19px 0px 14.5px 0px;
     h1 {
       font-weight: 700;
       font-size: 18px;
@@ -23,21 +24,21 @@
   }
 
   &__section {
-    padding: 15px 32px 14px 32px;
+    padding: 19px 24px 19px 24px;
+    width: 100%;
     box-shadow: inset 0 0 4px 0 rgba(0, 0, 0, 0.15);
     background: linear-gradient(180deg, #fccb04 0%, #ee901b 100%);
 
     &-form {
-      @include s.d-flex($direction: row);
+      @include s.d-flex($direction: column);
 
       border-radius: 6px;
       background: s.$color__white;
-      // overflow: hidden;
 
       &-item {
-        padding: 9px 8px 8px 16px;
+        padding: 17px 8px 9px 16px;
         @include s.d-flex($direction: column);
-        gap: 6px;
+        gap: 7px;
         &-title {
           font-weight: 400;
           font-size: 13px;
@@ -67,9 +68,17 @@
               width: 24px;
               height: 24px;
               fill: #a9a9a9;
+
+              transition: fill 0.5s ease;
+            }
+            &:hover {
+              svg {
+                fill: s.$color__primary;
+              }
             }
           }
           &__dropdown {
+            z-index: 1;
             width: 100%;
             position: absolute;
             @include s.d-flex($direction: column);
@@ -94,17 +103,16 @@
         }
       }
       &-destination {
-        width: 259px;
+        width: 100%;
       }
       &-days {
-        width: 179px;
+        width: 100%;
       }
       &-date {
-        width: 179px;
+        width: 100%;
+
         &__trigger {
           position: relative;
-          // &-value {
-          // }
           &-input {
             opacity: 0;
             position: absolute;
@@ -117,7 +125,7 @@
         }
       }
       &-guests {
-        width: 316px;
+        width: 100%;
         &-variant {
           &__dropdown {
             li {
@@ -143,14 +151,16 @@
         padding: 0;
         border: none;
         background: #e2e2e2;
-        width: 1px;
-        height: 60px;
+        width: 100%;
+        height: 1px;
       }
       &-submit {
-        border-radius: 0 6px 6px 0;
+        border-radius: 0 0 6px 6px;
+
         overflow: hidden;
         @include s.d-flex($direction: column, $justify: center, $align: center);
-        width: 171px;
+        width: 100%;
+        height: 48px;
         button {
           @include s.d-flex($direction: row, $justify: center, $align: center);
           gap: 5px;
@@ -166,17 +176,24 @@
           text-transform: uppercase;
           color: s.$color__white;
 
+          transition: background 0.5s ease;
+
           svg {
+            display: none;
+
             width: 16px;
             height: 16px;
             fill: s.$color__white;
+          }
+          &:hover {
+            background: s.$color__green;
           }
         }
       }
     }
   }
   &__extended {
-    padding: 15px 32px 19px 32px;
+    padding: 16px 32px 16px 32px;
     &-btn {
       background: transparent;
       border: none;
@@ -191,6 +208,106 @@
         width: 20px;
         height: 20px;
         fill: s.$color__primary;
+      }
+    }
+  }
+
+  @media (min-width: s.$media_768) {
+    margin-top: -98px;
+    @include s.d-flex($direction: column);
+
+    border-radius: 10px;
+
+    &__title {
+      padding: 20px 32px 13px 32px;
+    }
+
+    &__section {
+      padding: 15px 32px 14px 32px;
+
+      &-form {
+        @include s.d-flex($direction: column);
+        &-item {
+          padding: 9px 8px 8px 16px;
+          gap: 6px;
+        }
+        &-destination {
+          width: 100%;
+        }
+        &-days {
+          width: 100%;
+        }
+        &-date {
+          width: 100%;
+        }
+        &-guests {
+          width: 100%;
+        }
+        hr {
+          width: 100%;
+          height: 1px;
+        }
+      }
+    }
+  }
+  @media (min-width: s.$media_1366) {
+    &__section {
+      &-form {
+        @include s.d-flex($direction: row);
+        &-destination {
+          width: 259px;
+        }
+        &-days {
+          width: 179px;
+        }
+        &-date {
+          width: 179px;
+        }
+        &-guests {
+          width: 316px;
+        }
+        hr {
+          width: 1px;
+          height: 60px;
+        }
+        &-submit {
+          border-radius: 0 6px 6px 0;
+          width: 171px;
+          height: 60px;
+        }
+      }
+    }
+    &__extended {
+      padding: 15px 32px 19px 32px;
+    }
+  }
+  @media (min-width: s.$media_1440) {
+    &__section {
+      &-form {
+        &-submit {
+          width: 246px;
+        }
+      }
+    }
+  }
+  @media (min-width: s.$media_1920) {
+    &__section {
+      &-form {
+        &-destination {
+          width: 350px;
+        }
+        &-days {
+          width: 260px;
+        }
+        &-date {
+          width: 260px;
+        }
+        &-guests {
+          width: 400px;
+        }
+        &-submit {
+          width: 390px;
+        }
       }
     }
   }
