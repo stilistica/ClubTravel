@@ -32,11 +32,12 @@
 
       border-radius: 6px;
       background: s.$color__white;
+      // overflow: hidden;
 
       &-item {
-        padding: 9px 8px 9px 16px;
+        padding: 9px 8px 8px 16px;
         @include s.d-flex($direction: column);
-        gap: 8px;
+        gap: 6px;
         &-title {
           font-weight: 400;
           font-size: 13px;
@@ -48,6 +49,7 @@
           position: relative;
 
           &__trigger {
+            cursor: pointer;
             width: 100%;
             border: none;
             background: transparent;
@@ -58,7 +60,6 @@
             );
 
             span {
-              font-family: s.$font__roboto;
               font-weight: 400;
               font-size: 16px;
             }
@@ -68,10 +69,128 @@
               fill: #a9a9a9;
             }
           }
+          &__dropdown {
+            width: 100%;
+            position: absolute;
+            @include s.d-flex($direction: column);
+            border: 1px solid #e2e2e2;
+            border-radius: 6px;
+            background: s.$color__white;
+
+            li {
+              cursor: pointer;
+              padding: 8px;
+
+              font-weight: 400;
+              font-size: 15px;
+              &:hover {
+                background: linear-gradient(180deg, #fccb04 0%, #ee901b 100%);
+                color: s.$color__white;
+              }
+            }
+
+            display: none;
+          }
         }
       }
       &-destination {
         width: 259px;
+      }
+      &-days {
+        width: 179px;
+      }
+      &-date {
+        width: 179px;
+        &__trigger {
+          position: relative;
+          // &-value {
+          // }
+          &-input {
+            opacity: 0;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+          }
+        }
+      }
+      &-guests {
+        width: 316px;
+        &-variant {
+          &__dropdown {
+            li {
+              @include s.d-flex($direction: column);
+              gap: 4px;
+
+              div {
+                @include s.d-flex(
+                  $direction: row,
+                  $justify: space-between,
+                  $align: center
+                );
+                input {
+                  padding: 3px;
+                }
+              }
+            }
+          }
+        }
+      }
+      hr {
+        margin: 0;
+        padding: 0;
+        border: none;
+        background: #e2e2e2;
+        width: 1px;
+        height: 60px;
+      }
+      &-submit {
+        border-radius: 0 6px 6px 0;
+        overflow: hidden;
+        @include s.d-flex($direction: column, $justify: center, $align: center);
+        width: 171px;
+        button {
+          @include s.d-flex($direction: row, $justify: center, $align: center);
+          gap: 5px;
+
+          width: 100%;
+          height: 100%;
+          border: none;
+          background: #13882d;
+
+          font-weight: 400;
+          font-size: 14px;
+          letter-spacing: 0.05em;
+          text-transform: uppercase;
+          color: s.$color__white;
+
+          svg {
+            width: 16px;
+            height: 16px;
+            fill: s.$color__white;
+          }
+        }
+      }
+    }
+  }
+  &__extended {
+    padding: 15px 32px 19px 32px;
+    &-btn {
+      background: transparent;
+      border: none;
+      @include s.d-flex($direction: row, $align: center);
+      gap: 5px;
+
+      font-weight: 400;
+      font-size: 14px;
+      color: s.$color__primary;
+
+      svg {
+        width: 20px;
+        height: 20px;
+        fill: s.$color__primary;
       }
     }
   }
