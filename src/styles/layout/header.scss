@@ -1,6 +1,5 @@
 @use "../basic/globals.scss" as s;
 .header {
-  // padding: 8px 0 9px;
   padding: 8px 0 5px;
   @media (min-width: s.$media_1366) {
     padding: 7px 0 0px;
@@ -107,7 +106,6 @@
     display: none;
     @media (min-width: s.$media_1366) {
       @include s.d-flex($direction: row, $align: center, $justify: flex-end);
-      // padding: 24px 0;
       padding: 24px 0 18px 0;
     }
   }

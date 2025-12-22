@@ -524,6 +524,37 @@ export interface ApiHotelHotel extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiNewsHomeNewsHome extends Struct.CollectionTypeSchema {
+  collectionName: 'news_homes';
+  info: {
+    displayName: 'NewsHome';
+    pluralName: 'news-homes';
+    singularName: 'news-home';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    date: Schema.Attribute.Date;
+    images: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::news-home.news-home'
+    > &
+      Schema.Attribute.Private;
+    price: Schema.Attribute.Text;
+    publishedAt: Schema.Attribute.DateTime;
+    title: Schema.Attribute.Text;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiOrderOrder extends Struct.CollectionTypeSchema {
   collectionName: 'orders';
   info: {
@@ -1165,6 +1196,7 @@ declare module '@strapi/strapi' {
       'admin::user': AdminUser;
       'api::hotel-option.hotel-option': ApiHotelOptionHotelOption;
       'api::hotel.hotel': ApiHotelHotel;
+      'api::news-home.news-home': ApiNewsHomeNewsHome;
       'api::order.order': ApiOrderOrder;
       'api::tour-option.tour-option': ApiTourOptionTourOption;
       'api::tour.tour': ApiTourTour;

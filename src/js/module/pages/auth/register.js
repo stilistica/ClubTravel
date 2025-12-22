@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const data = await registerUser(email, password);
 
       localStorage.setItem("jwt", data.jwt);
-      window.location.replace("/ClubTravel/html/pages/loginPage.html");
+      window.location.replace("/ClubTravel/html/pages/accountPage.html");
     } catch (error) {
       const message =
         error.response?.data?.error?.message || "Ошибка регистрации";

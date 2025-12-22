@@ -1,0 +1,50 @@
+<ul class="header__nav-list {{class}}">
+  <li class="header__nav-item">
+    <a
+      href="{{link 'html/pages/searchPage.html'}}"
+      class="header__nav-item-link"
+      >Поиск тура
+    </a>
+  </li>
+  <li class="header__nav-item">
+    <a
+      href="{{link 'html/pages/directionsPage.html'}}"
+      class="header__nav-item-link"
+      >Направления
+    </a>
+  </li>
+  <li class="header__nav-item">
+    <a
+      href="{{link 'html/pages/newsPage.html'}}"
+      class="header__nav-item-link {{#if showIcons}} header__nav-item-company{{/if}}"
+    >
+      {{#if showIcons}}
+      <svg width="24" height="24">
+        <use href="/img/sprite.svg#icon-offer"></use>
+      </svg>
+      {{/if}} Кампании
+    </a>
+  </li>
+  <li class="header__nav-item">
+    <a
+      href="{{link 'html/pages/hotPage.html'}}"
+      class="header__nav-item-link {{#if showIcons}} header__nav-item-company{{/if}}"
+    >
+      {{#if showIcons}}
+      <svg width="24" height="24">
+        <use href="/img/sprite.svg#icon-fast-time"></use>
+      </svg>
+      {{/if}} Горящие предложения
+    </a>
+  </li>
+  <li class="header__nav-item">
+    <a
+      href="{{link 'html/pages/bookingPage.html'}}"
+      class="header__nav-item-link"
+      >Запрос тура
+    </a>
+  </li>
+  <li class="header__nav-item">
+    <a href="#" class="header__nav-item-link">Авиабилеты </a>
+  </li>
+</ul>
