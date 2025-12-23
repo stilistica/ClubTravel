@@ -1,0 +1,66 @@
+<div class="login__form">
+  <div class="login__form-wrapper {{wrapperClass}}">
+    <h3 class="login__form-title">{{title}}</h3>
+    {{#if showSocial}}
+    <button class="login__form-btn-facebook" type="button">
+      <svg width="24" height="24">
+        <use href="/img/sprite.svg#icon-icon-facebook"></use>
+      </svg>
+      Войти с помощью Facebook
+    </button>
+    <a href="#" class="login__form-btn-google" type="button">
+      <svg width="24" height="24">
+        <use href="/img/sprite.svg#icon-icon-google"></use>
+      </svg>
+      Войти с помощью Google
+    </a>
+    {{/if}}
+    <form id="{{formId}}">
+      {{#if showOr}}
+      <p class="login__form-text">или</p>
+      {{/if}} {{#if showEmail}}
+      <div class="login__form-input">
+        <p>E-mail</p>
+        <input
+          class="login__form-input-email"
+          type="email"
+          name="email"
+          required
+        />
+      </div>
+      {{/if}} {{#if showPassword}}
+      <div class="login__form-input">
+        <div class="login__form-input-text">
+          <p>Пароль</p>
+          {{#if forgotLink}}
+          <a
+            href="{{link 'html/pages/forgotPassPage.html'}}"
+            class="login__form-input-link"
+          >
+            Забыли пароль?
+          </a>
+          {{/if}}
+        </div>
+        <input type="password" name="password" required />
+      </div>
+      {{/if}} {{#if showRepeatPassword}}
+      <div class="login__form-input">
+        <p>Повторите пароль</p>
+        <input type="password" name="passwordRepeat" required />
+      </div>
+      {{/if}}
+      <div class="login__btns-wrapper">
+        {{#if secondaryLinkUrl}}
+        <a href="{{link secondaryLinkUrl}}"> {{secondaryLinkText}} </a>
+        {{/if}}
+        <button type="submit" class="login__btn-register enter {{btnClass}}">
+          {{submitText}}
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+{{#if showPolicy}}
+<p class="login__policy">Политика конфиденциальности</p>
+<p class="login__policy">Политика использования</p>
+{{/if}}

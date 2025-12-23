@@ -1,27 +1,17 @@
 <section class="forgot">
   <div class="login__container container">
-    <div class="login__form">
-      <div class="login__form-wrapper forgot__form-wrapper">
-        <h3 class="login__form-title">{{title}}</h3>
-        <form id="forgotForm">
-          <div class="login__form-input forgot__form-input">
-            <p>E-mail</p>
-            <input
-              class="login__form-input-email"
-              type="email"
-              name="email"
-              id="{{email.id}}"
-              required
-            />
-          </div>
-          <button
-            class="login__btn-register forgot__btn-register"
-            type="submit"
-          >
-            {{submitText}}
-          </button>
-        </form>
-      </div>
-    </div>
+    {{> form 
+      title='Мы отправим специальную ссылку на указанный электронный адрес, перейдя по которой вы сможете задать новый пароль.' 
+      wrapperClass="forgot__form-wrapper"
+      formId="forgotForm"
+      showEmail=false
+      showSocial=false
+      showRepeatPassword=false
+      secondaryLinkUrl=false
+      btnClass="forgot__btn-register"
+      submitText="Отправить"
+      showPolicy=false
+  }}
+      
   </div>
 </section>
