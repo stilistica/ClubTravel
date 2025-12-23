@@ -2,7 +2,7 @@ import flatpickr from "flatpickr";
 import { Russian } from "flatpickr/dist/l10n/ru.js";
 import "flatpickr/dist/flatpickr.min.css";
 
-const filter = document.querySelector(".filter__section");
+const filter = document.querySelector(".filter");
 
 if (filter) {
   /* ---------------- DATE ---------------- */
@@ -156,3 +156,21 @@ if (filter) {
     });
   }
 }
+
+const searchButton = document.querySelector(".button-form-search-link");
+
+if (searchButton) {
+  searchButton.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    const isSearchPage = window.location.pathname.endsWith("searchPage.html");
+
+    if (!isSearchPage) {
+      const base = import.meta.env.BASE_URL;
+      window.location.href = `${base}html/pages/searchPage.html`;
+    } else {
+      // тут буде сама логіка
+    }
+  });
+}
+
