@@ -1,0 +1,38 @@
+@use "../basic/globals.scss" as s;
+
+.account {
+  padding: 31px 0 80px;
+
+  &__container {
+    padding: 0 15px;
+  }
+
+  &__wrapper {
+    @include s.d-flex($direction: column, $align: center, $justify: center);
+  }
+
+  &__wrapper-left {
+    padding: 0 13px 0 3px;
+  }
+
+  &__left {
+    @include s.d-flex($direction: column, $align: center, $justify: center);
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+    padding: 25px 25px 27px 24px;
+    margin-bottom: 28px;
+  }
+
+  &__photo {
+    margin-bottom: 20px;
+  }
+
+  &__name {
+    font-size: 26px;
+    color: s.$color__text;
+    margin-bottom: 26px;
+  }
+  &__btns-wrapper {
+    @include s.d-flex($direction: column);
+    gap: 5px;
+  }
+}
