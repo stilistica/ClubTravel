@@ -487,7 +487,7 @@ export interface ApiHotelHotel extends Struct.CollectionTypeSchema {
   };
   attributes: {
     category: Schema.Attribute.Enumeration<
-      ['Budget', 'Economy', 'Standard', 'Comfort', 'Premium', 'Apartments']
+      ['Budget', 'Economy', 'Standard', 'Comfort', 'Apartments']
     >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
