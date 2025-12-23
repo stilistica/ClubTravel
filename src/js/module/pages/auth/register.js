@@ -1,5 +1,6 @@
 import { registerUser } from "../../api/registerUser";
 
+
 function isValidEmail(email) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
@@ -11,6 +12,7 @@ function isValidPassword(password) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  
   const form = document.getElementById("registerForm");
   if (!form) return;
 
@@ -19,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const email = form.email.value.trim();
     const password = form.password.value;
-    const passwordConfirm = form.passwordConfirm.value;
+    const passwordConfirm = form.passwordRepeat.value;
 
     if (!email) {
       alert("Введите email");

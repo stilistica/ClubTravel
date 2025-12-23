@@ -7,7 +7,7 @@
     <title>Текстовая страница</title>
   </head>
   <body>
-    {{#with (data "headerData")}} {{> header this}} {{/with}}
+    {{> header }}
 		{{> textSection}} 
 		{{> footer}}
     <script type="module" src="/js/main.js"></script>

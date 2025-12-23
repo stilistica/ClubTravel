@@ -11,6 +11,8 @@ import "@/styles/style.scss";
 
 // import "./header.js";
 import "./module/mob-menu.js";
+import "./module/layout/header.js";
+import "./module/pages/accountPage/accountOrders.js";
 
 // filter section
 import "./module/filter/filter.js";

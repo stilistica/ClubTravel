@@ -1,1 +1,66 @@
-<p>accountSection</p>
+<section class="account">
+  <div class="account__container container">
+    <div class="account__wrapper">
+      <div class="account__wrapper-left">
+        <div class="account__left">
+          <div class="account__photo">
+            <img src="/img/user-photo.webp" alt="Photo users" />
+          </div>
+          <p class="account__name">Еле Колонаева</p>
+          <div class="account__btns-wrapper">
+            <button class="account__btn">
+              <svg width="24" height="24">
+                <use href="/img/sprite.svg#icon-ticket"></use>
+              </svg>
+              Мои заказы
+            </button>
+            <button class="account__btn">
+              <svg width="24" height="24">
+                <use href="/img/sprite.svg#icon-payment-card"></use>
+              </svg>
+              История платежей
+            </button>
+            <button class="account__btn">
+              <svg width="24" height="24">
+                <use href="/img/sprite.svg#icon-settings"></use>
+              </svg>
+              Настройки
+            </button>
+          </div>
+          <hr class="account__line" />
+          <button class="account__btn-exit">
+            <svg width="24" height="24">
+              <use href="/img/sprite.svg#icon-exit"></use>
+            </svg>
+            Выход
+          </button>
+        </div>
+        <div class="account__polite-wrapper">
+          <p class="account__polite">Политика конфиденциальности</p>
+          <p class="account__polite">Политика использования</p>
+        </div>
+      </div>
+
+      <div class="account__right">
+        <h3 class="account__order-title">Заказы</h3>
+
+        <div class="account__orders-table-wrapper">
+          <table class="account__orders-table">
+            <thead>
+              <tr>
+                <th>Номер заказа</th>
+                <th>Сумма</th>
+                <th>Email</th>
+                <th>Статус</th>
+                <th>Дата</th>
+              </tr>
+            </thead>
+            <tbody id="ordersList"></tbody>
+          </table>
+        </div>
+
+        <div class="account__pagination" id="ordersPagination"></div>
+      </div>
+    </div>
+  </div>
+</section>
