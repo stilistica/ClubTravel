@@ -28,3 +28,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+export function isLoggedIn() {
+  const token = localStorage.getItem("jwt");
+  return typeof token === "string" && token.length > 0;
+}

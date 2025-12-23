@@ -1,0 +1,33 @@
+<div class="mob-menu">
+  <a href="{{link 'index.html'}}" class="mob-menu__logo-link">
+    <img width="48" height="67" src="/img/header/logo.svg" alt="Image logo" />
+  </a>
+  {{> navList showIcons=false class="mob-menu__list-top"}}
+  <hr class="mob-menu__line-top" />
+  {{> topBarList class="mob-menu__list"}}
+  <ul class="mob-menu__list-bottom">
+    <li>
+      <a href="mailto:contact@email.ee" class="header__top-bar-contact-link">
+        <svg width="16" height="16">
+          <use href="/img/sprite.svg#icon-mail"></use>
+        </svg>
+        contact@email.ee
+      </a>
+    </li>
+    <li>
+      <a href="tel:+3726130633" class="header__top-bar-contact-link">
+        <svg width="16" height="16">
+          <use href="/img/sprite.svg#icon-phone"></use>
+        </svg>
+        +372 6 130 633
+      </a>
+    </li>
+  </ul>
+  <hr class="mob-menu__line" />
+  <div class="mob-menu__user">
+    <a href="" class="header__top-bar-profile-link">
+      <img width="24" height="24" src="/img/header/language.svg" alt="" />
+    </a>
+    <p>Eesti</p>
+  </div>
+</div>

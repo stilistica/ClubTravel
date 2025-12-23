@@ -1,0 +1,68 @@
+<header class="header">
+  <div class="header__container container">
+    <div class="header__logo-wrapper">
+      <a href="{{link 'index.html'}}" class="header__logo-link">
+        <img
+          width="48"
+          height="67"
+          src="/img/header/logo.svg"
+          alt="Image logo"
+        />
+      </a>
+    </div>
+    <div class="header__top-bar">
+      {{> topBarList}}
+      <hr class="header__line-right" />
+      <div class="header__top-bar-contact">
+        <a href="tel:+3726130633" class="header__top-bar-contact-link">
+          <svg width="16" height="16">
+            <use href="/img/sprite.svg#icon-phone"></use>
+          </svg>
+          +372 6 130 633
+        </a>
+        <a href="mailto:contact@email.ee" class="header__top-bar-contact-link">
+          <svg width="16" height="16">
+            <use href="/img/sprite.svg#icon-mail"></use>
+          </svg>
+          contact@email.ee
+        </a>
+      </div>
+      <hr class="header__line-right" />
+      <div class="header__top-bar-profile">
+        <a
+          href="#"
+          class="header__top-bar-profile-link"
+        >
+          <svg width="32" height="32">
+            <use href="/img/sprite.svg#icon-user"></use>
+          </svg>
+        </a>
+
+        <a href="#" class="header__top-bar-profile-link">
+          <img
+            width="24"
+            height="24"
+            src="/img/header/language.svg"
+            alt="Language"
+          />
+        </a>
+      </div>
+    </div>
+    <nav class="header__nav">{{> navList showIcons=true}}</nav>
+    <div class="header__mob-nav">
+      <button class="header__burger open-menu">
+        <svg width="30" height="25">
+          <use href="/img/sprite.svg#icon-menu"></use>
+        </svg>
+      </button>
+      <a
+        href="{{link 'html/pages/loginPage.html'}}"
+        class="header__mob-nav-profile-link"
+      >
+        <svg width="32" height="32">
+          <use href="/img/sprite.svg#icon-user"></use>
+        </svg>
+      </a>
+    </div>
+  </div>
+</header>

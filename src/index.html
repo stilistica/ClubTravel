@@ -7,9 +7,11 @@
     <title>Главная</title>
   </head>
   <body>
-    {{> header (data "headerData")}} {{> heroBase class="herohome"}} {{>
-    filterSection title="Найти тур"}}
-    <!-- {{> newsHome}} -->
+
+    {{> header (data "headerData")}}
+    {{> heroBase class="herohome"}}
+    {{> filterSection title="Найти тур"}}
+    {{> newsHome}}
     <!-- {{> hotHome}} -->
     <!-- {{> winterHome}} -->
     <!-- {{> summerHome}} -->
@@ -20,6 +22,7 @@
       <use href="/img/sprite.svg#icon-point"></use>
     </svg> -->
     <!-- <a href="{{link 'pages/hotelPage.html'}}">Second page</a> -->
+    {{> mobile-menu}}
     <script type="module" src="/js/main.js"></script>
   </body>
 </html>

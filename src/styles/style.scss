@@ -9,6 +9,7 @@
 
 // Components
 @use "./components/consultant-card.scss" as *;
+@use "./components/slider.scss" as *;
 
 @use "./layout/header.scss" as *;
 @use "./layout/mob-menu.scss" as *;
@@ -21,6 +22,7 @@
 @use "./layout/filter/filter.scss" as *;
 
 //homePage
+@use "./homepage/news-home.scss" as *;
 
 // contactsPage
 @use "./layout/contactspage/contactssection.scss" as *;
@@ -32,6 +34,8 @@
 @use "./auth/login.scss" as *;
 @use "./auth/registerSection.scss" as *;
 @use "./auth/forgotSection.scss" as *;
+
+@use "./accountSection/account-section.scss" as *;
 
 // під всіма use
 @import "normalize.css";

@@ -11,9 +11,15 @@ import "@/styles/style.scss";
 
 // import "./header.js";
 import "./module/mob-menu.js";
+import "./module/layout/header.js";
+import "./module/pages/accountPage/accountOrders.js";
 
-// filter section 
+// filter section
 import "./module/filter/filter.js";
+
+// SwiperNewsHome
+import "./module/pages/home-page/news-home.js";
+import "./module/swiperNewHome/swiperNews.js";
 
 import "./module/pages/auth/login.js";
 import "./module/pages/auth/register.js";
