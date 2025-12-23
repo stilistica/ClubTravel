@@ -454,11 +454,17 @@ export interface ApiHotelOptionHotelOption extends Struct.CollectionTypeSchema {
     meals: Schema.Attribute.Enumeration<
       [
         '\u0411\u0435\u0437 \u043F\u0438\u0442\u0430\u043D\u0438\u044F',
+        'no_meals',
         '\u0417\u0430\u0432\u0442\u0440\u0430\u043A',
+        'breakfast',
         '\u0417\u0430\u0442\u0440\u0430\u043A \u0438 \u0443\u0436\u0438\u043D',
+        'breakfast_dinner',
         '\u0417\u0430\u0432\u0442\u0440\u0430\u043A, \u043E\u0431\u0435\u0434, \u0443\u0436\u0438\u043D',
+        'full_board',
         '\u0412\u0441\u0451 \u0432\u043A\u043B\u044E\u0447\u0435\u043D\u043E',
+        'all_inclusive',
         '\u0423\u043B\u044C\u0442\u0440\u0430: \u0432\u0441\u0451 \u0432\u043A\u043B\u044E\u0447\u0435\u043D\u043E',
+        'ultra_all_inclusive',
       ]
     >;
     price: Schema.Attribute.Integer;
@@ -466,7 +472,9 @@ export interface ApiHotelOptionHotelOption extends Struct.CollectionTypeSchema {
     tourPackage: Schema.Attribute.Enumeration<
       [
         '\u0422\u0443\u0440\u0438\u0441\u0442\u0438\u0447\u0435\u0441\u043A\u0438\u0439 \u043F\u0430\u043A\u0435\u0442',
+        'package',
         '\u0422\u043E\u043B\u044C\u043A\u043E \u043F\u0435\u0440\u0435\u043B\u0435\u0442',
+        'flight_only',
       ]
     >;
     updatedAt: Schema.Attribute.DateTime;
@@ -614,8 +622,11 @@ export interface ApiTourOptionTourOption extends Struct.CollectionTypeSchema {
     departureCity: Schema.Attribute.Enumeration<
       [
         '\u0422\u0430\u043B\u043B\u0438\u043D',
+        'tallinn',
         '\u0420\u0438\u0433\u0430',
+        'riga',
         '\u0412\u0438\u043B\u044C\u043D\u0443\u0441',
+        'vilnius',
       ]
     >;
     endDate: Schema.Attribute.Date;

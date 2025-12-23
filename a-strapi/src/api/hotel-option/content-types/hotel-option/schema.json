@@ -15,7 +15,9 @@
       "type": "enumeration",
       "enum": [
         "Туристический пакет",
-        "Только перелет"
+        "package",
+        "Только перелет",
+        "flight_only"
       ]
     },
     "price": {
@@ -25,11 +27,17 @@
       "type": "enumeration",
       "enum": [
         "Без питания",
+        "no_meals",
         "Завтрак",
+        "breakfast",
         "Затрак и ужин",
+        "breakfast_dinner",
         "Завтрак, обед, ужин",
+        "full_board",
         "Всё включено",
-        "Ультра: всё включено"
+        "all_inclusive",
+        "Ультра: всё включено",
+        "ultra_all_inclusive"
       ]
     },
     "hotels": {
