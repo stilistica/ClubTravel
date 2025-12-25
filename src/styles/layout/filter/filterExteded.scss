@@ -1,0 +1,249 @@
+@use "../../basic/globals.scss" as s;
+
+.filter__extended {
+  padding: 16px 32px 16px 32px;
+  width: 100%;
+  &-btn {
+    background: transparent;
+    border: none;
+    @include s.d-flex($direction: row, $align: center);
+    gap: 5px;
+
+    font-weight: 400;
+    font-size: 14px;
+    color: s.$color__primary;
+
+    svg {
+      width: 20px;
+      height: 20px;
+      fill: s.$color__primary;
+    }
+  }
+  &-info {
+    @include s.d-flex($direction: column);
+    gap: 25px;
+    &-title {
+      @include s.d-flex(
+        $direction: row,
+        $align: center,
+        $justify: space-between
+      );
+      gap: 21px;
+      h2 {
+        font-weight: 400;
+        font-size: 16px;
+      }
+      hr {
+        display: none;
+      }
+      &-close {
+        @include s.d-flex($direction: row, $align: center);
+        border: none;
+        background: transparent;
+
+        gap: 8px;
+
+        font-weight: 400;
+        font-size: 14px;
+        svg {
+          width: 20px;
+          height: 20px;
+          fill: s.$color__primary;
+
+          transition: fill 0.5s ease;
+        }
+        &:hover {
+          svg {
+            fill: #13882d;
+          }
+        }
+      }
+    }
+    &-list {
+      @include s.d-flex($direction: row, $wrap: wrap);
+      gap: 42px;
+      &-column-one {
+        margin-right: 30px;
+      }
+      &-column {
+        @include s.d-flex($direction: column);
+        gap: 32px;
+        &-div {
+          @include s.d-flex($direction: column);
+          gap: 16px;
+          span {
+            font-weight: 400;
+            font-size: 14px;
+            color: #222;
+          }
+        }
+        &-name {
+          font-weight: 700;
+          font-size: 14px;
+          color: s.$color__black;
+        }
+        &-list {
+          @include s.d-flex($direction: column);
+          gap: 12px;
+          &-item {
+            cursor: pointer;
+            @include s.d-flex($direction: row, $align: center);
+
+            font-weight: 400;
+            font-size: 14px;
+
+            &-stars {
+              gap: 4px;
+              &-star {
+                width: 18px;
+                height: 18px;
+                fill: #ffe489;
+
+                transition: fill 0.5s ease;
+              }
+            }
+
+            &-app {
+              @include s.d-flex($direction: row, $align: center);
+              gap: 8px;
+
+              font-weight: 400;
+              font-size: 14px;
+              svg {
+                width: 16px;
+                height: 16px;
+                fill: #cecece;
+                transition: fill 0.5s ease;
+              }
+            }
+            &-check {
+              width: 16px;
+              height: 16px;
+              fill: #cecece;
+              margin-right: 8px;
+
+              transition: fill 0.5s ease;
+            }
+            &:hover {
+              & .filter__extended-info-list-column-list-item-stars-star {
+                fill: #f5c213;
+              }
+              & .filter__extended-info-list-column-list-item-app {
+                svg {
+                  fill: #f5c213;
+                }
+              }
+              & .filter__extended-info-list-column-list-item-check {
+                fill: #f5c213;
+              }
+            }
+          }
+        }
+      }
+    }
+    &-active {
+      padding: 24px 0 6px 0;
+      border-top: 1px solid #99999954;
+      @include s.d-flex($direction: row, $align: center);
+      gap: 24px;
+      &-title {
+        font-weight: 400;
+        font-size: 14px;
+        color: #888;
+      }
+      &-filter {
+        font-weight: 400;
+        font-size: 14px;
+        color: #666;
+      }
+    }
+  }
+  @media (min-width: s.$media_768) {
+    &-info {
+      &-title {
+        h2 {
+          font-size: 18px;
+        }
+        hr {
+          display: block;
+          padding: 0;
+          margin: 0;
+          height: 1px;
+          width: 190px;
+          background: #999;
+          border: none;
+          opacity: 0.2;
+        }
+      }
+      &-list {
+        gap: 85px;
+      }
+    }
+  }
+  @media (min-width: s.$media_1366) {
+    padding: 15px 32px 19px 32px;
+    width: auto;
+    &-info {
+      &-title {
+        hr {
+          width: 790px;
+        }
+      }
+      &-list {
+        @include s.d-flex($direction: row);
+      }
+    }
+  }
+}
+
+.filter-price {
+  &-slider {
+    margin-top: 30px;
+    position: relative;
+    height: 3px;
+    width: 100%;
+    background: #cecece;
+  }
+  &-track {
+    position: absolute;
+    inset: 0;
+    background: #cecece;
+  }
+  &-range {
+    position: absolute;
+    inset: 0;
+    background: #f68521;
+  }
+  &-thumbs {
+    position: relative;
+    & .thumbs-price {
+      position: absolute;
+      top: -20px;
+      left: -5px;
+
+      font-weight: 400;
+      font-size: 14px;
+      color: #222;
+    }
+  }
+  &-thumb {
+    position: absolute;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    background: #f68521;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    cursor: grab;
+    z-index: 2;
+  }
+  &-max-min {
+    @include s.d-flex($direction: row, $justify: space-between, $align: center);
+
+    span {
+      font-weight: 400;
+      font-size: 14px;
+      color: #999;
+    }
+  }
+}

@@ -1,1 +1,150 @@
-<p>filterExtended</p>
+<div class="filter__extended">
+  <!-- <button class="filter__extended-btn">
+    <svg>
+      <use href="/img/sprite.svg#icon-zoom"></use>
+    </svg>
+    Расширенный фильтр
+  </button> -->
+  <div class="filter__extended-info">
+    <div class="filter__extended-info-title">
+      <h2>Расширенный поиск</h2>
+      <hr />
+      <button class="filter__extended-info-title-close">
+        <svg>
+          <use href="/img/sprite.svg#icon-minus-circle"></use>
+        </svg>
+        Закрыть
+      </button>
+    </div>
+    <div class="filter__extended-info-list">
+      <div class="filter__extended-info-list-column
+      filter__extended-info-list-column-one">
+        <div class="filter__extended-info-list-column-div">
+          <p class="filter__extended-info-list-column-name">
+            Категория размещения
+          </p>
+          <ul class="filter__extended-info-list-column-list">
+            <li
+              class="filter__extended-info-list-column-list-item"
+              data-category="Budget"
+              title="Budget"
+            >
+              <div class="filter__extended-info-list-column-list-item-stars">
+                {{> star}} {{> star}}
+              </div>
+            </li>
+            <li
+              class="filter__extended-info-list-column-list-item"
+              data-category="Economy"
+              title="Economy"
+            >
+              <div class="filter__extended-info-list-column-list-item-stars">
+                {{> star}} {{> star}} {{> star}}
+              </div>
+            </li>
+            <li
+              class="filter__extended-info-list-column-list-item"
+              data-category="Standard"
+              title="Standard"
+            >
+              <div class="filter__extended-info-list-column-list-item-stars">
+                {{> star}} {{> star}} {{> star}} {{> star}}
+              </div>
+            </li>
+            <li
+              class="filter__extended-info-list-column-list-item"
+              data-category="Comfort"
+              title="Comfort"
+            >
+              <div class="filter__extended-info-list-column-list-item-stars">
+                {{> star}} {{> star}} {{> star}} {{> star}} {{> star}}
+              </div>
+            </li>
+            <li
+              class="filter__extended-info-list-column-list-item"
+              data-category="Apartments"
+              title="Apartments"
+            >
+              <p class="filter__extended-info-list-column-list-item-app">
+                <svg>
+                  <use href="/img/sprite.svg#icon-house"></use>
+                </svg>
+                Апартаменты
+              </p>
+            </li>
+          </ul>
+        </div>
+        <div class="filter__extended-info-list-column-div">
+          <p class="filter__extended-info-list-column-name">Питание</p>
+          <ul class="filter__extended-info-list-column-list">
+            {{> extendedFilterEl name="Без питания" data="data-meal"
+            data-name="no_meals"}} {{> extendedFilterEl name="Завтрак"
+            data="data-meal" data-name="breakfast"}} {{> extendedFilterEl
+            name="Затрак и ужин" data="data-meal" data-name="breakfast_dinner"}}
+            {{> extendedFilterEl name="Завтрак, обед, ужин" data="data-meal"
+            data-name="full_board"}} {{> extendedFilterEl name="Всё включено"
+            data="data-meal" data-name="all_inclusive"}} {{> extendedFilterEl
+            name="Ультра: всё включено" data="data-meal"
+            data-name="ultra_all_inclusive"}}
+          </ul>
+        </div>
+      </div>
+      <div class="filter__extended-info-list-column">
+        <div class="filter__extended-info-list-column-div">
+          <p class="filter__extended-info-list-column-name">Состав тура</p>
+          <ul class="filter__extended-info-list-column-list">
+            {{> extendedFilterEl name="Туристический пакет" data="data-package"
+            data-name="package"}} {{> extendedFilterEl name="Только перелет"
+            data="data-package" data-name="flight_only"}}
+          </ul>
+        </div>
+        <div class="filter__extended-info-list-column-div">
+          <p class="filter__extended-info-list-column-name">Вылет из</p>
+          <ul class="filter__extended-info-list-column-list">
+            {{> extendedFilterEl name="Таллин" data="data-departure"
+            data-name="tallinn"}} {{> extendedFilterEl name="Рига"
+            data="data-departure" data-name="riga"}} {{> extendedFilterEl
+            name="Вильнус" data="data-departure" data-name="vilnius"}}
+          </ul>
+        </div>
+        <div class="filter__extended-info-list-column-div">
+          <p class="filter__extended-info-list-column-name">
+            Цена на одного человека
+          </p>
+          <!-- <div class="filter__extended-info-list-column-list">Цена</div> -->
+          <div class="filter__extended-info-list-column-list filter-price-list">
+            <div class="slider filter-price-slider">
+              <div class="track filter-price-track"></div>
+              <div class="range filter-price-range"></div>
+              <div class="thumbs filter-price-thumbs">
+                <div class="filter-price-thumb left">
+                  <span id="minPrice" class="thumbs-price">200€</span>
+                </div>
+              </div>
+              <div class="filter-price-thumbs">
+                <div class="filter-price-thumb right">
+                  <span id="maxPrice" class="thumbs-price">3000€</span>
+                </div>
+              </div>
+            </div>
+            <div class="filter-price-max-min">
+              <span>200€</span>
+              <span>3000€</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="filter__extended-info-list-column">
+        <div class="filter__extended-info-list-column-div">
+          <p class="filter__extended-info-list-column-name">Регион</p>
+          <span> Выберите сначала направление </span>
+          <ul class="filter__extended-info-list-column-list"></ul>
+        </div>
+      </div>
+    </div>
+    <div class="filter__extended-info-active">
+      <p class="filter__extended-info-active-title">Активные фильтры:</p>
+      <div class="filter__extended-info-active-filter"></div>
+    </div>
+  </div>
+</div>

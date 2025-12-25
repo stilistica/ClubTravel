@@ -33,8 +33,11 @@
       "type": "enumeration",
       "enum": [
         "Таллин",
+        "tallinn",
         "Рига",
-        "Вильнус"
+        "riga",
+        "Вильнус",
+        "vilnius"
       ]
     },
     "hotOffer": {

@@ -1,1 +1,148 @@
-<p>{{title}}</p>
+<div class="filter__section">
+  <div class="filter__section-form">
+    <div
+      class="filter__section-form-item filter__section-form-destination"
+      data-name="filter-destination"
+    >
+      <p class="filter__section-form-item-title">Направление</p>
+      <div class="filter__section-form-item-variant">
+        <div class="filter__section-form-item-variant__trigger">
+          <span>Все направления</span>
+          <svg>
+            <use href="/img/sprite.svg#icon-more"></use>
+          </svg>
+        </div>
+
+        <ul class="filter__section-form-item-variant__dropdown">
+          <li data-value="">Все направления</li>
+          <li data-value="Египет">Египет</li>
+          <li data-value="АОЭ">АОЭ</li>
+          <li data-value="Тайланд">Тайланд</li>
+          <li data-value="Болгария">Болгария</li>
+          <li data-value="Тенерифе">Тенерифе</li>
+          <li data-value="Бали">Бали</li>
+          <li data-value="Грузия">Грузия</li>
+          <li data-value="Греция">Греция</li>
+          <li data-value="Турция">Турция</li>
+          <li data-value="Кипр">Кипр</li>
+        </ul>
+
+        <input type="hidden" name="filter-destination" />
+      </div>
+    </div>
+    <hr />
+
+    <div
+      class="filter__section-form-item filter__section-form-days"
+      data-name="filter-days"
+    >
+      <p class="filter__section-form-item-title">Длительность тура</p>
+      <div class="filter__section-form-item-variant">
+        <div class="filter__section-form-item-variant__trigger">
+          <span>Любая</span>
+          <svg>
+            <use href="/img/sprite.svg#icon-more"></use>
+          </svg>
+        </div>
+
+        <ul class="filter__section-form-item-variant__dropdown">
+          <li value="">Любая</li>
+          <li value="5">5 дней</li>
+          <li value="7">7 дней</li>
+          <li value="14">14 дней</li>
+          <li value="21">21 день</li>
+          <li value="24">24 дня</li>
+        </ul>
+
+        <input type="hidden" name="filter-days" />
+      </div>
+    </div>
+    <hr />
+
+    <div
+      class="filter__section-form-item filter__section-form-date"
+      data-name="filter-date"
+    >
+      <p class="filter__section-form-item-title">Дата вылета</p>
+      <div class="filter__section-form-item-variant">
+        <div
+          class="filter__section-form-item-variant__trigger filter__section-form-date__trigger"
+        >
+          <span class="filter__section-form-date__trigger-value"
+            >Выберите дату</span
+          >
+          <svg>
+            <use href="/img/sprite.svg#icon-calendar"></use>
+          </svg>
+
+          <input
+            type="text"
+            name="filter-date"
+            id="filter-date"
+            class="filter__section-form-date__trigger-input"
+            readonly
+          />
+        </div>
+      </div>
+    </div>
+    <hr />
+
+    <div
+      class="filter__section-form-item filter__section-form-guests"
+      data-name="filter-guests"
+    >
+      <p class="filter__section-form-item-title">Гости</p>
+      <div
+        class="filter__section-form-item-variant filter__section-form-guests-variant"
+      >
+        <div
+          class="filter__section-form-item-variant__trigger filter__section-form-guests-variant__trigger"
+        >
+          <span>Любое к-ство</span>
+          <svg>
+            <use href="/img/sprite.svg#icon-more"></use>
+          </svg>
+        </div>
+
+        <ul
+          class="filter__section-form-item-variant__dropdown filter__section-form-guests-variant__dropdown"
+        >
+          <li value="">Любое к-ство</li>
+
+          <li>
+            <div>
+              <span>Взрослые</span>
+              <input
+                type="number"
+                name="filter-adults"
+                min="1"
+                placeholder="0"
+              />
+            </div>
+
+            <div>
+              <span>Дети</span>
+              <input
+                type="number"
+                name="filter-children"
+                min="0"
+                placeholder="0"
+              />
+            </div>
+          </li>
+        </ul>
+
+        <input type="hidden" name="filter-guests" />
+      </div>
+    </div>
+
+    <div class="filter__section-form-submit">
+      <button type="submit" class="button-form-search button-form-search-link">
+        <svg>
+          <use href="/img/sprite.svg#icon-search"></use>
+        </svg>
+        Найти
+      </button>
+    </div>
+  </div>
+</div>
