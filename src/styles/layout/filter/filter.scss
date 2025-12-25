@@ -205,25 +205,6 @@
       }
     }
   }
-  &__extended {
-    padding: 16px 32px 16px 32px;
-    &-btn {
-      background: transparent;
-      border: none;
-      @include s.d-flex($direction: row, $align: center);
-      gap: 5px;
-
-      font-weight: 400;
-      font-size: 14px;
-      color: s.$color__primary;
-
-      svg {
-        width: 20px;
-        height: 20px;
-        fill: s.$color__primary;
-      }
-    }
-  }
 
   @media (min-width: s.$media_768) {
     margin-top: -98px;

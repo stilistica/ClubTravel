@@ -174,3 +174,67 @@ if (searchButton) {
   });
 }
 
+const filterPrice = document.querySelector(".filter-price-list");
+
+if (filterPrice) {
+  const slider = filterPrice.querySelector(".filter-price-slider");
+  const range = filterPrice.querySelector(".filter-price-range");
+  const leftThumb = filterPrice.querySelector(".filter-price-thumb.left");
+  const rightThumb = filterPrice.querySelector(".filter-price-thumb.right");
+  const minPriceEl = filterPrice.querySelector("#minPrice");
+  const maxPriceEl = filterPrice.querySelector("#maxPrice");
+
+  const min = 200;
+  const max = 3000;
+
+  let left = 200;
+  let right = 3000;
+
+  const priceToPercent = (p) => ((p - min) / (max - min)) * 100;
+  const percentToPrice = (p) => Math.round(min + (p / 100) * (max - min));
+
+  function update() {
+    const l = priceToPercent(left);
+    const r = priceToPercent(right);
+
+    leftThumb.style.left = `${l}%`;
+    rightThumb.style.left = `${r}%`;
+    range.style.left = `${l}%`;
+    range.style.right = `${100 - r}%`;
+
+    minPriceEl.textContent = `${left}€`;
+    maxPriceEl.textContent = `${right}€`;
+  }
+
+  function startDrag(e, isLeft) {
+    const rect = slider.getBoundingClientRect();
+
+    const move = (ev) => {
+      const x = ev.clientX;
+      let percent = ((x - rect.left) / rect.width) * 100;
+      percent = Math.max(0, Math.min(100, percent));
+      const price = percentToPrice(percent);
+
+      if (isLeft) {
+        left = Math.min(price, right);
+      } else {
+        right = Math.max(price, left);
+      }
+
+      update();
+    };
+
+    const stop = () => {
+      document.removeEventListener("mousemove", move);
+      document.removeEventListener("mouseup", stop);
+    };
+
+    document.addEventListener("mousemove", move);
+    document.addEventListener("mouseup", stop);
+  }
+
+  leftThumb.addEventListener("mousedown", (e) => startDrag(e, true));
+  rightThumb.addEventListener("mousedown", (e) => startDrag(e, false));
+
+  update();
+}
