@@ -1,29 +1,56 @@
 @use "../basic/globals.scss" as s;
-
+.accounthero {
+  height: 320px;
+  .hero__image {
+    background-image: url(/img/hero/herohome.webp);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-origin: border-box;
+    background-clip: border-box;
+  }
+}
 .account {
   padding: 31px 0 80px;
+  @media (min-width: s.$media_768) {
+    padding: 25px 0 100px;
+  }
 
   &__container {
-    padding: 0 15px;
+    @media (min-width: s.$media_768) {
+      padding: 0 57px 0 67px;
+      @media (min-width: s.$media_768) {
+        padding: 0 103px 0 97px;
+      }
+    }
   }
 
   &__wrapper {
     @include s.d-flex($direction: column, $align: center, $justify: center);
+    gap: 38px;
+    @media (min-width: s.$media_768) {
+      @include s.d-flex($direction: row, $justify: center);
+    }
   }
 
   &__wrapper-left {
     padding: 0 13px 0 3px;
+    @media (min-width: s.$media_1366) {
+      margin-top: -27px;
+    }
   }
 
   &__left {
-    @include s.d-flex($direction: column, $align: center, $justify: center);
+    @include s.d-flex($direction: column, $align: center);
     box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
     padding: 25px 25px 27px 24px;
-    margin-bottom: 28px;
+    margin-bottom: 30px;
+    width: 314px;
+    height: 439px;
   }
 
   &__photo {
-    margin-bottom: 20px;
+    margin-bottom: 27px;
   }
 
   &__name {
@@ -31,8 +58,220 @@
     color: s.$color__text;
     margin-bottom: 26px;
   }
+
   &__btns-wrapper {
-    @include s.d-flex($direction: column);
-    gap: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+  &__btn {
+    @include s.d-flex($direction: row, $align: center);
+    gap: 19px;
+    font-size: 18px;
+    color: #000;
+    padding: 9px 0 9px 11px;
+    width: 288px;
+    background: transparent;
+    border: none;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+
+    &.active {
+      background: rgba(196, 196, 196, 0.2);
+    }
+
+    svg {
+      fill: s.$color__primary;
+    }
+  }
+
+  &__line {
+    width: 100%;
+    margin: 21px 0 2px;
+  }
+
+  &__btn-exit {
+    display: flex;
+    align-items: center;
+    align-self: flex-start;
+    gap: 16px;
+    background: transparent;
+    border: none;
+    font-size: 14px;
+    color: #7d7d7d;
+
+    svg {
+      fill: #999;
+    }
+  }
+
+  &__polite {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 6px;
+  }
+
+  &__order-title {
+    font-size: 26px;
+    color: #000;
+    margin-bottom: 7px;
+    padding-left: 20px;
+    @media (min-width: s.$media_1366) {
+      padding-left: 0;
+      margin-bottom: 24px;
+    }
+  }
+
+  &__orders-table-wrapper {
+    @media (min-width: s.$media_1366) {
+      box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+      padding-bottom: 19px;
+      // padding: 15px 15px 19px 25px;
+    }
+  }
+
+  &__orders-table {
+    display: none;
+    @media (min-width: s.$media_1366) {
+      display: table;
+      border-collapse: collapse;
+      table-layout: fixed;
+
+      thead {
+        box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1);
+      }
+
+      th {
+        text-align: center;
+        font-weight: 700;
+        font-size: 14px;
+        color: #000;
+        height: 49px;
+        padding: 0 50px;
+        white-space: nowrap;
+      }
+
+      td {
+        padding: 18px 16px;
+        font-size: 14px;
+        color: #2b2b2b;
+        text-align: center;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        vertical-align: middle;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+
+  &__orders-cards-wrapper {
+    padding: 0 20px 27px;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+    @media (min-width: s.$media_1366) {
+      padding: 0;
+      box-shadow: none;
+    }
+  }
+
+  &__orders-cards {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 27px;
+    @media (min-width: s.$media_1366) {
+      display: none;
+    }
+  }
+
+  &__order-card {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    width: 100%;
+    padding: 24px 0;
+
+    div {
+      display: grid;
+      grid-template-columns: 134px 1fr;
+      margin-bottom: 11px;
+      font-size: 14px;
+      color: #666;
+      width: 308px;
+
+      span {
+        font-size: 16px;
+        color: s.$color__text;
+      }
+    }
+  }
+  &__order-number {
+    font-weight: 700;
+  }
+  &__order-status {
+    border-radius: 6px;
+    width: 99px;
+    background: rgba(62, 119, 57, 0.2);
+    padding: 6px 20px;
+    font-size: 12px !important;
+    color: s.$color__green !important;
+    text-align: center;
+  }
+
+  &__pagination {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    @media (min-width: s.$media_1366) {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 18px 0 17px;
+      margin-top: 20px;
+    }
+  }
+
+  &__pagination-info {
+    color: #555;
+  }
+
+  &__pagination-btns-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 21px;
+  }
+
+  &__pagination-btn {
+    border-radius: 4px;
+    background: s.$color__primary;
+    border: none;
+    font-size: 14px;
+    color: s.$color__white;
+    padding: 3px 11px 4px 10px;
+  }
+
+  &__pagination-page {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    color: #555;
+    @media (min-width: s.$media_768) {
+      gap: 2px;
+    }
+    @media (min-width: s.$media_1366) {
+      gap: 8px;
+    }
+  }
+
+  &__pagination-current {
+    width: 28px;
+    height: 26px;
+    padding: 3px 9px 4px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(196, 196, 196, 0.5);
+    border-radius: 4px;
+    font-size: 14px;
+    color: s.$color__text;
   }
 }
