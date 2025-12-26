@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Личный кабинет клиента</title>
     <script type="module" crossorigin src="/ClubTravel/assets/vendor-CYiRW1wK.js"></script>
-    <script type="module" crossorigin src="/ClubTravel/assets/main-BOKzpH4v.js"></script>
+    <script type="module" crossorigin src="/ClubTravel/assets/main-CGTBHgen.js"></script>
     <link rel="stylesheet" crossorigin href="/ClubTravel/assets/vendor-C74uRZlI.css">
-    <link rel="stylesheet" crossorigin href="/ClubTravel/assets/main-DDtSluBs.css">
+    <link rel="stylesheet" crossorigin href="/ClubTravel/assets/main-BEUx6JN3.css">
   </head>
   <body>
     <header class="header">
@@ -141,7 +141,7 @@
         </div>
       </div>
     </header>
-		<section class="herohome hero">
+		<section class="accounthero hero">
 			<div class="hero__image"></div>
 			<div class="hero__wave"></div>
 		</section>		<section class="account">
@@ -154,7 +154,7 @@
 		          </div>
 		          <p class="account__name">Еле Колонаева</p>
 		          <div class="account__btns-wrapper">
-		            <button class="account__btn">
+		            <button class="account__btn active">
 		              <svg width="24" height="24">
 		                <use href="/ClubTravel/assets/sprite-xjNdH9vZ.svg#icon-ticket"></use>
 		              </svg>
@@ -188,7 +188,7 @@
 		      </div>
 		
 		      <div class="account__right">
-		        <h3 class="account__order-title">Заказы</h3>
+		        <p class="account__order-title">Заказы</p>
 		
 		        <div class="account__orders-table-wrapper">
 		          <table class="account__orders-table">
@@ -203,9 +203,11 @@
 		            </thead>
 		            <tbody id="ordersList"></tbody>
 		          </table>
+		          <div class="account__orders-cards-wrapper">
+		            <div class="account__orders-cards" id="ordersCards"></div>
+		            <div class="account__pagination" id="ordersPagination"></div>
+		          </div>
 		        </div>
-		
-		        <div class="account__pagination" id="ordersPagination"></div>
 		      </div>
 		    </div>
 		  </div>
