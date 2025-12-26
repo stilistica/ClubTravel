@@ -58,6 +58,8 @@ if (filter) {
       const month = date.toLocaleString("ru-RU", { month: "long" });
 
       dateValue.textContent = `${day} ${month} ${year}`;
+
+      filtersState.date = date.toISOString().split("T")[0];
     },
   });
 
@@ -165,7 +167,9 @@ if (filter) {
       adultsInput.value = "";
       childrenInput.value = "";
       valueSpan.textContent = "Любое к-ство";
-      hiddenInput.value = "";
+      // hiddenInput.value = "";
+      filtersState.guests.adults = null;
+      filtersState.guests.children = null;
       guestsSelect.classList.remove("is-open");
     });
 
@@ -185,7 +189,10 @@ if (filter) {
       if (children) parts.push(`детей: ${children}`);
 
       valueSpan.textContent = parts.join("; ");
-      hiddenInput.value = JSON.stringify({ adults, children });
+      // hiddenInput.value = JSON.stringify({ adults, children });
+
+      filtersState.guests.adults = adults;
+      filtersState.guests.children = children;
     }
 
     adultsInput.addEventListener("input", updateGuestsValue);
@@ -229,6 +236,7 @@ if (extendedBtnOpen && extendedInfo) {
     extendedInfo.classList.remove("filter__extended-is-hidden");
 
     initExtendedFilter();
+    initPriceExtended();
     initRegions();
   });
 
@@ -245,7 +253,7 @@ if (extendedBtnOpen && extendedInfo) {
 }
 
 // логіка з ціною
-function initExtendedFilter() {
+function initPriceExtended() {
   const filterPrice = document.querySelector(".filter-price-list");
 
   if (filterPrice) {
@@ -294,6 +302,7 @@ function initExtendedFilter() {
         }
 
         update();
+        syncPriceToState();
       };
 
       const stop = () => {
@@ -309,6 +318,16 @@ function initExtendedFilter() {
     rightThumb.addEventListener("mousedown", (e) => startDrag(e, false));
 
     update();
+
+    function syncPriceToState() {
+      if (left === min && right === max) {
+        filtersState.price.min = null;
+        filtersState.price.max = null;
+      } else {
+        filtersState.price.min = left;
+        filtersState.price.max = right;
+      }
+    }
   }
 }
 // логіка з регіонами
@@ -353,7 +372,7 @@ function initRegions() {
     const regionsHTML = tour.regions
       .map(
         (region) => `
-  <li class="filter__extended-info-list-column-list-item" data-regions="${region}">
+  <li class="filter__extended-info-list-column-list-item" data-value="${region}">
     <svg class="filter__extended-info-list-column-list-item-check">
       <use href="${sprite}#icon-check-circle"></use>
     </svg>
@@ -367,4 +386,40 @@ function initRegions() {
   };
 
   renderRegions(filtersState.destination);
+}
+
+// можливість обирати декілька варівнтів в категорії
+function initExtendedFilter() {
+  const columns = document.querySelectorAll(".filter__extended-categoties");
+
+  columns.forEach((column) => {
+    const key = column.dataset.extended;
+    const list = column.querySelector(
+      ".filter__extended-info-list-column-list"
+    );
+
+    if (!list) return;
+
+    list.addEventListener("click", (e) => {
+      const item = e.target.closest(
+        ".filter__extended-info-list-column-list-item"
+      );
+      if (!item) return;
+
+      const value = item.dataset.value;
+      if (!value) return;
+
+      const arr = filtersState[key];
+
+      if (arr.includes(value)) {
+        filtersState[key] = arr.filter((v) => v !== value);
+        item.classList.remove("is-active");
+      } else {
+        filtersState[key].push(value);
+        item.classList.add("is-active");
+      }
+
+      console.log(filtersState);
+    });
+  });
 }
