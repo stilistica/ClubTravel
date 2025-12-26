@@ -8,7 +8,7 @@
           </div>
           <p class="account__name">Еле Колонаева</p>
           <div class="account__btns-wrapper">
-            <button class="account__btn">
+            <button class="account__btn active">
               <svg width="24" height="24">
                 <use href="/img/sprite.svg#icon-ticket"></use>
               </svg>
@@ -42,7 +42,7 @@
       </div>
 
       <div class="account__right">
-        <h3 class="account__order-title">Заказы</h3>
+        <p class="account__order-title">Заказы</p>
 
         <div class="account__orders-table-wrapper">
           <table class="account__orders-table">
@@ -57,9 +57,11 @@
             </thead>
             <tbody id="ordersList"></tbody>
           </table>
+          <div class="account__orders-cards-wrapper">
+            <div class="account__orders-cards" id="ordersCards"></div>
+            <div class="account__pagination" id="ordersPagination"></div>
+          </div>
         </div>
-
-        <div class="account__pagination" id="ordersPagination"></div>
       </div>
     </div>
   </div>

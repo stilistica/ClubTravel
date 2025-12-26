@@ -7,7 +7,20 @@ const ORDERS_PER_PAGE = 5;
 ====================== */
 function formatDate(iso) {
   if (!iso) return "—";
-  return new Date(iso).toLocaleString("ru-RU");
+
+  const date = new Date(iso);
+
+  const day = date.getDate();
+  const year = date.getFullYear();
+
+  const month = date.toLocaleString("ru-RU", {
+    month: "long",
+  });
+
+  const hours = String(date.getHours()).padStart(2, "0");
+  const minutes = String(date.getMinutes()).padStart(2, "0");
+
+  return `${day} ${month} ${year} ${hours}:${minutes}`;
 }
 
 /* ======================
@@ -34,6 +47,32 @@ function renderOrderRow(order) {
   `;
 }
 
+function renderOrderCard(order) {
+  const statusClass =
+    order.charter === "Оплачено"
+      ? "order-status--paid"
+      : "order-status--processing";
+
+  return `
+    <div class="account__order-card">
+      <div class="account__order-number">Номер заказа<span class="account__number">${
+        order.orderNumber
+      }</span></div>
+      <div account__order-total>Сумма<span>${order.totalPrice.toFixed(
+        2
+      )}</span></div>
+      <div>Email<span>${order.user?.email ?? "—"}</span></div>
+      <div>
+        Статус
+        <span class="account__order-status ${statusClass}">
+          ${order.charter}
+        </span>
+      </div>
+      <div>Дата<span>${formatDate(order.date)}</span></div>
+    </div>
+  `;
+}
+
 /* ======================
    Pagination
 ====================== */
@@ -44,31 +83,32 @@ function renderPagination(meta, currentItemsCount, onPageChange) {
   const { page, pageCount, total } = meta.pagination;
 
   paginationEl.innerHTML = `
-    <div class="pagination">
-      <span class="pagination__info">
+      <p class="account__pagination-info">
         Показано ${currentItemsCount} из ${total}
-      </span>
-
+      </p>
+     <div class="account__pagination-btns-wrapper">
       <button
-        class="pagination__btn"
+        class="account__pagination-btn"
         ${page === 1 ? "disabled" : ""}
         data-action="prev"
       >
         Назад
       </button>
 
-      <span class="pagination__page">
-        Страница ${page} из ${pageCount}
-      </span>
+      <div class="account__pagination-page">
+      <p class="account__pagination-text">Страница</p>
+      <p class="account__pagination-current">${page}</p>
+      <p class="account__pagination-text">из ${pageCount}</p>
+      </div>
 
       <button
-        class="pagination__btn"
+        class="account__pagination-btn"
         ${page === pageCount ? "disabled" : ""}
         data-action="next"
       >
         Вперёд
       </button>
-    </div>
+      </div>
   `;
 
   paginationEl.onclick = (e) => {
@@ -111,6 +151,10 @@ document.addEventListener("DOMContentLoaded", async () => {
       }
 
       ordersList.innerHTML = data.map(renderOrderRow).join("");
+      const ordersCards = document.getElementById("ordersCards");
+      if (ordersCards) {
+        ordersCards.innerHTML = data.map(renderOrderCard).join("");
+      }
 
       renderPagination(meta, data.length, (newPage) => {
         currentPage = newPage;
@@ -123,4 +167,17 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   load(currentPage);
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const logoutBtn = document.querySelector(".account__btn-exit");
+  if (!logoutBtn) return;
+
+  logoutBtn.addEventListener("click", () => {
+    localStorage.removeItem("jwt");
+
+    localStorage.removeItem("user");
+
+    window.location.replace("/ClubTravel/html/pages/loginPage.html");
+  });
 });
