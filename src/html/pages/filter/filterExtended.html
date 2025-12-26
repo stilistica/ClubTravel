@@ -1,11 +1,11 @@
 <div class="filter__extended">
-  <!-- <button class="filter__extended-btn">
+  <button class="filter__extended-btn">
     <svg>
       <use href="/img/sprite.svg#icon-zoom"></use>
     </svg>
-    Расширенный фильтр
-  </button> -->
-  <div class="filter__extended-info">
+    Расширенный поиск
+  </button>
+  <div class="filter__extended-info filter__extended-is-hidden">
     <div class="filter__extended-info-title">
       <h2>Расширенный поиск</h2>
       <hr />
@@ -135,10 +135,11 @@
         </div>
       </div>
       <div class="filter__extended-info-list-column">
-        <div class="filter__extended-info-list-column-div">
+        <div class="filter__extended-info-list-column-div"
+        data-extended="regions">
           <p class="filter__extended-info-list-column-name">Регион</p>
-          <span> Выберите сначала направление </span>
-          <ul class="filter__extended-info-list-column-list"></ul>
+          <span class="filter__extended-info-list-column-hint"> Выберите сначала направление </span>
+          <ul class="filter__extended-info-list-column-list filter__extended-info-list-column-list-regions"></ul>
         </div>
       </div>
     </div>

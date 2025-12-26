@@ -71,10 +71,13 @@
         &-div {
           @include s.d-flex($direction: column);
           gap: 16px;
-          span {
-            font-weight: 400;
-            font-size: 14px;
-            color: #222;
+        }
+        &-hint {
+          font-weight: 400;
+          font-size: 14px;
+          color: #222;
+          &.is-hidden {
+            display: none !important;
           }
         }
         &-name {
@@ -158,6 +161,9 @@
       }
     }
   }
+  &-is-hidden {
+    display: none;
+  }
   @media (min-width: s.$media_768) {
     &-info {
       &-title {
@@ -191,6 +197,12 @@
       }
       &-list {
         @include s.d-flex($direction: row);
+      }
+      &-list-column-list-regions {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); 
+        row-gap: 12px; 
+        column-gap: 135px;
       }
     }
   }

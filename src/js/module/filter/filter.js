@@ -1,8 +1,36 @@
 import flatpickr from "flatpickr";
 import { Russian } from "flatpickr/dist/l10n/ru.js";
 import "flatpickr/dist/flatpickr.min.css";
+import { fetchTours } from "./axiosFilter";
+import sprite from "/img/sprite.svg";
 
 const filter = document.querySelector(".filter");
+
+const filtersState = {
+  destination: "",
+  days: null,
+  date: null,
+  guests: {
+    adults: null,
+    children: null,
+  },
+  category: [],
+  meals: [],
+  tourPackage: [],
+  departureCity: [],
+  price: {
+    min: null,
+    max: null,
+  },
+  regions: [],
+};
+
+const filterMap = {
+  "filter-destination": "destination",
+  "filter-days": "days",
+  "filter-date": "date",
+  "filter-guests": "guests",
+};
 
 if (filter) {
   /* ---------------- DATE ---------------- */
@@ -50,6 +78,11 @@ if (filter) {
   }
 
   selects.forEach((select) => {
+    const filterItem = select.closest(".filter__section-form-item");
+
+    const filterName = filterItem.dataset.name;
+    const stateKey = filterMap[filterName];
+
     const trigger = select.querySelector(
       ".filter__section-form-item-variant__trigger"
     );
@@ -74,6 +107,18 @@ if (filter) {
 
         valueSpan.textContent = item.textContent;
         hiddenInput.value = value;
+
+        filtersState[stateKey] = value || null;
+
+        if (stateKey === "destination") {
+          filtersState.regions = [];
+
+          if (renderRegions) {
+            renderRegions(value);
+          }
+        }
+
+        console.log(filtersState);
 
         select.classList.remove("is-open");
       });
@@ -174,67 +219,152 @@ if (searchButton) {
   });
 }
 
-const filterPrice = document.querySelector(".filter-price-list");
+// відкриття розшириного пошуку
+const extendedBtnOpen = document.querySelector(".filter__extended-btn");
+const extendedInfo = document.querySelector(".filter__extended-info");
 
-if (filterPrice) {
-  const slider = filterPrice.querySelector(".filter-price-slider");
-  const range = filterPrice.querySelector(".filter-price-range");
-  const leftThumb = filterPrice.querySelector(".filter-price-thumb.left");
-  const rightThumb = filterPrice.querySelector(".filter-price-thumb.right");
-  const minPriceEl = filterPrice.querySelector("#minPrice");
-  const maxPriceEl = filterPrice.querySelector("#maxPrice");
+if (extendedBtnOpen && extendedInfo) {
+  extendedBtnOpen.addEventListener("click", () => {
+    extendedBtnOpen.classList.add("filter__extended-is-hidden");
+    extendedInfo.classList.remove("filter__extended-is-hidden");
 
-  const min = 200;
-  const max = 3000;
+    initExtendedFilter();
+    initRegions();
+  });
 
-  let left = 200;
-  let right = 3000;
+  const extendedBtnClose = extendedInfo.querySelector(
+    ".filter__extended-info-title-close"
+  );
 
-  const priceToPercent = (p) => ((p - min) / (max - min)) * 100;
-  const percentToPrice = (p) => Math.round(min + (p / 100) * (max - min));
-
-  function update() {
-    const l = priceToPercent(left);
-    const r = priceToPercent(right);
-
-    leftThumb.style.left = `${l}%`;
-    rightThumb.style.left = `${r}%`;
-    range.style.left = `${l}%`;
-    range.style.right = `${100 - r}%`;
-
-    minPriceEl.textContent = `${left}€`;
-    maxPriceEl.textContent = `${right}€`;
+  if (extendedBtnClose) {
+    extendedBtnClose.addEventListener("click", () => {
+      extendedInfo.classList.add("filter__extended-is-hidden");
+      extendedBtnOpen.classList.remove("filter__extended-is-hidden");
+    });
   }
+}
 
-  function startDrag(e, isLeft) {
-    const rect = slider.getBoundingClientRect();
+// логіка з ціною
+function initExtendedFilter() {
+  const filterPrice = document.querySelector(".filter-price-list");
 
-    const move = (ev) => {
-      const x = ev.clientX;
-      let percent = ((x - rect.left) / rect.width) * 100;
-      percent = Math.max(0, Math.min(100, percent));
-      const price = percentToPrice(percent);
+  if (filterPrice) {
+    const slider = filterPrice.querySelector(".filter-price-slider");
+    const range = filterPrice.querySelector(".filter-price-range");
+    const leftThumb = filterPrice.querySelector(".filter-price-thumb.left");
+    const rightThumb = filterPrice.querySelector(".filter-price-thumb.right");
+    const minPriceEl = filterPrice.querySelector("#minPrice");
+    const maxPriceEl = filterPrice.querySelector("#maxPrice");
 
-      if (isLeft) {
-        left = Math.min(price, right);
-      } else {
-        right = Math.max(price, left);
-      }
+    const min = 200;
+    const max = 3000;
 
-      update();
-    };
+    let left = 200;
+    let right = 3000;
 
-    const stop = () => {
-      document.removeEventListener("mousemove", move);
-      document.removeEventListener("mouseup", stop);
-    };
+    const priceToPercent = (p) => ((p - min) / (max - min)) * 100;
+    const percentToPrice = (p) => Math.round(min + (p / 100) * (max - min));
 
-    document.addEventListener("mousemove", move);
-    document.addEventListener("mouseup", stop);
+    function update() {
+      const l = priceToPercent(left);
+      const r = priceToPercent(right);
+
+      leftThumb.style.left = `${l}%`;
+      rightThumb.style.left = `${r}%`;
+      range.style.left = `${l}%`;
+      range.style.right = `${100 - r}%`;
+
+      minPriceEl.textContent = `${left}€`;
+      maxPriceEl.textContent = `${right}€`;
+    }
+
+    function startDrag(e, isLeft) {
+      const rect = slider.getBoundingClientRect();
+
+      const move = (ev) => {
+        const x = ev.clientX;
+        let percent = ((x - rect.left) / rect.width) * 100;
+        percent = Math.max(0, Math.min(100, percent));
+        const price = percentToPrice(percent);
+
+        if (isLeft) {
+          left = Math.min(price, right);
+        } else {
+          right = Math.max(price, left);
+        }
+
+        update();
+      };
+
+      const stop = () => {
+        document.removeEventListener("mousemove", move);
+        document.removeEventListener("mouseup", stop);
+      };
+
+      document.addEventListener("mousemove", move);
+      document.addEventListener("mouseup", stop);
+    }
+
+    leftThumb.addEventListener("mousedown", (e) => startDrag(e, true));
+    rightThumb.addEventListener("mousedown", (e) => startDrag(e, false));
+
+    update();
   }
+}
+// логіка з регіонами
+let renderRegions = null;
+function initRegions() {
+  const regionsBlock = document.querySelector('[data-extended="regions"]');
+  if (!regionsBlock) return;
 
-  leftThumb.addEventListener("mousedown", (e) => startDrag(e, true));
-  rightThumb.addEventListener("mousedown", (e) => startDrag(e, false));
+  const regionsList = regionsBlock.querySelector(
+    ".filter__extended-info-list-column-list"
+  );
+  const regionsHint = regionsBlock.querySelector(
+    ".filter__extended-info-list-column-hint"
+  );
 
-  update();
+  let toursCache = [];
+
+  renderRegions = async function (destination) {
+    regionsList.innerHTML = "";
+
+    if (!destination) {
+      regionsHint.classList.remove("is-hidden");
+      regionsHint.textContent = "Выберите сначала направление";
+      return;
+    }
+
+    if (!toursCache.length) {
+      toursCache = await fetchTours();
+    }
+
+    const tour = toursCache.find((item) => item.destination === destination);
+
+    regionsHint.classList.add("is-hidden");
+
+    // tour.regions.forEach((region) => {
+    //   const li = document.createElement("li");
+    //   li.className = "filter__extended-info-list-column-list-item";
+    //   li.textContent = region;
+
+    //   regionsList.appendChild(li);
+    // });
+    const regionsHTML = tour.regions
+      .map(
+        (region) => `
+  <li class="filter__extended-info-list-column-list-item" data-regions="${region}">
+    <svg class="filter__extended-info-list-column-list-item-check">
+      <use href="${sprite}#icon-check-circle"></use>
+    </svg>
+    ${region}
+  </li>
+`
+      )
+      .join("");
+
+    regionsList.innerHTML = regionsHTML;
+  };
+
+  renderRegions(filtersState.destination);
 }
