@@ -221,7 +221,7 @@ if (searchButton) {
       const base = import.meta.env.BASE_URL;
       window.location.href = `${base}html/pages/searchPage.html`;
     } else {
-      // тут буде сама логіка
+      // тут буде логіка
     }
   });
 }
@@ -387,7 +387,6 @@ function initRegions() {
 
   renderRegions(filtersState.destination);
 }
-
 // можливість обирати декілька варівнтів в категорії
 function initExtendedFilter() {
   const columns = document.querySelectorAll(".filter__extended-categoties");
@@ -419,7 +418,86 @@ function initExtendedFilter() {
         item.classList.add("is-active");
       }
 
+      renderActiveFilters();
       console.log(filtersState);
     });
   });
+}
+// активні фільтри
+const activeFiltersContainer = document.querySelector(
+  ".filter__extended-info-active-filter"
+);
+
+const activeFiltersState = [
+  "category",
+  "meals",
+  "tourPackage",
+  "departureCity",
+  "regions",
+];
+const activeFiltersLabes = {
+  category: "Категория размещения",
+  meals: "Питание",
+  tourPackage: "Состав тура",
+  departureCity: "Вылет из",
+  regions: "Регионы",
+};
+const filterLabes = {
+  category: {
+    Budget: "2 звезды",
+    Economy: "3 звезды",
+    Standard: "4 звезды",
+    Comfort: "5 звезд",
+    Apartments: "Апартаменты",
+  },
+  meals: {
+    no_meals: "Без питания",
+    breakfast: "Завтрак",
+    breakfast_dinner: "Затрак и ужин",
+    full_board: "Завтрак, обед, ужин",
+    all_inclusive: "Всё включено",
+    ultra_all_inclusive: "Ультра: всё включено",
+  },
+  tourPackage: {
+    package: "Туристический пакет",
+    flight_only: "Только перелет",
+  },
+  departureCity: {
+    tallinn: "Таллин",
+    riga: "Рига",
+    vilnius: "Вильнюс",
+  },
+  regions: {},
+};
+
+function renderActiveFilters() {
+  if (!activeFiltersContainer) return;
+
+  activeFiltersContainer.innerHTML = "";
+
+  const html = activeFiltersState
+    .map((key) => {
+      const values = filtersState[key];
+      if (!Array.isArray(values) || values.length === 0) return "";
+
+      const listItems = values
+        .map((value) => `<li>${filterLabes[key]?.[value] || value}</li>`)
+        .join("");
+
+      return `
+        <div class="filter__extended-info-active-filter-item">
+          <span class="filter__extended-info-active-filter-item-title">
+            ${activeFiltersLabes[key]}:
+          </span>
+          <ul class="filter__extended-info-active-filter-item-values">
+            ${values
+              .map((value) => `<li>${filterLabes[key]?.[value] || value}</li>`)
+              .join("")}
+          </ul>
+        </div>
+      `;
+    })
+    .join("");
+
+  activeFiltersContainer.innerHTML = html;
 }

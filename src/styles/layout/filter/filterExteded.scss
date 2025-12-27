@@ -165,9 +165,37 @@
         color: #888;
       }
       &-filter {
-        font-weight: 400;
-        font-size: 14px;
-        color: #666;
+        @include s.d-flex($direction: row, $align: center, $wrap: wrap);
+        gap: 24px;
+
+        &-item {
+          @include s.d-flex($direction: row, $align: center);
+          gap: 8px;
+          &-title {
+            font-weight: 400;
+            font-size: 14px;
+            color: #666;
+          }
+          &-values {
+            @include s.d-flex($direction: row, $align: center);
+            gap: 8px;
+            li {
+              @include s.d-flex(
+                $direction: row,
+                $align: center,
+                $justify: center
+              );
+              padding: 2px 11px 4px 11px;
+
+              font-weight: 400;
+              font-size: 12px;
+
+              border: 1px solid #e2e2e2;
+              border-radius: 5px;
+              box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.1);
+            }
+          }
+        }
       }
     }
   }
