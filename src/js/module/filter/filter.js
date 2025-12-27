@@ -120,8 +120,6 @@ if (filter) {
           }
         }
 
-        console.log(filtersState);
-
         select.classList.remove("is-open");
       });
     });
@@ -221,7 +219,7 @@ if (searchButton) {
       const base = import.meta.env.BASE_URL;
       window.location.href = `${base}html/pages/searchPage.html`;
     } else {
-      // тут буде логіка
+      console.log(filtersState);
     }
   });
 }
@@ -347,6 +345,7 @@ function initRegions() {
 
   renderRegions = async function (destination) {
     regionsList.innerHTML = "";
+    renderActiveFilters();
 
     if (!destination) {
       regionsHint.classList.remove("is-hidden");
@@ -362,13 +361,6 @@ function initRegions() {
 
     regionsHint.classList.add("is-hidden");
 
-    // tour.regions.forEach((region) => {
-    //   const li = document.createElement("li");
-    //   li.className = "filter__extended-info-list-column-list-item";
-    //   li.textContent = region;
-
-    //   regionsList.appendChild(li);
-    // });
     const regionsHTML = tour.regions
       .map(
         (region) => `
@@ -419,7 +411,6 @@ function initExtendedFilter() {
       }
 
       renderActiveFilters();
-      console.log(filtersState);
     });
   });
 }
@@ -427,7 +418,6 @@ function initExtendedFilter() {
 const activeFiltersContainer = document.querySelector(
   ".filter__extended-info-active-filter"
 );
-
 const activeFiltersState = [
   "category",
   "meals",
@@ -469,7 +459,6 @@ const filterLabes = {
   },
   regions: {},
 };
-
 function renderActiveFilters() {
   if (!activeFiltersContainer) return;
 
