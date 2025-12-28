@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Направления</title>
     <script type="module" crossorigin src="/ClubTravel/assets/vendor-CYiRW1wK.js"></script>
-    <script type="module" crossorigin src="/ClubTravel/assets/main-CGTBHgen.js"></script>
+    <script type="module" crossorigin src="/ClubTravel/assets/main-DSe-j0-O.js"></script>
     <link rel="stylesheet" crossorigin href="/ClubTravel/assets/vendor-C74uRZlI.css">
-    <link rel="stylesheet" crossorigin href="/ClubTravel/assets/main-BEUx6JN3.css">
+    <link rel="stylesheet" crossorigin href="/ClubTravel/assets/main-BilRx-ks.css">
   </head>
   <body>
     <header class="header">
@@ -298,13 +298,13 @@
 		      </div>
 		    </div>
 		    <div class="filter__extended">
-		      <!-- <button class="filter__extended-btn">
+		      <button class="filter__extended-btn">
 		        <svg>
-		          <use href="/img/sprite.svg#icon-zoom"></use>
+		          <use href="/ClubTravel/assets/sprite-xjNdH9vZ.svg#icon-zoom"></use>
 		        </svg>
-		        Расширенный фильтр
-		      </button> -->
-		      <div class="filter__extended-info">
+		        Расширенный поиск
+		      </button>
+		      <div class="filter__extended-info filter__extended-is-hidden">
 		        <div class="filter__extended-info-title">
 		          <h2>Расширенный поиск</h2>
 		          <hr />
@@ -316,16 +316,20 @@
 		          </button>
 		        </div>
 		        <div class="filter__extended-info-list">
-		          <div class="filter__extended-info-list-column
-		          filter__extended-info-list-column-one">
-		            <div class="filter__extended-info-list-column-div">
+		          <div
+		            class="filter__extended-info-list-column filter__extended-info-list-column-one"
+		          >
+		            <div
+		              class="filter__extended-info-list-column-div filter__extended-categoties"
+		              data-extended="category"
+		            >
 		              <p class="filter__extended-info-list-column-name">
 		                Категория размещения
 		              </p>
 		              <ul class="filter__extended-info-list-column-list">
 		                <li
 		                  class="filter__extended-info-list-column-list-item"
-		                  data-category="Budget"
+		                  data-value="Budget"
 		                  title="Budget"
 		                >
 		                  <div class="filter__extended-info-list-column-list-item-stars">
@@ -340,7 +344,7 @@
 		                </li>
 		                <li
 		                  class="filter__extended-info-list-column-list-item"
-		                  data-category="Economy"
+		                  data-value="Economy"
 		                  title="Economy"
 		                >
 		                  <div class="filter__extended-info-list-column-list-item-stars">
@@ -358,7 +362,7 @@
 		                </li>
 		                <li
 		                  class="filter__extended-info-list-column-list-item"
-		                  data-category="Standard"
+		                  data-value="Standard"
 		                  title="Standard"
 		                >
 		                  <div class="filter__extended-info-list-column-list-item-stars">
@@ -379,7 +383,7 @@
 		                </li>
 		                <li
 		                  class="filter__extended-info-list-column-list-item"
-		                  data-category="Comfort"
+		                  data-value="Comfort"
 		                  title="Comfort"
 		                >
 		                  <div class="filter__extended-info-list-column-list-item-stars">
@@ -403,7 +407,7 @@
 		                </li>
 		                <li
 		                  class="filter__extended-info-list-column-list-item"
-		                  data-category="Apartments"
+		                  data-value="Apartments"
 		                  title="Apartments"
 		                >
 		                  <p class="filter__extended-info-list-column-list-item-app">
@@ -415,61 +419,68 @@
 		                </li>
 		              </ul>
 		            </div>
-		            <div class="filter__extended-info-list-column-div">
+		            <div
+		              class="filter__extended-info-list-column-div filter__extended-categoties"
+		              data-extended="meals"
+		            >
 		              <p class="filter__extended-info-list-column-name">Питание</p>
 		              <ul class="filter__extended-info-list-column-list">
-		                <li class="filter__extended-info-list-column-list-item" data-meal=no_meals>
+		                <li class="filter__extended-info-list-column-list-item" data-value=no_meals>
 		      <svg class="filter__extended-info-list-column-list-item-check">
 		        <use href="/ClubTravel/assets/sprite-xjNdH9vZ.svg#icon-check-circle"></use>
 		      </svg>
 		      Без питания
 		    </li>
-		     <li class="filter__extended-info-list-column-list-item" data-meal=breakfast>
+		     <li class="filter__extended-info-list-column-list-item" data-value=breakfast>
 		      <svg class="filter__extended-info-list-column-list-item-check">
 		        <use href="/ClubTravel/assets/sprite-xjNdH9vZ.svg#icon-check-circle"></use>
 		      </svg>
 		      Завтрак
 		    </li>
-		     <li class="filter__extended-info-list-column-list-item" data-meal=breakfast_dinner>
+		     <li class="filter__extended-info-list-column-list-item" data-value=breakfast_dinner>
 		      <svg class="filter__extended-info-list-column-list-item-check">
 		        <use href="/ClubTravel/assets/sprite-xjNdH9vZ.svg#icon-check-circle"></use>
 		      </svg>
 		      Затрак и ужин
 		    </li>
 		    
-		                <li class="filter__extended-info-list-column-list-item" data-meal=full_board>
+		                <li class="filter__extended-info-list-column-list-item" data-value=full_board>
 		      <svg class="filter__extended-info-list-column-list-item-check">
 		        <use href="/ClubTravel/assets/sprite-xjNdH9vZ.svg#icon-check-circle"></use>
 		      </svg>
 		      Завтрак, обед, ужин
 		    </li>
-		     <li class="filter__extended-info-list-column-list-item" data-meal=all_inclusive>
+		     <li class="filter__extended-info-list-column-list-item" data-value=all_inclusive>
 		      <svg class="filter__extended-info-list-column-list-item-check">
 		        <use href="/ClubTravel/assets/sprite-xjNdH9vZ.svg#icon-check-circle"></use>
 		      </svg>
 		      Всё включено
 		    </li>
-		     <li class="filter__extended-info-list-column-list-item" data-meal=ultra_all_inclusive>
+		     <li class="filter__extended-info-list-column-list-item" data-value=ultra_all_inclusive>
 		      <svg class="filter__extended-info-list-column-list-item-check">
 		        <use href="/ClubTravel/assets/sprite-xjNdH9vZ.svg#icon-check-circle"></use>
 		      </svg>
-		      Ультра: всё включено
+		      Ультра: всё
+		                включено
 		    </li>
 		    
 		              </ul>
 		            </div>
 		          </div>
 		          <div class="filter__extended-info-list-column">
-		            <div class="filter__extended-info-list-column-div">
+		            <div
+		              class="filter__extended-info-list-column-div filter__extended-categoties"
+		              data-extended="tourPackage"
+		            >
 		              <p class="filter__extended-info-list-column-name">Состав тура</p>
 		              <ul class="filter__extended-info-list-column-list">
-		                <li class="filter__extended-info-list-column-list-item" data-package=package>
+		                <li class="filter__extended-info-list-column-list-item" data-value=package>
 		      <svg class="filter__extended-info-list-column-list-item-check">
 		        <use href="/ClubTravel/assets/sprite-xjNdH9vZ.svg#icon-check-circle"></use>
 		      </svg>
 		      Туристический пакет
 		    </li>
-		     <li class="filter__extended-info-list-column-list-item" data-package=flight_only>
+		     <li class="filter__extended-info-list-column-list-item" data-value=flight_only>
 		      <svg class="filter__extended-info-list-column-list-item-check">
 		        <use href="/ClubTravel/assets/sprite-xjNdH9vZ.svg#icon-check-circle"></use>
 		      </svg>
@@ -478,22 +489,25 @@
 		    
 		              </ul>
 		            </div>
-		            <div class="filter__extended-info-list-column-div">
+		            <div
+		              class="filter__extended-info-list-column-div filter__extended-categoties"
+		              data-extended="departureCity"
+		            >
 		              <p class="filter__extended-info-list-column-name">Вылет из</p>
 		              <ul class="filter__extended-info-list-column-list">
-		                <li class="filter__extended-info-list-column-list-item" data-departure=tallinn>
+		                <li class="filter__extended-info-list-column-list-item" data-value=tallinn>
 		      <svg class="filter__extended-info-list-column-list-item-check">
 		        <use href="/ClubTravel/assets/sprite-xjNdH9vZ.svg#icon-check-circle"></use>
 		      </svg>
 		      Таллин
 		    </li>
-		     <li class="filter__extended-info-list-column-list-item" data-departure=riga>
+		     <li class="filter__extended-info-list-column-list-item" data-value=riga>
 		      <svg class="filter__extended-info-list-column-list-item-check">
 		        <use href="/ClubTravel/assets/sprite-xjNdH9vZ.svg#icon-check-circle"></use>
 		      </svg>
 		      Рига
 		    </li>
-		     <li class="filter__extended-info-list-column-list-item" data-departure=vilnius>
+		     <li class="filter__extended-info-list-column-list-item" data-value=vilnius>
 		      <svg class="filter__extended-info-list-column-list-item-check">
 		        <use href="/ClubTravel/assets/sprite-xjNdH9vZ.svg#icon-check-circle"></use>
 		      </svg>
@@ -506,7 +520,6 @@
 		              <p class="filter__extended-info-list-column-name">
 		                Цена на одного человека
 		              </p>
-		              <!-- <div class="filter__extended-info-list-column-list">Цена</div> -->
 		              <div class="filter__extended-info-list-column-list filter-price-list">
 		                <div class="slider filter-price-slider">
 		                  <div class="track filter-price-track"></div>
@@ -530,10 +543,17 @@
 		            </div>
 		          </div>
 		          <div class="filter__extended-info-list-column">
-		            <div class="filter__extended-info-list-column-div">
+		            <div
+		              class="filter__extended-info-list-column-div filter__extended-categoties"
+		              data-extended="regions"
+		            >
 		              <p class="filter__extended-info-list-column-name">Регион</p>
-		              <span> Выберите сначала направление </span>
-		              <ul class="filter__extended-info-list-column-list"></ul>
+		              <span class="filter__extended-info-list-column-hint">
+		                Выберите сначала направление
+		              </span>
+		              <ul
+		                class="filter__extended-info-list-column-list filter__extended-info-list-column-list-regions"
+		              ></ul>
 		            </div>
 		          </div>
 		        </div>
