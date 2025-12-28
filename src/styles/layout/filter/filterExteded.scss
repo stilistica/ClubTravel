@@ -62,19 +62,19 @@
     &-list {
       @include s.d-flex($direction: row, $wrap: wrap);
       gap: 42px;
-      &-column-one {
-        margin-right: 30px;
-      }
       &-column {
         @include s.d-flex($direction: column);
         gap: 32px;
         &-div {
           @include s.d-flex($direction: column);
           gap: 16px;
-          span {
-            font-weight: 400;
-            font-size: 14px;
-            color: #222;
+        }
+        &-hint {
+          font-weight: 400;
+          font-size: 14px;
+          color: #222;
+          &.is-hidden {
+            display: none !important;
           }
         }
         &-name {
@@ -137,6 +137,19 @@
                 fill: #f5c213;
               }
             }
+            &.is-active {
+              & .filter__extended-info-list-column-list-item-stars-star {
+                fill: #f5c213;
+              }
+              & .filter__extended-info-list-column-list-item-app {
+                svg {
+                  fill: #f5c213;
+                }
+              }
+              & .filter__extended-info-list-column-list-item-check {
+                fill: #f5c213;
+              }
+            }
           }
         }
       }
@@ -152,11 +165,42 @@
         color: #888;
       }
       &-filter {
-        font-weight: 400;
-        font-size: 14px;
-        color: #666;
+        @include s.d-flex($direction: row, $align: center, $wrap: wrap);
+        gap: 24px;
+
+        &-item {
+          @include s.d-flex($direction: row, $align: center);
+          gap: 8px;
+          &-title {
+            font-weight: 400;
+            font-size: 14px;
+            color: #666;
+          }
+          &-values {
+            @include s.d-flex($direction: row, $align: center);
+            gap: 8px;
+            li {
+              @include s.d-flex(
+                $direction: row,
+                $align: center,
+                $justify: center
+              );
+              padding: 2px 11px 4px 11px;
+
+              font-weight: 400;
+              font-size: 12px;
+
+              border: 1px solid #e2e2e2;
+              border-radius: 5px;
+              box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.1);
+            }
+          }
+        }
       }
     }
+  }
+  &-is-hidden {
+    display: none;
   }
   @media (min-width: s.$media_768) {
     &-info {
@@ -191,6 +235,15 @@
       }
       &-list {
         @include s.d-flex($direction: row);
+        &-column-one {
+          margin-right: 30px;
+        }
+      }
+      &-list-column-list-regions {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        row-gap: 12px;
+        column-gap: 135px;
       }
     }
   }
