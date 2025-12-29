@@ -32,6 +32,10 @@ const filterMap = {
   "filter-guests": "guests",
 };
 
+if (window.location.pathname.endsWith("searchPage.html")) {
+  loadFiltersFromUrl();
+}
+
 if (filter) {
   /* ---------------- DATE ---------------- */
   const dateInput = filter.querySelector(
@@ -43,29 +47,47 @@ if (filter) {
   const dateValue = filter.querySelector(
     ".filter__section-form-date__trigger-value"
   );
-  const picker = flatpickr(dateInput, {
-    locale: Russian,
-    minDate: "today",
-    dateFormat: "Y-m-d",
-    allowInput: false,
-
-    onChange(selectedDates) {
-      if (!selectedDates.length) return;
-
-      const date = selectedDates[0];
+  if (dateInput || dateTrigger || dateValue) {
+    // беремо значення з  URL, якщо є
+    if (filtersState.date) {
+      const date = new Date(filtersState.date);
       const day = date.getDate();
       const year = date.getFullYear();
       const month = date.toLocaleString("ru-RU", { month: "long" });
 
       dateValue.textContent = `${day} ${month} ${year}`;
+    }
+    // ----
+    const picker = flatpickr(dateInput, {
+      locale: Russian,
+      minDate: "today",
+      dateFormat: "Y-m-d",
+      allowInput: false,
 
-      filtersState.date = date.toISOString().split("T")[0];
-    },
-  });
+      onChange(selectedDates) {
+        if (!selectedDates.length) return;
 
-  dateTrigger.addEventListener("click", () => {
-    picker.open();
-  });
+        const date = selectedDates[0];
+        const day = date.getDate();
+        const year = date.getFullYear();
+        const month = date.toLocaleString("ru-RU", { month: "long" });
+
+        dateValue.textContent = `${day} ${month} ${year}`;
+
+        const y = date.getFullYear();
+        const m = String(date.getMonth() + 1).padStart(2, "0");
+        const d = String(date.getDate()).padStart(2, "0");
+
+        filtersState.date = `${y}-${m}-${d}`;
+
+        updateUrlFromFilters(filtersState);
+      },
+    });
+
+    dateTrigger.addEventListener("click", () => {
+      picker.open();
+    });
+  }
 
   /* ---------------- SELECTS ---------------- */
   const selects = filter.querySelectorAll(
@@ -92,10 +114,21 @@ if (filter) {
       ".filter__section-form-item-variant__dropdown"
     );
     const valueSpan = trigger.querySelector("span");
-    const hiddenInput = select.querySelector("input[type='hidden']");
 
-    if (!dropdown || !trigger || !valueSpan || !hiddenInput) return;
+    if (!dropdown || !trigger || !valueSpan) return;
+    // якщо є в Url
+    if (filtersState[stateKey] && typeof filtersState[stateKey] === "string") {
+      const selectedItem = Array.from(dropdown.querySelectorAll("li")).find(
+        (li) =>
+          (li.dataset.value ?? li.getAttribute("value")) ===
+          filtersState[stateKey]
+      );
 
+      if (selectedItem) {
+        valueSpan.textContent = selectedItem.textContent;
+      }
+    }
+    // ---
     trigger.addEventListener("click", (e) => {
       e.stopPropagation();
 
@@ -108,9 +141,9 @@ if (filter) {
         const value = item.dataset.value ?? item.getAttribute("value") ?? "";
 
         valueSpan.textContent = item.textContent;
-        hiddenInput.value = value;
 
         filtersState[stateKey] = value || null;
+        updateUrlFromFilters(filtersState);
 
         if (stateKey === "destination") {
           filtersState.regions = [];
@@ -139,14 +172,22 @@ if (filter) {
       ".filter__section-form-guests-variant__dropdown"
     );
     const valueSpan = trigger.querySelector("span");
-    const hiddenInput = guestsSelect.querySelector(
-      "input[name='filter-guests']"
-    );
 
     const adultsInput = dropdown.querySelector("input[name='filter-adults']");
     const childrenInput = dropdown.querySelector(
       "input[name='filter-children']"
     );
+
+    if (filtersState.guests.adults || filtersState.guests.children) {
+      const parts = [];
+      if (filtersState.guests.adults)
+        parts.push(`Взрослых: ${filtersState.guests.adults}`);
+      if (filtersState.guests.children)
+        parts.push(`детей: ${filtersState.guests.children}`);
+
+      valueSpan.textContent = parts.join("; ");
+    }
+
     const anyOption = dropdown.querySelector("li"); // перший li — "Любое к-ство"
     const guestRows = dropdown.querySelectorAll("li > div"); // ряди з input
 
@@ -165,9 +206,9 @@ if (filter) {
       adultsInput.value = "";
       childrenInput.value = "";
       valueSpan.textContent = "Любое к-ство";
-      // hiddenInput.value = "";
       filtersState.guests.adults = null;
       filtersState.guests.children = null;
+      updateUrlFromFilters(filtersState);
       guestsSelect.classList.remove("is-open");
     });
 
@@ -178,7 +219,6 @@ if (filter) {
 
       if (!adults && !children) {
         valueSpan.textContent = "Любое к-ство";
-        hiddenInput.value = "";
         return;
       }
 
@@ -187,10 +227,10 @@ if (filter) {
       if (children) parts.push(`детей: ${children}`);
 
       valueSpan.textContent = parts.join("; ");
-      // hiddenInput.value = JSON.stringify({ adults, children });
 
       filtersState.guests.adults = adults;
       filtersState.guests.children = children;
+      updateUrlFromFilters(filtersState);
     }
 
     adultsInput.addEventListener("input", updateGuestsValue);
@@ -226,8 +266,10 @@ if (searchButton) {
     const hotels = response.data;
     const filteredHotels = filterHotels(hotels, filtersState);
 
+    updateUrlFromFilters(filtersState);
+
     console.log(filteredHotels);
-    console.log(response);
+    // console.log(response);
   });
 }
 // загальна фунція фільрації
@@ -242,7 +284,10 @@ function filterHotels(hotels, filters) {
     }
 
     // days
-    if (filters.days !== null && hotel.tour_option?.days !== Number(filters.days)) {
+    if (
+      filters.days !== null &&
+      hotel.tour_option?.days !== Number(filters.days)
+    ) {
       return false;
     }
 
@@ -308,7 +353,10 @@ function filterHotels(hotels, filters) {
     }
 
     // departureCity
-    if (filters.departureCity.length && !filters.departureCity.includes(hotel.tour_option?.departureCity)) {
+    if (
+      filters.departureCity.length &&
+      !filters.departureCity.includes(hotel.tour_option?.departureCity)
+    ) {
       return false;
     }
 
@@ -365,6 +413,10 @@ function initPriceExtended() {
     let left = 200;
     let right = 3000;
 
+    // якщо є значення в URL
+    if (filtersState.price.min !== null) left = filtersState.price.min;
+    if (filtersState.price.max !== null) right = filtersState.price.max;
+    // ---
     const priceToPercent = (p) => ((p - min) / (max - min)) * 100;
     const percentToPrice = (p) => Math.round(min + (p / 100) * (max - min));
 
@@ -422,6 +474,7 @@ function initPriceExtended() {
         filtersState.price.min = left;
         filtersState.price.max = right;
       }
+      updateUrlFromFilters(filtersState);
     }
   }
 }
@@ -472,6 +525,16 @@ function initRegions() {
       .join("");
 
     regionsList.innerHTML = regionsHTML;
+    
+    // якщо в url є регіони
+    const selectedRegions = filtersState.regions || [];
+    regionsList
+      .querySelectorAll(".filter__extended-info-list-column-list-item")
+      .forEach((item) => {
+        if (selectedRegions.includes(item.dataset.value)) {
+          item.classList.add("is-active");
+        }
+      });
   };
 
   renderRegions(filtersState.destination);
@@ -487,7 +550,16 @@ function initExtendedFilter() {
     );
 
     if (!list) return;
-
+    // якщо є дані в url
+    const initialValues = filtersState[key] || [];
+    list
+      .querySelectorAll(".filter__extended-info-list-column-list-item")
+      .forEach((item) => {
+        if (initialValues.includes(item.dataset.value)) {
+          item.classList.add("is-active");
+        }
+      });
+    // ---
     list.addEventListener("click", (e) => {
       const item = e.target.closest(
         ".filter__extended-info-list-column-list-item"
@@ -506,6 +578,7 @@ function initExtendedFilter() {
         filtersState[key].push(value);
         item.classList.add("is-active");
       }
+      updateUrlFromFilters(filtersState);
 
       renderActiveFilters();
     });
@@ -586,4 +659,60 @@ function renderActiveFilters() {
     .join("");
 
   activeFiltersContainer.innerHTML = html;
+}
+
+// операція з параметрами в url
+function updateUrlFromFilters(filters) {
+  const params = new URLSearchParams();
+  if (filters.destination) params.set("destination", filters.destination);
+  if (filters.days) params.set("days", filters.days);
+  if (filters.date) params.set("date", filters.date);
+
+  if (filters.guests.adults !== null)
+    params.set("adults", filters.guests.adults);
+  if (filters.guests.children !== null)
+    params.set("children", filters.guests.children);
+
+  ["category", "meals", "tourPackage", "departureCity", "regions"].forEach(
+    (key) => {
+      if (filters[key].length) {
+        params.set(key, filters[key].join(","));
+      }
+    }
+  );
+
+  if (filters.price.min !== null) params.set("priceMin", filters.price.min);
+  if (filters.price.max !== null) params.set("priceMax", filters.price.max);
+
+  const newUrl = `${window.location.pathname}?${params.toString()}`;
+  window.history.replaceState({}, "", newUrl);
+}
+
+function loadFiltersFromUrl() {
+  const params = new URLSearchParams(window.location.search);
+
+  filtersState.destination = params.get("destination") || "";
+  filtersState.days = params.get("days");
+  filtersState.date = params.get("date");
+
+  filtersState.guests.adults = params.get("adults")
+    ? Number(params.get("adults"))
+    : null;
+  filtersState.guests.children = params.get("children")
+    ? Number(params.get("children"))
+    : null;
+
+  ["category", "meals", "tourPackage", "departureCity", "regions"].forEach(
+    (key) => {
+      const value = params.get(key);
+      filtersState[key] = value ? value.split(",") : [];
+    }
+  );
+
+  filtersState.price.min = params.get("priceMin")
+    ? Number(params.get("priceMin"))
+    : null;
+  filtersState.price.max = params.get("priceMax")
+    ? Number(params.get("priceMax"))
+    : null;
 }
