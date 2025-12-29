@@ -33,7 +33,20 @@ const filterMap = {
 };
 
 if (window.location.pathname.endsWith("searchPage.html")) {
-  loadFiltersFromUrl();
+  const params = new URLSearchParams(window.localStorage.search);
+
+  if ([...params.keys()].length) {
+    loadFiltersFromUrl();
+  } else {
+    // local
+    const storedFilters = localStorage.getItem("filtersState");
+    if (storedFilters) {
+      Object.assign(filtersState, JSON.parse(storedFilters));
+    }
+    updateUrlFromFilters(filtersState);
+  }
+} else {
+  localStorage.removeItem("filtersState");
 }
 
 if (filter) {
@@ -81,6 +94,7 @@ if (filter) {
         filtersState.date = `${y}-${m}-${d}`;
 
         updateUrlFromFilters(filtersState);
+        saveFiltersToStorage(); // local
       },
     });
 
@@ -144,6 +158,7 @@ if (filter) {
 
         filtersState[stateKey] = value || null;
         updateUrlFromFilters(filtersState);
+        saveFiltersToStorage(); // local
 
         if (stateKey === "destination") {
           filtersState.regions = [];
@@ -209,6 +224,7 @@ if (filter) {
       filtersState.guests.adults = null;
       filtersState.guests.children = null;
       updateUrlFromFilters(filtersState);
+      saveFiltersToStorage(); // local
       guestsSelect.classList.remove("is-open");
     });
 
@@ -231,6 +247,7 @@ if (filter) {
       filtersState.guests.adults = adults;
       filtersState.guests.children = children;
       updateUrlFromFilters(filtersState);
+      saveFiltersToStorage(); // local
     }
 
     adultsInput.addEventListener("input", updateGuestsValue);
@@ -253,6 +270,8 @@ const searchButton = document.querySelector(".button-form-search-link");
 if (searchButton) {
   searchButton.addEventListener("click", async (e) => {
     e.preventDefault();
+
+    saveFiltersToStorage(); // local
 
     const isSearchPage = window.location.pathname.endsWith("searchPage.html");
 
@@ -475,6 +494,7 @@ function initPriceExtended() {
         filtersState.price.max = right;
       }
       updateUrlFromFilters(filtersState);
+      saveFiltersToStorage(); // local
     }
   }
 }
@@ -525,7 +545,7 @@ function initRegions() {
       .join("");
 
     regionsList.innerHTML = regionsHTML;
-    
+
     // якщо в url є регіони
     const selectedRegions = filtersState.regions || [];
     regionsList
@@ -579,6 +599,7 @@ function initExtendedFilter() {
         item.classList.add("is-active");
       }
       updateUrlFromFilters(filtersState);
+      saveFiltersToStorage(); // local
 
       renderActiveFilters();
     });
@@ -715,4 +736,9 @@ function loadFiltersFromUrl() {
   filtersState.price.max = params.get("priceMax")
     ? Number(params.get("priceMax"))
     : null;
+}
+
+// local
+function saveFiltersToStorage() {
+  localStorage.setItem("filtersState", JSON.stringify(filtersState));
 }
