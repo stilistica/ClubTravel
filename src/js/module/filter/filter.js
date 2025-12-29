@@ -1,7 +1,7 @@
 import flatpickr from "flatpickr";
 import { Russian } from "flatpickr/dist/l10n/ru.js";
 import "flatpickr/dist/flatpickr.min.css";
-import { fetchTours } from "./axiosFilter";
+import { fetchTours, fetchHotels } from "./axiosFilter";
 import sprite from "/img/sprite.svg";
 
 const filter = document.querySelector(".filter");
@@ -207,10 +207,11 @@ if (filter) {
   }
 }
 
+// кнопка НАЙТИ
 const searchButton = document.querySelector(".button-form-search-link");
 
 if (searchButton) {
-  searchButton.addEventListener("click", (e) => {
+  searchButton.addEventListener("click", async (e) => {
     e.preventDefault();
 
     const isSearchPage = window.location.pathname.endsWith("searchPage.html");
@@ -218,9 +219,105 @@ if (searchButton) {
     if (!isSearchPage) {
       const base = import.meta.env.BASE_URL;
       window.location.href = `${base}html/pages/searchPage.html`;
-    } else {
-      console.log(filtersState);
+      return;
     }
+
+    const response = await fetchHotels();
+    const hotels = response.data;
+    const filteredHotels = filterHotels(hotels, filtersState);
+
+    console.log(filteredHotels);
+    console.log(response);
+  });
+}
+// загальна фунція фільрації
+function filterHotels(hotels, filters) {
+  return hotels.filter((hotel) => {
+    // destination
+    if (
+      filters.destination &&
+      hotel.tour?.destination !== filters.destination
+    ) {
+      return false;
+    }
+
+    // days
+    if (filters.days !== null && hotel.tour_option?.days !== Number(filters.days)) {
+      return false;
+    }
+
+    // date
+    if (filters.date) {
+      const selected = new Date(filters.date);
+      const start = new Date(hotel.tour_option?.startDate);
+      const end = new Date(hotel.tour_option?.endDate);
+      if (selected < start || selected > end) {
+        return false;
+      }
+    }
+
+    // guests
+    if (filters.guests.adults !== null) {
+      if (hotel.tour_option?.adults < filters.guests.adults) {
+        return false;
+      }
+    }
+    if (filters.guests.children !== null) {
+      if (hotel.tour_option?.children < filters.guests.children) {
+        return false;
+      }
+    }
+    // hotel_oprions
+    const optionFiltersUsed =
+      filters.meals.length ||
+      filters.tourPackage.length ||
+      filters.price.min !== null ||
+      filters.price.max !== null;
+
+    if (optionFiltersUsed) {
+      const optionMatch = hotel.hotel_options?.some((option) => {
+        // meals
+        if (filters.meals.length && !filters.meals.includes(option.meals)) {
+          return false;
+        }
+
+        // tourPackage
+        if (
+          filters.tourPackage.length &&
+          !filters.tourPackage.includes(option.tourPackage)
+        ) {
+          return false;
+        }
+
+        // price
+        if (filters.price.min !== null && option.price < filters.price.min) {
+          return false;
+        }
+        if (filters.price.max !== null && option.price > filters.price.max) {
+          return false;
+        }
+
+        return true;
+      });
+      if (!optionMatch) return false;
+    }
+
+    // category
+    if (filters.category.length && !filters.category.includes(hotel.category)) {
+      return false;
+    }
+
+    // departureCity
+    if (filters.departureCity.length && !filters.departureCity.includes(hotel.tour_option?.departureCity)) {
+      return false;
+    }
+
+    // regions
+    if (filters.regions.length && !filters.regions.includes(hotel.region)) {
+      return false;
+    }
+
+    return true;
   });
 }
 
