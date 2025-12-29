@@ -233,4 +233,14 @@
       margin-bottom: 8px;
     }
   }
+
+  .is-error {
+    border-color: #ff3b30;
+  }
+
+  .login__error {
+    color: #ff3b30;
+    font-size: 16px;
+    margin-top: 4px;
+  }
 }

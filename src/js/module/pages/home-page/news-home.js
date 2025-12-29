@@ -27,7 +27,7 @@ function renderNewsHome(items) {
   items.forEach((item) => {
     const { title, price, date, images } = item;
 
-    const imageUrl = images?.url ? `http://localhost:1337${images.url}` : "";
+    const imageUrl = images?.url ;
 
     const slide = document.createElement("div");
     slide.className = "swiper-slide";

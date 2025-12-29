@@ -17,6 +17,9 @@ import "./module/pages/accountPage/accountOrders.js";
 // filter section
 import "./module/filter/filter.js";
 
+// newsPage
+import "./module/newsPage/news-section.js";
+
 // SwiperNewsHome
 import "./module/pages/home-page/news-home.js";
 import "./module/swiperNewHome/swiperNews.js";
