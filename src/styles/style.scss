@@ -25,6 +25,12 @@
 //homePage
 @use "./homepage/news-home.scss" as *;
 
+// newsPage
+@use "./newsPage/news-section.scss" as *;
+
+// directionsSection
+@use "./directionsSection/direction.scss" as *;
+
 // contactsPage
 @use "./layout/contactspage/contactssection.scss" as *;
 
