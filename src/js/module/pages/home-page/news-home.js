@@ -1,3 +1,5 @@
+import sprite from "/img/sprite.svg";
+
 function createNewsHomeSwiper() {
   const sliderWrapper = document.querySelector(".news-home__slider-wrapper");
   if (!sliderWrapper) return null;
@@ -48,7 +50,7 @@ function renderNewsHome(items) {
               ? `
               <div class="news-home__date-wrapper">
                 <svg width="16" height="16">
-                  <use href="./img/sprite.svg#icon-clock"></use>
+                  <use href="${sprite}#icon-clock"></use>
                 </svg>
                 <p>${formatDate(date)}</p>
               </div>

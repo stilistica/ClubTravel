@@ -1,7 +1,7 @@
 import flatpickr from "flatpickr";
 import { Russian } from "flatpickr/dist/l10n/ru.js";
 import "flatpickr/dist/flatpickr.min.css";
-import { fetchTours, fetchHotels } from "./axiosFilter";
+import { fetchTours, fetchHotels } from "../api/filter.js";
 import sprite from "/img/sprite.svg";
 
 const filter = document.querySelector(".filter");
@@ -47,6 +47,7 @@ if (window.location.pathname.endsWith("searchPage.html")) {
   }
 } else {
   localStorage.removeItem("filtersState");
+  window.history.replaceState({}, "", window.location.pathname);
 }
 
 if (filter) {
