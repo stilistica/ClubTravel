@@ -1,0 +1,47 @@
+@use "../basic/globals.scss" as s;
+
+.news-page {
+  padding: 50px 0 112px;
+  @media (min-width: s.$media_1366) {
+    padding: 60px 0 105px;
+  }
+
+  &__container {
+    padding: 0 20px;
+    @media (min-width: s.$media_1366) {
+      padding: 0 88px 0 93px;
+    }
+  }
+
+  &__title-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 26px;
+    @media (min-width: s.$media_1366) {
+      flex-direction: row;
+      justify-content: center;
+      gap: 4px;
+      margin-bottom: 0;
+    }
+
+    svg {
+      fill: #f15d28;
+      margin-bottom: 9px;
+      @media (min-width: s.$media_1366) {
+        margin-bottom: 39px;
+      }
+    }
+  }
+
+  &__slider-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    @media (min-width: s.$media_1366) {
+      gap: 21px 22px;
+    }
+  }
+}
