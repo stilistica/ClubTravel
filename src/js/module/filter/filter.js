@@ -1,7 +1,7 @@
 import flatpickr from "flatpickr";
 import { Russian } from "flatpickr/dist/l10n/ru.js";
 import "flatpickr/dist/flatpickr.min.css";
-import { fetchTours, fetchHotels } from "../api/filter.js";
+import { fetchTours, fetchHotels } from "../api/hotels.js";
 import sprite from "/img/sprite.svg";
 
 const filter = document.querySelector(".filter");
