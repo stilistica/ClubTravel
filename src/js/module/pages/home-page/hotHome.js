@@ -61,8 +61,8 @@ if (containerHotPageSwiper) {
     const map = {
       Budget: 2,
       Economy: 3,
-      Comfort: 4,
-      Premium: 5,
+      Standard: 4,
+      Comfort: 5,
     };
     const stars = map[category];
     if (!stars) return "";
@@ -96,8 +96,9 @@ if (containerHotPageSwiper) {
         <div class="hothome__slider-swiper-item swiper-slide">
           <div class="hothome__slider-swiper-item-one">
             <img src="${img}" alt="${name}" />
+            <div class="hothome__slider-swiper-item-one-list">
             <div
-              class="hothome__slider-swiper-item-one-item hothome__slider-swiper-item-one-date"
+              class="hothome__slider-swiper-item-one-list-item hothome__slider-swiper-item-one-list-date"
             >
               <svg>
                 <use href="${sprite}#icon-clock"></use>
@@ -105,12 +106,13 @@ if (containerHotPageSwiper) {
               <p>${date}</p>
             </div>
             <div
-              class="hothome__slider-swiper-item-one-item hothome__slider-swiper-item-one-place"
+              class="hothome__slider-swiper-item-one-list-item hothome__slider-swiper-item-one-list-place"
             >
               <svg>
                 <use href="${sprite}#icon-point"></use>
               </svg>
               <p>${destination}, ${region}</p>
+            </div>
             </div>
           </div>
           <div class="hothome__slider-swiper-item-two">
@@ -119,14 +121,16 @@ if (containerHotPageSwiper) {
               <div class="hothome__slider-swiper-item-two-info-categories">${category}</div>
             </div>
             <div class="hothome__slider-swiper-item-two-price">
-              <p>${newPrice}€/чел</p>
-              <span>${oldPrice}€/чел</span>
+              <p class="hothome__slider-swiper-item-two-price-new"><span>${newPrice}</span>€/чел</p>
+              <span class="hothome__slider-swiper-item-two-price-old">${oldPrice}€/чел</span>
             </div>
-            <div class="hothome__slider-swiper-item-two-glag">
+            <div class="hothome__slider-swiper-item-two-flag">
+              <div>
               <svg>
                 <use href="${sprite}#icon-flag"></use>
               </svg>
 							<p>-30%</p>
+              </div>
             </div>
           </div>
         </div>
@@ -165,7 +169,7 @@ if (containerHotPageSwiper) {
         spaceBetween: 28,
       },
       1920: {
-        slidesPerView: 3,
+        slidesPerView: 4,
         spaceBetween: 31,
       },
     },

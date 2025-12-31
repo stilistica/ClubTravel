@@ -1,0 +1,211 @@
+@use "../../basic/globals.scss" as s;
+
+.hothome {
+  padding: 0 81px 100px 93px;
+  @include s.d-flex($direction: column);
+  gap: 40px;
+  &__title {
+    @include s.d-flex($direction: column, $align: center);
+    gap: 17px;
+    h1 {
+      margin-right: 18px;
+      @include s.d-flex($direction: row, $align: center);
+      gap: 8px;
+
+      font-weight: 700;
+      font-size: 26px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: s.$color__red;
+      svg {
+        width: 40px;
+        height: 35px;
+        fill: s.$color__red;
+      }
+    }
+    p {
+      font-weight: 400;
+      font-size: 14px;
+      letter-spacing: 0.04em;
+
+      color: #888;
+    }
+  }
+  &__slider {
+    position: relative;
+    &-buttons {
+      width: 100%;
+      position: absolute;
+      top: 50%;
+      @include s.d-flex($direction: row, $align: center);
+
+      button {
+        @include s.d-flex($direction: row, $align: center, $justify: center);
+
+        width: 48px;
+        height: 48px;
+        border-radius: 100%;
+        background: #3e773920;
+        border: none;
+        svg {
+          width: 32px;
+          height: 32px;
+          fill: #3e7739;
+          opacity: 0.5;
+
+          transition: opacity 0.5s ease;
+        }
+        &:hover {
+          svg {
+            opacity: 1;
+          }
+        }
+      }
+      &-prev {
+        position: absolute;
+        left: -83px;
+      }
+      &-next {
+        transform: scaleX(-1);
+        position: absolute;
+        right: -71px;
+      }
+    }
+    &-swiper {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      &-item {
+        @include s.d-flex($direction: column);
+        box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
+        background: s.$color__white;
+        border-radius: 10px;
+        margin-bottom: 11px;
+
+        overflow: hidden;
+        &-one {
+          position: relative;
+          max-height: 250px;
+          img {
+            width: 100%;
+            max-height: 250px;
+          }
+          &-list {
+            position: absolute;
+            left: 14px;
+            bottom: 14px;
+
+            @include s.d-flex($direction: column, $align: flex-start);
+            gap: 8px;
+
+            &-item {
+              padding: 6px 8px 7px 8px;
+              @include s.d-flex($direction: row, $align: center);
+              gap: 6px;
+
+              background: #0000007e;
+              border-radius: 5px / 9px;
+              svg {
+                width: 14px;
+                height: 14px;
+                fill: s.$color__white;
+              }
+              p {
+                color: s.$color__white;
+                font-weight: 400;
+                font-size: 14px;
+              }
+            }
+          }
+        }
+        &-two {
+          padding: 16px 16px 22px 16px;
+          position: relative;
+          @include s.d-flex($direction: column);
+          gap: 21px;
+
+          &-info {
+            @include s.d-flex(
+              $direction: row,
+              $align: center,
+              $justify: space-between
+            );
+            &-name {
+              font-weight: 400;
+              font-size: 16px;
+            }
+            &-categories {
+              svg {
+                fill: #f5c213;
+              }
+            }
+          }
+          &-price {
+            @include s.d-flex($direction: row, $align: end);
+            gap: 8px;
+            &-new {
+              font-weight: 400;
+              font-size: 16px;
+              span {
+                font-weight: 700;
+                color: s.$color__black;
+              }
+            }
+            &-old {
+              font-weight: 400;
+              font-size: 14px;
+              text-decoration: line-through;
+              color: #bfbfbf;
+            }
+          }
+          &-flag {
+            position: absolute;
+            bottom: 10px;
+            right: 0;
+            div {
+              position: relative;
+              svg {
+                width: 83px;
+                height: 31px;
+              }
+              p {
+                position: absolute;
+                top: 5px;
+                left: 24px;
+                z-index: 2;
+                font-weight: 700;
+                font-size: 16px;
+                color: s.$color__white;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  &__link {
+    margin: 1px auto 0 auto;
+    @include s.d-flex($direction: row, $align: center);
+    gap: 8px;
+
+    font-weight: 400;
+    font-size: 16px;
+    color: #555;
+
+		transition: color 0.5s ease;
+    svg {
+      width: 24px;
+      height: 24px;
+      fill: s.$color__primary;
+
+			transition: fill 0.5s ease;
+    }
+		&:hover {
+			color: s.$color__text;
+			svg {
+				fill: s.$color__red;
+			}
+		} 
+  }
+	
+}
