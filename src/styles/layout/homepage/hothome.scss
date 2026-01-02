@@ -213,11 +213,9 @@
     }
   }
   @media (min-width: s.$media_768) {
-    // padding: 0 81px 100px 93px;
     padding: 0 30px 80px 30px;
     &__title {
       h1 {
-        // margin-right: 18px;
         @include s.d-flex($direction: row, $align: center);
         gap: 8px;
 
@@ -232,16 +230,10 @@
       &-buttons {
         top: 50%;
 
-        button {
-          background: #3e773920;
-          box-shadow: none;
-        }
         &-prev {
-          // left: -83px;
           left: 10px;
         }
         &-next {
-          // right: -71px;
           right: 10px;
         }
       }
@@ -259,6 +251,10 @@
     }
     &__slider {
       &-buttons {
+        button {
+          background: #3e773945;
+          box-shadow: none;
+        }
         &-prev {
           left: -83px;
         }
@@ -268,11 +264,7 @@
       }
     }
     &__link {
-      margin: 2px auto 0 auto;
+      margin: 3px auto 0 auto;
     }
   }
-  // @media (min-width: s.$media_1440) {
-  // }
-  // @media (min-width: s.$media_1920) {
-  // }
 }
