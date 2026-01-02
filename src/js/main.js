@@ -20,9 +20,13 @@ import "./module/filter/filter.js";
 // newsPage
 import "./module/newsPage/news-section.js";
 
+// homePage
 // SwiperNewsHome
 import "./module/pages/home-page/news-home.js";
 import "./module/swiperNewHome/swiperNews.js";
+// hotHome
+import "./module/pages/home-page/hotHome.js";
+
 
 import "./module/pages/auth/login.js";
 import "./module/pages/auth/register.js";

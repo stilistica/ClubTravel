@@ -55,10 +55,11 @@
     font-size: 14px;
     text-align: center;
     color: #888;
-    padding-bottom: 50px;
+    padding-bottom: 55px;
     width: 316px;
     @media (min-width: s.$media_1366) {
       display: none;
+      padding-bottom: 50px;
     }
   }
 
@@ -68,6 +69,7 @@
     margin-bottom: 49px;
     @media (min-width: s.$media_1366) {
       padding: 0;
+      margin-bottom: 43px;
     }
   }
 
