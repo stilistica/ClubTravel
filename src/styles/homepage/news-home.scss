@@ -55,20 +55,21 @@
     font-size: 14px;
     text-align: center;
     color: #888;
-    padding-bottom: 50px;
+    padding-bottom: 55px;
     width: 316px;
     @media (min-width: s.$media_1366) {
       display: none;
+      padding-bottom: 50px;
     }
   }
 
   &__slider-wrapper {
     position: relative;
     padding: 0 9px 0 10px;
-    // margin-bottom: 49px;
-    margin-bottom: 43px;
+    margin-bottom: 49px;
     @media (min-width: s.$media_1366) {
       padding: 0;
+      margin-bottom: 43px;
     }
   }
 
