@@ -1,21 +1,22 @@
 @use "../../basic/globals.scss" as s;
 
 .hothome {
-  padding: 0 81px 100px 93px;
+  padding: 0 8px 80px 12px;
   @include s.d-flex($direction: column);
   gap: 40px;
   &__title {
     @include s.d-flex($direction: column, $align: center);
     gap: 17px;
     h1 {
-      margin-right: 18px;
-      @include s.d-flex($direction: row, $align: center);
-      gap: 8px;
+      @include s.d-flex($direction: column, $align: center);
+      gap: 11px;
 
       font-weight: 700;
       font-size: 26px;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.02em;
+      line-height: 1.3;
       text-transform: uppercase;
+      text-align: center;
       color: s.$color__red;
       svg {
         width: 40px;
@@ -27,7 +28,8 @@
       font-weight: 400;
       font-size: 14px;
       letter-spacing: 0.04em;
-
+      text-align: center;
+      line-height: 1.3;
       color: #888;
     }
   }
@@ -36,17 +38,20 @@
     &-buttons {
       width: 100%;
       position: absolute;
-      top: 50%;
+      top: 34%;
       @include s.d-flex($direction: row, $align: center);
 
       button {
+        z-index: 2;
         @include s.d-flex($direction: row, $align: center, $justify: center);
 
         width: 48px;
         height: 48px;
         border-radius: 100%;
-        background: #3e773920;
         border: none;
+
+        background: #fff;
+        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
         svg {
           width: 32px;
           height: 32px;
@@ -63,12 +68,12 @@
       }
       &-prev {
         position: absolute;
-        left: -83px;
+        left: 10px;
       }
       &-next {
         transform: scaleX(-1);
         position: absolute;
-        right: -71px;
+        right: 10px;
       }
     }
     &-swiper {
@@ -184,7 +189,7 @@
     }
   }
   &__link {
-    margin: 1px auto 0 auto;
+    margin: -11px auto 0 auto;
     @include s.d-flex($direction: row, $align: center);
     gap: 8px;
 
@@ -192,20 +197,82 @@
     font-size: 16px;
     color: #555;
 
-		transition: color 0.5s ease;
+    transition: color 0.5s ease;
     svg {
       width: 24px;
       height: 24px;
       fill: s.$color__primary;
 
-			transition: fill 0.5s ease;
+      transition: fill 0.5s ease;
     }
-		&:hover {
-			color: s.$color__text;
-			svg {
-				fill: s.$color__red;
-			}
-		} 
+    &:hover {
+      color: s.$color__text;
+      svg {
+        fill: s.$color__red;
+      }
+    }
   }
-	
+  @media (min-width: s.$media_768) {
+    // padding: 0 81px 100px 93px;
+    padding: 0 30px 80px 30px;
+    &__title {
+      h1 {
+        // margin-right: 18px;
+        @include s.d-flex($direction: row, $align: center);
+        gap: 8px;
+
+        letter-spacing: 0.06em;
+        line-height: 1;
+      }
+      p {
+        line-height: 1;
+      }
+    }
+    &__slider {
+      &-buttons {
+        top: 50%;
+
+        button {
+          background: #3e773920;
+          box-shadow: none;
+        }
+        &-prev {
+          // left: -83px;
+          left: 10px;
+        }
+        &-next {
+          // right: -71px;
+          right: 10px;
+        }
+      }
+    }
+    &__link {
+      margin: 1px auto 0 auto;
+    }
+  }
+  @media (min-width: s.$media_1366) {
+    padding: 0 81px 100px 93px;
+    &__title {
+      h1 {
+        margin-right: 18px;
+      }
+    }
+    &__slider {
+      &-buttons {
+        &-prev {
+          left: -83px;
+        }
+        &-next {
+          right: -71px;
+        }
+      }
+    }
+    &__link {
+      margin: 2px auto 0 auto;
+    }
+  }
+  // @media (min-width: s.$media_1440) {
+  // }
+  // @media (min-width: s.$media_1920) {
+  // }
 }

@@ -12,7 +12,6 @@ const containerHotPageSwiper = document.querySelector(
 
 if (containerHotPageSwiper) {
   const hotels = await fetchHotHotels();
-
   // форматування дати
   function formatDate(dateString) {
     if (!dateString) return "";
@@ -154,6 +153,10 @@ if (containerHotPageSwiper) {
     breakpoints: {
       0: {
         slidesPerView: 1,
+        spaceBetween: 20,
+      },
+      620: {
+        slidesPerView: 2,
         spaceBetween: 20,
       },
       768: {
