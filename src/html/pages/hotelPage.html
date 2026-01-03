@@ -8,12 +8,14 @@
   </head>
   <body>
     {{> header }}
-    {{> heroHotel}}
+    {{> heroBase class="herobase"}}
     {{> infoHotel}}
     {{> moreHotel}}
     {{> footer}}
 
-        <a href="{{link 'index.html'}}">First page</a>
+     {{> mobile-menu}}
+
+    <!-- <a href="{{link 'index.html'}}">First page</a> -->
     <script type="module" src="/js/main.js"></script>
   </body>
 </html>

@@ -17,6 +17,9 @@ import "./module/pages/accountPage/accountOrders.js";
 // filter section
 import "./module/filter/filter.js";
 
+// Directions
+import "./module/directions/directions.js";
+
 // newsPage
 import "./module/newsPage/news-section.js";
 
