@@ -1,1 +1,239 @@
 @use "../basic/globals.scss" as s;
+
+.directions {
+  padding: 81px 0 80px;
+  @media (min-width: s.$media_1366) {
+    padding: 60px 0 100px;
+  }
+
+  &__container {
+    @media (min-width: s.$media_768) {
+      padding: 0 18px 0 60px;
+    }
+    @media (min-width: s.$media_1366) {
+      padding: 0 98px;
+    }
+  }
+
+  &__layout {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    @media (min-width: 425px) {
+      flex-direction: row;
+      gap: 30px;
+    }
+    @media (min-width: s.$media_768) {
+      gap: 120px;
+    }
+    @media (min-width: s.$media_1366) {
+      justify-content: space-between;
+      gap: 0;
+    }
+  }
+
+  &__filters {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 0 22px 0 21px;
+    @media (min-width: s.$media_768) {
+      padding: 0;
+    }
+  }
+
+  &__title {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 12px;
+    @media (min-width: s.$media_768) {
+      font-weight: 700;
+      font-size: 26px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      text-align: center;
+      color: s.$color__text;
+      margin-bottom: 29px;
+    }
+  }
+
+  &__filter-item {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    @media (min-width: s.$media_768) {
+      flex-direction: row;
+      justify-content: flex-start;
+      gap: 8px;
+    }
+
+    input {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 24px;
+      height: 24px;
+      border: 2px solid #b5b5b5;
+      border-radius: 4px;
+      display: inline-grid;
+      place-content: center;
+      cursor: pointer;
+
+      &::before {
+        content: "";
+        width: 18px;
+        height: 18px;
+        background-color: #fff;
+        mask: url("../../img/directions/check.svg") no-repeat center / contain;
+        -webkit-mask: url("../../img/directions/check.svg") no-repeat center /
+          contain;
+        transform: scale(0);
+        transition: transform 0.15s ease;
+      }
+
+      &:checked {
+        background-color: #ff8c1a;
+        border-color: #ff8c1a;
+      }
+      &:checked::before {
+        transform: scale(1);
+      }
+    }
+  }
+  input:checked + .directions__filter-text {
+    font-weight: 700;
+  }
+
+  &__wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 0 18px 0 22px;
+    @media (min-width: s.$media_768) {
+      padding: 0;
+      // grid-template-columns: repeat(2, 1fr);
+    }
+    @media (min-width: 1024px) {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+  }
+
+  &__tour-card {
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    width: 320px;
+    height: 372px;
+    @media (min-width: s.$media_768) {
+      width: 273px;
+    }
+    img {
+      border-radius: 10px 10px 0 0;
+      width: 320px;
+      height: 160px;
+      @media (min-width: s.$media_768) {
+        width: 273px;
+        height: 160px;
+      }
+    }
+  }
+
+  &__tour-card-body {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 16px;
+  }
+
+  &__tour-card-head {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    padding: 13px 17.55px 0 19.55px;
+    @media (min-width: s.$media_768) {
+      padding: 13px 16px 0;
+    }
+  }
+
+  &__tour-card-region {
+    font-weight: 700;
+  }
+
+  &__tour-card-price {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 16px;
+    color: var(--text);
+
+    span {
+      display: inline;
+      font-weight: 700;
+    }
+  }
+
+  &__tour-card-sub {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    padding: 0 21.55px;
+    @media (min-width: s.$media_768) {
+      padding: 0 16px;
+    }
+
+    p {
+      font-size: 12px;
+      color: #808080;
+    }
+  }
+
+  &__tour-card-dates {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.03);
+    margin-bottom: 38px;
+    padding: 12px 14px 12px 19px;
+    @media (min-width: s.$media_768) {
+      padding: 12px 16px;
+    }
+
+    svg {
+      fill: #b3b3b3;
+      flex-shrink: 0;
+    }
+  }
+
+  &__tour-card-dates-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  &__tour-card-date {
+    font-size: 12px;
+    color: s.$color__text;
+    white-space: nowrap;
+  }
+
+  &__btn-wrapper {
+    padding: 0 11px 0 19px;
+    @media (min-width: s.$media_768) {
+      padding: 0 9px 0 16px;
+    }
+  }
+
+  &__tour-card-btn {
+    border-radius: 6px;
+    padding: 12px 93px 11px;
+    border: none;
+    background: s.$color__primary;
+    font-size: 14px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    text-align: center;
+    color: #fff;
+    @media (min-width: s.$media_768) {
+      padding: 12px 72px 11px;
+    }
+  }
+}
