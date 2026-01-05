@@ -37,7 +37,6 @@ async function initSeasonSwiperHome({
   );
 
   const hotels = await fetchHotelsBySeason(season);
-  console.log(hotels);
 
   wrapper.innerHTML = hotels.map((hotel) => renderSlideWSHome(hotel)).join("");
 
