@@ -1,0 +1,37 @@
+<section class="container container-padding winter-summer-home {{class}}-home">
+  <div class="winter-summer-home__title">
+    <h1>{{title}}</h1>
+    <p>{{desc}}</p>
+  </div>
+  <div class="winter-summer-home__slider">
+    <div class="winter-summer-home__slider-buttons">
+      <button
+        class="winter-summer-home__slider-buttons-prev {{class}}-homepage-prev"
+      >
+        <svg>
+          <use href="/img/sprite.svg#icon-prev-btn"></use>
+        </svg>
+      </button>
+      <button
+        class="winter-summer-home__slider-buttons-next {{class}}-homepage-next"
+      >
+        <svg>
+          <use href="/img/sprite.svg#icon-prev-btn"></use>
+        </svg>
+      </button>
+    </div>
+    <div class="winter-summer-home__slider-swiper {{class}}-homepage-swiper">
+      <div class="swiper-wrapper">
+      </div>
+    </div>
+  </div>
+  <a
+    href="{{link 'html/pages/searchPage.html'}}"
+    class="winter-summer-home__link"
+  >
+    {{text}}
+    <svg class="winter-summer-home__link-svg">
+      <use href="/img/sprite.svg#icon-arrow-right"></use>
+    </svg>
+  </a>
+</section>

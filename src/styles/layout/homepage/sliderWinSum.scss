@@ -1,0 +1,209 @@
+@use "../../basic/globals.scss" as s;
+
+.winter-summer-home {
+  padding: 0 9px 84px 11px;
+  @include s.d-flex($direction: column);
+  gap: 40px;
+  &__title {
+    @include s.d-flex($direction: column, $align: center);
+    gap: 18px;
+    h1 {
+      margin-left: 15px;
+      font-weight: 700;
+      font-size: 26px;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      text-align: center;
+    }
+    p {
+      font-weight: 400;
+      font-size: 14px;
+      text-align: center;
+      color: #888;
+    }
+  }
+  &__slider {
+    position: relative;
+    &-buttons {
+      width: 100%;
+      position: absolute;
+      top: 34%;
+      @include s.d-flex($direction: row, $align: center);
+
+      button {
+        z-index: 2;
+        @include s.d-flex($direction: row, $align: center, $justify: center);
+
+        width: 48px;
+        height: 48px;
+        border-radius: 100%;
+        border: none;
+
+        background: #fff;
+        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.25);
+        svg {
+          width: 32px;
+          height: 32px;
+          fill: #3e7739;
+          opacity: 0.5;
+
+          transition: opacity 0.5s ease;
+        }
+        &:hover {
+          svg {
+            opacity: 1;
+          }
+        }
+      }
+      &-prev {
+        position: absolute;
+        left: 10px;
+      }
+      &-next {
+        transform: scaleX(-1);
+        position: absolute;
+        right: 10px;
+      }
+    }
+    &-swiper {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      &-slide {
+        margin-bottom: 10px;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
+        background: #fff;
+        &-image {
+          width: 100%;
+          height: 250px;
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+        &-info {
+          padding: 16px;
+          @include s.d-flex($direction: column);
+          gap: 16px;
+          &-text {
+            @include s.d-flex(
+              $direction: row,
+              $justify: space-between,
+              $align: center
+            );
+            &-dest {
+              @include s.d-flex($direction: row, $align: center);
+              gap: 4px;
+              font-weight: 400;
+              font-size: 16px;
+              line-height: 1.5;
+
+              svg {
+                width: 24px;
+                height: 24px;
+                fill: #6daf67b0;
+              }
+            }
+            &-price {
+              font-weight: 400;
+              font-size: 16px;
+              span {
+                font-weight: 700;
+                color: #000;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  &__link {
+    margin: -9px auto 0 auto;
+    @include s.d-flex($direction: row, $align: center);
+    gap: 8px;
+
+    font-weight: 400;
+    font-size: 16px;
+    color: #555;
+
+    transition: color 0.5s ease;
+    svg {
+      width: 24px;
+      height: 24px;
+      fill: s.$color__primary;
+
+      transition: fill 0.5s ease;
+    }
+    &:hover {
+      color: s.$color__text;
+      svg {
+        fill: s.$color__red;
+      }
+    }
+  }
+  @media (min-width: s.$media_768) {
+    padding: 0 30px 80px 30px;
+    // &__title {
+    //   h1 {
+    //     @include s.d-flex($direction: row, $align: center);
+    //     gap: 8px;
+
+    //     letter-spacing: 0.06em;
+    //     line-height: 1;
+    //   }
+    //   p {
+    //     line-height: 1;
+    //   }
+    // }
+    &__slider {
+      &-buttons {
+        top: 40%;
+
+        &-prev {
+          left: 10px;
+        }
+        &-next {
+          right: 10px;
+        }
+      }
+    }
+    &__link {
+      margin: 1px auto 0 auto;
+    }
+  }
+  @media (min-width: s.$media_1366) {
+    padding: 0 93px 104px 93px;
+
+    // &__title {
+    //   h1 {
+    //     margin-right: 18px;
+    //   }
+    // }
+    &__slider {
+      &-buttons {
+        top: 50%;
+        button {
+          background: #3e773945;
+          box-shadow: none;
+        }
+        &-prev {
+          left: -83px;
+        }
+        &-next {
+          right: -71px;
+        }
+      }
+    }
+    &__link {
+      margin: -9px auto 0 auto;
+    }
+  }
+}
+.summer-home {
+  padding-bottom: 80px;
+  @media (min-width: s.$media_1366) {
+    padding-bottom: 100px;
+  }
+}
