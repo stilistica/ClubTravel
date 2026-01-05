@@ -29,6 +29,8 @@ import "./module/pages/home-page/news-home.js";
 import "./module/swiperNewHome/swiperNews.js";
 // hotHome
 import "./module/pages/home-page/hotHome.js";
+// winer/summer hotels 
+import "./module/pages/home-page/sliderWinSum.js";
 
 
 import "./module/pages/auth/login.js";
