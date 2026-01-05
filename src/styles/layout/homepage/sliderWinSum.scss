@@ -145,18 +145,6 @@
   }
   @media (min-width: s.$media_768) {
     padding: 0 30px 80px 30px;
-    // &__title {
-    //   h1 {
-    //     @include s.d-flex($direction: row, $align: center);
-    //     gap: 8px;
-
-    //     letter-spacing: 0.06em;
-    //     line-height: 1;
-    //   }
-    //   p {
-    //     line-height: 1;
-    //   }
-    // }
     &__slider {
       &-buttons {
         top: 40%;
@@ -176,11 +164,6 @@
   @media (min-width: s.$media_1366) {
     padding: 0 93px 104px 93px;
 
-    // &__title {
-    //   h1 {
-    //     margin-right: 18px;
-    //   }
-    // }
     &__slider {
       &-buttons {
         top: 50%;
