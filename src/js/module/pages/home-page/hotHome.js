@@ -10,45 +10,45 @@ const containerHotPageSwiper = document.querySelector(
   ".hothome__slider-swiper .swiper-wrapper"
 );
 
-if (containerHotPageSwiper) {
-  const hotels = await fetchHotHotels();
-  // форматування дати
-  function formatDate(dateString) {
-    if (!dateString) return "";
+// форматування дати
+function formatDate(dateString) {
+  if (!dateString) return "";
 
-    const date = new Date(dateString);
+  const date = new Date(dateString);
 
-    return date.toLocaleDateString("ru-RU", {
-      day: "numeric",
-      month: "long",
-      year: "numeric",
-    });
-  }
+  return date.toLocaleDateString("ru-RU", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
+}
 
-  // отримання мінімальної ціни
-  function getMinHotelPrice(options = []) {
-    if (!options.length) return null;
+// отримання мінімальної ціни
+function getMinHotelPrice(options = []) {
+  if (!options.length) return null;
 
-    return Math.min(...options.map((opt) => opt.price));
-  }
+  return Math.min(...options.map((opt) => opt.price));
+}
 
-  // отримання фото
-  function getHotelImage(image) {
-    if (!image) return "/img/hot/image-one.webp";
+// отримання фото
+// http://localhost:1337
+export function getHotelImage(image) {
+  if (!image) return "/img/hot/image-one.webp";
 
-    return (
-      image.formats?.small?.url ||
-      image.formats?.thumbnail?.url ||
-      image.url ||
-      "/img/hot/image-one.webp"
-    );
-  }
+  return (
+    `http://localhost:1337${image.formats?.small?.url}` ||
+    image.formats?.small?.url ||
+    image.formats?.thumbnail?.url ||
+    image.url ||
+    "/img/hot/image-one.webp" 
+  );
+}
 
-  // рендер категорій
-  function renderCategoryStars(category) {
-    // окремо для апартаментів
-    if (category === "Apartments") {
-      return `
+// рендер категорій
+export function renderCategoryStars(category) {
+  // окремо для апартаментів
+  if (category === "Apartments") {
+    return `
       <p class="filter__extended-info-list-column-list-item-app">
         <svg>
           <use href="${sprite}#icon-house"></use>
@@ -56,16 +56,16 @@ if (containerHotPageSwiper) {
         Апартаменты
       </p>
     `;
-    }
-    const map = {
-      Budget: 2,
-      Economy: 3,
-      Standard: 4,
-      Comfort: 5,
-    };
-    const stars = map[category];
-    if (!stars) return "";
-    return `
+  }
+  const map = {
+    Budget: 2,
+    Economy: 3,
+    Standard: 4,
+    Comfort: 5,
+  };
+  const stars = map[category];
+  if (!stars) return "";
+  return `
     <div class="filter__extended-info-list-column-list-item-stars">
       ${Array.from({ length: stars })
         .map(
@@ -78,7 +78,9 @@ if (containerHotPageSwiper) {
         .join("")}
     </div>
   `;
-  }
+}
+if (containerHotPageSwiper) {
+  const hotels = await fetchHotHotels();
 
   const slides = hotels
     .map((hotel) => {

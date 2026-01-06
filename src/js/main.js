@@ -16,6 +16,7 @@ import "./module/pages/accountPage/accountOrders.js";
 
 // filter section
 import "./module/filter/filter.js";
+import "./module/filter/renderHotels.js";
 
 // Directions
 import "./module/directions/directions.js";
