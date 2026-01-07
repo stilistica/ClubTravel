@@ -11,7 +11,7 @@ const containerHotPageSwiper = document.querySelector(
 );
 
 // форматування дати
-function formatDate(dateString) {
+export function formatDate(dateString) {
   if (!dateString) return "";
 
   const date = new Date(dateString);
@@ -36,11 +36,13 @@ export function getHotelImage(image) {
   if (!image) return "/img/hot/image-one.webp";
 
   return (
+    `http://localhost:1337${image.url}` ||
     `http://localhost:1337${image.formats?.small?.url}` ||
+    `http://localhost:1337${image.formats?.thumbnail?.url}` ||
     image.formats?.small?.url ||
     image.formats?.thumbnail?.url ||
     image.url ||
-    "/img/hot/image-one.webp" 
+    "/img/hot/image-one.webp"
   );
 }
 
