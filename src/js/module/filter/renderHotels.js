@@ -41,6 +41,9 @@ export function renderHotelsList(hotels) {
     .forEach((btn) => {
       btn.addEventListener("click", (e) => {
         const card = e.currentTarget.closest(".result-filter__list-card");
+        const cardTwo = card.querySelector(
+          ".result-filter__list-card-base-two-card"
+        );
         const details = card.querySelector(".result-filter__list-card-details");
         const hotelId = card.dataset.hotelId;
 
@@ -52,7 +55,7 @@ export function renderHotelsList(hotels) {
           : renderHotelOptionsTable(hotel);
 
         details.classList.toggle("active");
-        card.classList.toggle("active");
+        cardTwo.classList.toggle("active");
         btn.classList.toggle("active");
       });
     });
@@ -197,7 +200,7 @@ function renderHotelCard(hotel) {
   const minPrice = hotel.tour_option?.minPrice;
 
   return `
-    <li class="result-filter__list-card" data-hotel-id="${id}">
+<li class="result-filter__list-card" data-hotel-id="${id}">
       <div class="result-filter__list-card-base">
         <div class="result-filter__list-card-base-one">
           <div class="result-filter__list-card-base-one-image">
@@ -212,7 +215,11 @@ function renderHotelCard(hotel) {
                 </svg>
                 ${destination}, ${region}
               </p>
-              <span>Краткое описание отеля. Рекомендуем для семейного и молодёжного отдыха. Отель прекрасно сочетает в себе как современный комфорт, так и высокий уровень обслуживания...</span>
+              <span
+                >Краткое описание отеля. Рекомендуем для семейного и молодёжного
+                отдыха. Отель прекрасно сочетает в себе как современный комфорт,
+                так и высокий уровень обслуживания...</span
+              >
             </div>
             <a
               href="{{link 'html/pages/hotelPage.html'}}"
@@ -227,35 +234,41 @@ function renderHotelCard(hotel) {
         </div>
         <div class="result-filter__list-card-base-two">
           <ul class="result-filter__list-card-base-two-info">
-            <li class="result-filter__list-card-base-two-info-stars">${category}</li>
-            <li class="result-filter__list-card-base-two-info-item">
-              <svg>
-                <use href="${sprite}#icon-clock"></use>
-              </svg>
-              ${days}
+            <li class="result-filter__list-card-base-two-info-stars">
+              ${category}
             </li>
-            <li class="result-filter__list-card-base-two-info-item">
-              <svg>
-                <use href="${sprite}#icon-food"></use>
-              </svg>
-              ${meals}
-            </li>
-            <li class="result-filter__list-card-base-two-info-item">
-              <svg>
-                <use href="${sprite}#icon-house"></use>
-              </svg>
-              ${cate}
-            </li>
-            <li class="result-filter__list-card-base-two-info-item">
-              <svg>
-                <use href="${sprite}#icon-sun"></use>
-              </svg>
-              ${description}
-            </li>
+            <div class="result-filter__list-card-base-two-info-list">
+              <li class="result-filter__list-card-base-two-info-item">
+                <svg>
+                  <use href="${sprite}#icon-clock"></use>
+                </svg>
+                ${days} дн.
+              </li>
+              <li class="result-filter__list-card-base-two-info-item">
+                <svg>
+                  <use href="${sprite}#icon-food"></use>
+                </svg>
+                ${meals}
+              </li>
+              <li class="result-filter__list-card-base-two-info-item">
+                <svg>
+                  <use href="${sprite}#icon-house"></use>
+                </svg>
+                ${cate}
+              </li>
+              <li class="result-filter__list-card-base-two-info-item">
+                <svg>
+                  <use href="${sprite}#icon-sun"></use>
+                </svg>
+                ${description}
+              </li>
+            </div>
           </ul>
           <div class="result-filter__list-card-base-two-card">
             <div class="result-filter__list-card-base-two-card-text">
-              <p class="result-filter__list-card-base-two-card-text-number">${hotelOptionsLength} предложения</p>
+              <p class="result-filter__list-card-base-two-card-text-number">
+                ${hotelOptionsLength} предложения
+              </p>
               <p class="result-filter__list-card-base-two-card-text-price">
                 от <span>${minPrice}€</span>/чел
               </p>
@@ -308,20 +321,20 @@ function renderHotelOptionRow(hotel, option) {
 
   return `
     <tr>
-      <td>${startDate}</td>
-      <td>${period}</td>
-      <td>${meals}</td>
-      <td>${category}</td>
-      <td>${seats}</td>
-      <td><span>${price}€</span>/чел</td>
-      <td>
-        <button
-          class="button-org result-filter__list-card-details-btn"
-          style="--btn-width: 160px; --btn-height: 42px"
-        >
-          выбрать
-        </button>
-      </td>
-    </tr>
+    <td data-label="Дата">${startDate}</td>
+    <td data-label="Период">${period}</td>
+    <td data-label="Питание">${meals}</td>
+    <td data-label="Тип номера">${category}</td>
+    <td data-label="Мест в самолёте">${seats}</td>
+    <td data-label="Стоимость"><span>${price}€</span>/чел</td>
+    <td>
+      <button
+        class="button-org result-filter__list-card-details-btn"
+        style="--btn-width: 160px; --btn-height: 42px"
+      >
+        выбрать
+      </button>
+    </td>
+  </tr>
   `;
 }
