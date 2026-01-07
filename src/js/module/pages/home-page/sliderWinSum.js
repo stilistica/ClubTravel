@@ -82,10 +82,12 @@ async function initSeasonSwiperHome({
   swiper.update();
 }
 
+// http://localhost:1337
 function renderSlideWSHome(hotel) {
   // формування фото
   function getHotelImage(hot) {
     return (
+      `http://localhost:1337${hot.image.url}` ||
       `http://localhost:1337${hot.image.formats?.small?.url}` ||
       `http://localhost:1337${hot.tour_option?.imageTour?.url}` ||
       hot.image?.url ||

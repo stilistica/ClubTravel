@@ -3,6 +3,7 @@ import { Russian } from "flatpickr/dist/l10n/ru.js";
 import "flatpickr/dist/flatpickr.min.css";
 import { fetchTours, fetchHotels } from "../api/hotels.js";
 import sprite from "/img/sprite.svg";
+import { renderHotelsList } from "./renderHotels.js";
 
 const filter = document.querySelector(".filter");
 
@@ -288,8 +289,8 @@ if (searchButton) {
 
     updateUrlFromFilters(filtersState);
 
-    console.log(filteredHotels);
-    // console.log(response);
+    renderHotelsList(filteredHotels)
+    // console.log(filteredHotels);
   });
 }
 // загальна фунція фільрації

@@ -1,15 +1,50 @@
 <!-- {{> calendar}} -->
 <section class="container result-filter">
-	<div class="result-filter__info">
-		<h1 class="result-filter__info-title"></h1>
-		<button class="result-filter__info-calendar"></button>
-		<div class="result-filter__info-sort">
-			<p>Сортировать:</p>
-			<ul>
-				<li>Цена</li>
-				<li>Возрастающий</li>
-			</ul>
-		</div>
-	</div>
-	<ul class="result-filter__list"></ul>
+  <div class="result-filter__info">
+    <h1 class="result-filter__info-title"></h1>
+    <button class="result-filter__info-calendar">
+      <svg>
+        <use href="/img/sprite.svg#icon-calendar-euro"></use>
+      </svg>
+      Цены на календаре
+    </button>
+    <div class="result-filter__info-sort">
+      <p>Сортировать:</p>
+      <ul class="result-filter__info-sort-controls">
+        <li
+          class="result-filter__info-sort-controls-control result-filter-sort-by"
+        >
+          <div class="result-filter__info-sort-controls-control-current">
+            <span>По умолчанию</span>
+            <svg>
+              <use href="/img/sprite.svg#icon-more"></use>
+            </svg>
+          </div>
+
+          <ul class="result-filter__info-sort-controls-control-dropdown">
+            <li data-sort="">По умолчанию</li>
+            <li data-sort="price">Цена</li>
+          </ul>
+        </li>
+        <li
+          class="result-filter__info-sort-controls-control result-filter-sort-order"
+        >
+          <div class="result-filter__info-sort-controls-control-current">
+            <span>Возрастающий</span>
+            <svg>
+              <use href="/img/sprite.svg#icon-more"></use>
+            </svg>
+          </div>
+
+          <ul class="result-filter__info-sort-controls-control-dropdown">
+            <li data-order="asc">Возрастающий</li>
+            <li data-order="desc">Убывающий</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <ul class="result-filter__list">
+    <div class="result-filter__list-card-details"></div>
+  </ul>
 </section>
