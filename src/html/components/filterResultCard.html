@@ -1,0 +1,84 @@
+<li class="result-filter__list-card" data-hotel-id="{{id}}">
+  <div class="result-filter__list-card-base">
+    <div class="result-filter__list-card-base-one">
+      <div class="result-filter__list-card-base-one-image">
+        <img src="{{img}}" alt="{{name}}" />
+      </div>
+      <div class="result-filter__list-card-base-one-info">
+        <div class="result-filter__list-card-base-one-info-text">
+          <h3>{{name}}</h3>
+          <p>
+            <svg>
+              <use href="{{sprite}}#icon-point"></use>
+            </svg>
+            {{destination}}, {{region}}
+          </p>
+          <span
+            >Краткое описание отеля. Рекомендуем для семейного и молодёжного
+            отдыха. Отель прекрасно сочетает в себе как современный комфорт, так
+            и высокий уровень обслуживания...</span
+          >
+        </div>
+        <a
+          href="{{hotelLink}}"
+          class="result-filter__list-card-base-one-info-link"
+        >
+          Подробнее об отеле
+          <svg>
+            <use href="{{sprite}}#icon-arrow-right"></use>
+          </svg>
+        </a>
+      </div>
+    </div>
+    <div class="result-filter__list-card-base-two">
+      <ul class="result-filter__list-card-base-two-info">
+        <li class="result-filter__list-card-base-two-info-stars">
+          {{category}}
+        </li>
+        <div class="result-filter__list-card-base-two-info-list">
+          <li class="result-filter__list-card-base-two-info-item">
+            <svg>
+              <use href="{{sprite}}#icon-clock"></use>
+            </svg>
+            {{days}} дн.
+          </li>
+          <li class="result-filter__list-card-base-two-info-item">
+            <svg>
+              <use href="{{sprite}}#icon-food"></use>
+            </svg>
+            {{meals}}
+          </li>
+          <li class="result-filter__list-card-base-two-info-item">
+            <svg>
+              <use href="{{sprite}}#icon-house"></use>
+            </svg>
+            {{cate}}
+          </li>
+          <li class="result-filter__list-card-base-two-info-item">
+            <svg>
+              <use href="{{sprite}}#icon-sun"></use>
+            </svg>
+            {{description}}
+          </li>
+        </div>
+      </ul>
+      <div class="result-filter__list-card-base-two-card">
+        <div class="result-filter__list-card-base-two-card-text">
+          <p class="result-filter__list-card-base-two-card-text-number">
+            {{hotelOptionsLength}} предложения
+          </p>
+          <p class="result-filter__list-card-base-two-card-text-price">
+            от <span>{{minPrice}}€</span>/чел
+          </p>
+        </div>
+        <button
+          class="button-org result-filter__list-card-base-two-card-btn"
+          style="--btn-width: 100%; --btn-height: 42px"
+        >
+          Открыть
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="result-filter__list-card-details"></div>
+</li>
