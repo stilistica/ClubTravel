@@ -5,6 +5,7 @@ import { glob } from "glob";
 import handlebars from "vite-plugin-handlebars";
 import FullReload from "vite-plugin-full-reload";
 import Inspect from "vite-plugin-inspect";
+import { hulakPlugins } from 'vite-plugin-hulak-tools'
 import fs from "fs";
 
 const repoBase = "/ClubTravel/";
@@ -49,9 +50,13 @@ export default defineConfig(({ command }) => {
           link: (p) => `${repoBase}${p}`.replace(/\/{2,}/g, "/"),
         },
       }),
-      FullReload([
-        "./src/**/**.html",
-      ]),
+      hulakPlugins({
+        enableHandlebars: true,
+        handlebarsOptions: {
+          partialDirectory: "./src/html/components",
+        },
+      }),
+      FullReload(["./src/**/**.html"]),
     ],
 
     build: {
@@ -100,7 +105,7 @@ export default defineConfig(({ command }) => {
     },
 
     // server: {
-    //   port: 5174, 
+    //   port: 5174,
     // },
     // envPrefix: "APP_",
     // server: {

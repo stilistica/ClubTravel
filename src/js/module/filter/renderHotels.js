@@ -4,6 +4,7 @@ import {
   getHotelImage,
   renderCategoryStars,
 } from "../pages/home-page/hotHome";
+import HotelCard from "/html/components/filterResultCard.html";
 
 const sortState = {
   sortBy: "",
@@ -32,7 +33,12 @@ export function renderHotelsList(hotels) {
     return;
   }
 
-  list.innerHTML = hotels.map((hotel) => renderHotelCard(hotel)).join("");
+  // list.innerHTML = hotels.map((hotel) => renderHotelCard(hotel)).join("");
+  list.innerHTML = "";
+  hotels.forEach((hotel) => {
+    const card = renderHotelCard(hotel);
+    list.appendChild(card);
+  });
 
   renderFilterInfo(hotels);
   // логіка відкриття у карток додаткової інформації
@@ -65,7 +71,7 @@ export function renderHotelsList(hotels) {
     });
 }
 
-// логіка рендеру верхньої інформації про список 
+// логіка рендеру верхньої інформації про список
 function renderFilterInfo(hotels) {
   const info = document.querySelector(".result-filter__info");
   if (!info) return;
@@ -192,106 +198,25 @@ function getHotelMeals(options = []) {
 }
 // логіка рендеру однієї картки
 function renderHotelCard(hotel) {
-  const id = hotel.id;
-  const img = getHotelImage(hotel.image);
-  const name = hotel.nameHotel;
-  const destination = hotel.tour?.destination;
-  const region = hotel.region;
-  const category = renderCategoryStars(hotel.category);
-  const meals = getHotelMeals(hotel.hotel_options);
-  const days = hotel.tour_option?.days;
-  const cate = hotel.category;
-  const description = hotel.description;
-  const hotelOptionsLength = hotel.hotel_options?.length;
-  const minPrice = hotel.tour_option?.minPrice;
-
-  return `
-<li class="result-filter__list-card" data-hotel-id="${id}">
-      <div class="result-filter__list-card-base">
-        <div class="result-filter__list-card-base-one">
-          <div class="result-filter__list-card-base-one-image">
-            <img src="${img}" alt="${name}" />
-          </div>
-          <div class="result-filter__list-card-base-one-info">
-            <div class="result-filter__list-card-base-one-info-text">
-              <h3>${name}</h3>
-              <p>
-                <svg>
-                  <use href="${sprite}#icon-point"></use>
-                </svg>
-                ${destination}, ${region}
-              </p>
-              <span
-                >Краткое описание отеля. Рекомендуем для семейного и молодёжного
-                отдыха. Отель прекрасно сочетает в себе как современный комфорт,
-                так и высокий уровень обслуживания...</span
-              >
-            </div>
-            <a
-              href="{{link 'html/pages/hotelPage.html'}}"
-              class="result-filter__list-card-base-one-info-link"
-            >
-              Подробнее об отеле
-              <svg>
-                <use href="${sprite}#icon-arrow-right"></use>
-              </svg>
-            </a>
-          </div>
-        </div>
-        <div class="result-filter__list-card-base-two">
-          <ul class="result-filter__list-card-base-two-info">
-            <li class="result-filter__list-card-base-two-info-stars">
-              ${category}
-            </li>
-            <div class="result-filter__list-card-base-two-info-list">
-              <li class="result-filter__list-card-base-two-info-item">
-                <svg>
-                  <use href="${sprite}#icon-clock"></use>
-                </svg>
-                ${days} дн.
-              </li>
-              <li class="result-filter__list-card-base-two-info-item">
-                <svg>
-                  <use href="${sprite}#icon-food"></use>
-                </svg>
-                ${meals}
-              </li>
-              <li class="result-filter__list-card-base-two-info-item">
-                <svg>
-                  <use href="${sprite}#icon-house"></use>
-                </svg>
-                ${cate}
-              </li>
-              <li class="result-filter__list-card-base-two-info-item">
-                <svg>
-                  <use href="${sprite}#icon-sun"></use>
-                </svg>
-                ${description}
-              </li>
-            </div>
-          </ul>
-          <div class="result-filter__list-card-base-two-card">
-            <div class="result-filter__list-card-base-two-card-text">
-              <p class="result-filter__list-card-base-two-card-text-number">
-                ${hotelOptionsLength} предложения
-              </p>
-              <p class="result-filter__list-card-base-two-card-text-price">
-                от <span>${minPrice}€</span>/чел
-              </p>
-            </div>
-            <button
-              class="button-org result-filter__list-card-base-two-card-btn"
-              style="--btn-width: 100%; --btn-height: 42px"
-            >
-              Открыть
-            </button>
-          </div>
-        </div>
-      </div>
-      <div class="result-filter__list-card-details"></div>
-    </li>
-  `;
+  return HotelCard({
+    id: hotel.id,
+    img: getHotelImage(hotel.image),
+    name: hotel.nameHotel,
+    destination: hotel.tour?.destination,
+    region: hotel.region,
+    category: renderCategoryStars(hotel.category),
+    meals: getHotelMeals(hotel.hotel_options),
+    days: hotel.tour_option?.days,
+    cate: hotel.category,
+    description: hotel.description,
+    hotelOptionsLength: hotel.hotel_options?.length,
+    minPrice: hotel.tour_option?.minPrice,
+    sprite: sprite,
+    hotelLink: "/html/pages/hotelPage.html",
+    buttonText: "Открыть",
+  });
 }
+
 // логіка рендеру дод інфо
 function renderHotelOptionsTable(hotel) {
   if (!hotel.hotel_options?.length) return "<p>Нет доступных вариантов</p>";
