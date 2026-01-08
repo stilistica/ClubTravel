@@ -1,0 +1,46 @@
+{
+  "kind": "collectionType",
+  "collectionName": "one_hotels",
+  "info": {
+    "singularName": "one-hotel",
+    "pluralName": "one-hotels",
+    "displayName": "OneHotel"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "namehotel": {
+      "type": "string",
+      "default": "AMBASSADOR",
+      "required": true
+    },
+    "stars": {
+      "type": "integer"
+    },
+    "country": {
+      "type": "text"
+    },
+    "city": {
+      "type": "text"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "cover": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "gallery": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images"
+      ]
+    }
+  }
+}

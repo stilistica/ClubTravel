@@ -563,6 +563,42 @@ export interface ApiNewsHomeNewsHome extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiOneHotelOneHotel extends Struct.CollectionTypeSchema {
+  collectionName: 'one_hotels';
+  info: {
+    displayName: 'OneHotel';
+    pluralName: 'one-hotels';
+    singularName: 'one-hotel';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    city: Schema.Attribute.Text;
+    country: Schema.Attribute.Text;
+    cover: Schema.Attribute.Media<'images'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.RichText;
+    gallery: Schema.Attribute.Media<'images', true>;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::one-hotel.one-hotel'
+    > &
+      Schema.Attribute.Private;
+    namehotel: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'AMBASSADOR'>;
+    publishedAt: Schema.Attribute.DateTime;
+    stars: Schema.Attribute.Integer;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiOrderOrder extends Struct.CollectionTypeSchema {
   collectionName: 'orders';
   info: {
@@ -1212,6 +1248,7 @@ declare module '@strapi/strapi' {
       'api::hotel-option.hotel-option': ApiHotelOptionHotelOption;
       'api::hotel.hotel': ApiHotelHotel;
       'api::news-home.news-home': ApiNewsHomeNewsHome;
+      'api::one-hotel.one-hotel': ApiOneHotelOneHotel;
       'api::order.order': ApiOrderOrder;
       'api::tour-option.tour-option': ApiTourOptionTourOption;
       'api::tour.tour': ApiTourTour;

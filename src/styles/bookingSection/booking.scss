@@ -1,0 +1,158 @@
+@use "../basic/globals.scss" as s;
+
+.booking {
+  padding: 32px 0 80px;
+
+  &__container {
+    padding: 0 17px 0 23px;
+    @media (min-width: s.$media_1366) {
+      padding: 0 111px 0 98px;
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 37px;
+  }
+
+  &__content-top {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 100%;
+    margin-bottom: 24px;
+    @media (min-width: s.$media_1366) {
+      margin-bottom: 16px;
+    }
+  }
+
+  &__sub-title {
+    font-size: 16px;
+    line-height: 150%;
+    margin-bottom: 10px;
+    @media (min-width: s.$media_1366) {
+      margin-bottom: 32px;
+    }
+  }
+
+  &__text {
+    opacity: 0.5;
+    margin-bottom: 16px;
+    @media (min-width: s.$media_1366) {
+      margin-bottom: 32px;
+    }
+  }
+
+  &__form-title {
+    font-size: 18px;
+    margin-bottom: 16px;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 22px;
+  }
+
+  &__input-wrapper {
+    width: 100%;
+    height: 42px;
+
+    input {
+      border: 1px solid #e2e2e2;
+      border-radius: 6px 0 0 6px;
+      height: 100%;
+      width: 100%;
+      padding-left: 15px;
+      outline: none;
+
+      &::placeholder {
+        font-size: 14px;
+        color: #888;
+      }
+    }
+  }
+
+  &__input-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 42px;
+    font-size: 14px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    text-align: center;
+    color: #fff;
+    border-radius: 6px;
+    background: s.$color__primary;
+    border: none;
+  }
+
+  &__input-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 42px;
+    background: #fff;
+    border: 1px solid s.$color__primary;
+    border-radius: 6px;
+    font-size: 14px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    text-align: center;
+    color: s.$color__text;
+    margin-bottom: 24px;
+    transition: all 0.3 ease;
+
+    &:hover {
+      background: s.$color__primary;
+      color: s.$color__white;
+    }
+  }
+
+  &__consultant-title {
+    font-size: 18px;
+    margin-bottom: 16px;
+  }
+
+  .consultant-card__img {
+    margin-bottom: 24px;
+    img {
+      width: 320px;
+      height: 181px;
+      border-radius: 6px;
+    }
+  }
+
+  .consultant-card__name {
+    font-size: 22px;
+    color: s.$color__text;
+    margin-bottom: 4px;
+  }
+
+  .consultant-card__position {
+    font-size: 14px;
+    color: #555;
+  }
+
+  .consultant-card__contacts {
+    gap: 16px;
+  }
+
+  .consultant-card__link {
+    color: s.$color__text;
+
+    svg {
+      fill: s.$color__green;
+      opacity: 0.5;
+    }
+  }
+}

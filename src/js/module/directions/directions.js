@@ -114,9 +114,11 @@ function renderTours(tours) {
             </svg>
         </div>
         <div class="directions__btn-wrapper">
-        <button data-tour-id="${t.id}"  class="directions__tour-card-btn">
+        <a href="/ClubTravel/html/pages/hotelPage.html?id=${
+          t.id
+        }"  class="directions__tour-card-btn">
           ВЫБРАТЬ ТУР
-        </button>
+        </a>
         </div>
       </div>
     </article>
@@ -124,15 +126,4 @@ function renderTours(tours) {
     )
     .join("");
 }
-
-document.addEventListener("click", (e) => {
-  const btn = e.target.closest(".directions__tour-card-btn");
-  if (!btn) return;
-
-  const tourId = btn.dataset.tourId;
-  if (!tourId) return;
-
-  window.location.href = `/ClubTravel/html/pages/hotelPage.html?id=${tourId}`;
-});
-
 loadTours();

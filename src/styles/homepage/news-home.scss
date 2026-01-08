@@ -158,8 +158,10 @@
     top: 36%;
     transform: translateY(-50%);
     z-index: 10;
+    background: rgba(62, 119, 57, 0.2705882353);
     svg {
       fill: #3e7739;
+      opacity: 0.5;
     }
     @media (min-width: s.$media_1366) {
       top: 50%;
