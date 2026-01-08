@@ -1,1 +1,58 @@
-<p>bookingSection</p>
+<section class="booking">
+  <div class="booking__container container">
+    <div class="booking__wrapper">
+      <div class="booking__content-top">
+        <h2 class="booking__title">Нет времени искать тур?</h2>
+        <p class="booking__sub-title">
+          Просто скажите нам как должен выглядеть отдых вашей мечты и мы найдём
+          лучший тур для вас!
+        </p>
+        <p class="booking__text">
+          Заполните короткую форму запроса на нашем сайте и мы свяжемся с вами в
+          течении 1 часа в рабочее время.
+        </p>
+        <p class="booking__form-title">
+          Оставьте свой номер телефона и мы перезвоним вам
+        </p>
+        <form class="booking__form" novalidate="novalidate">
+          <div class="booking__input-wrapper">
+            <input type="tel" name="phone" placeholder="Ваш номер телефона" />
+          </div>
+          <button class="booking__input-btn">перезвонить</button>
+        </form>
+        <a href="#main-form" class="booking__input-link">заполнить форму</a>
+        <p class="booking__consultant-title">Связаться с нашим консультантом</p>
+        {{> consultantCard}}
+      </div>
+
+      <div id="main-form" class="booking__form-wrapper">
+        <nav class="booking__tabs">
+          <button class="booking__tab-btn active" data-step="1">
+            Основное
+          </button>
+          <button class="booking__tab-btn" data-step="2">Предпочтения</button>
+          <button class="booking__tab-btn" data-step="3">Контакты</button>
+        </nav>
+        <form id="tourForm" class="booking__main-form">
+          <div class="booking__step" data-step-content="1">
+            <div class="booking__form-group">
+              <label>Направление</label>
+              <select name="destination" class="booking__custom-select">
+                <option>Болгария > Золотые пески</option>
+              </select>
+            </div>
+            <div class="booking__form-group">
+              <label>Дата вылета</label>
+              <input
+                type="text"
+                name="dates"
+                placeholder="25.06.2020 - 10.07.2020"
+                class="booking__datepicker-input"
+              />
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

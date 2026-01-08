@@ -1,4 +1,5 @@
 import { fetchNews } from "../api/newsHome";
+import api from "../api/axios";
 import sprite from "/img/sprite.svg";
 
 function renderNewsPage(items) {
@@ -6,10 +7,12 @@ function renderNewsPage(items) {
   if (!wrapper) return;
 
   wrapper.innerHTML = "";
+  const BASE_URL = api.defaults.baseURL.replace(/\/api$/, "");
 
   items.forEach((item) => {
     const { title, price, date, images } = item;
-    const imageUrl = images?.url ?? "";
+    // const imageUrl = images?.url;
+    const imageUrl = images?.url ? BASE_URL + images.url : "";
 
     const card = document.createElement("div");
     card.className = "news-home__card";

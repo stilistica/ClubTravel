@@ -1,3 +1,6 @@
+import { fetchNews } from "../../api/newsHome";
+import { initSwipers } from "../../swiperNewHome/swiperNews";
+import api from "../../api/axios";
 import sprite from "/img/sprite.svg";
 
 function createNewsHomeSwiper() {
@@ -29,7 +32,9 @@ function renderNewsHome(items) {
   items.forEach((item) => {
     const { title, price, date, images } = item;
 
-    const imageUrl = images?.url ;
+    // const imageUrl = images?.url ;
+    const BASE_URL = api.defaults.baseURL.replace(/\/api$/, "");
+    const imageUrl = images?.url ? BASE_URL + images.url : "";
 
     const slide = document.createElement("div");
     slide.className = "swiper-slide";
@@ -78,9 +83,6 @@ function formatDate(dateString) {
     year: "numeric",
   });
 }
-
-import { fetchNews } from "../../api/newsHome";
-import { initSwipers } from "../../swiperNewHome/swiperNews";
 
 document.addEventListener("DOMContentLoaded", async () => {
   const news = await fetchNews();
