@@ -50,6 +50,8 @@ export function renderHotelsList(hotels) {
         const hotel = hotels.find((h) => h.id === +hotelId);
         if (!hotel) return;
 
+        const isOpen = btn.classList.contains("active");
+
         details.innerHTML = details.classList.contains("active")
           ? ""
           : renderHotelOptionsTable(hotel);
@@ -57,9 +59,13 @@ export function renderHotelsList(hotels) {
         details.classList.toggle("active");
         cardTwo.classList.toggle("active");
         btn.classList.toggle("active");
+
+        btn.textContent = isOpen ? "Открыть" : "Закрыть";
       });
     });
 }
+
+// логіка рендеру верхньої інформації про список 
 function renderFilterInfo(hotels) {
   const info = document.querySelector(".result-filter__info");
   if (!info) return;
