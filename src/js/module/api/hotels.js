@@ -18,25 +18,8 @@ export async function fetchHotHotels() {
 }
 
 export async function fetchHotelsBySeason(season) {
-  const { data } = await api.get("/hotels", {
-    params: {
-      populate: {
-        image: true,
-        tour: true,
-        hotel_options: true,
-        tour_option: {
-          populate: ["imageTour"],
-        },
-      },
-      filters: {
-        tour_option: {
-          season: {
-            $eq: season,
-          },
-        },
-      },
-    },
-  });
-
+  const { data } = await api.get(
+    `/hotels?populate=*&filters[tour_option][season][$eq]=${season}`
+  );
   return data.data;
 }

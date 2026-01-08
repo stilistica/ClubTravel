@@ -1,8 +1,9 @@
 @use "../../basic/globals.scss" as s;
 
 .filter-container {
+  padding-bottom: 17px;
   @media (min-width: s.$media_768) {
-    padding: 0 103px 0 93px;
+    padding: 0 103px 40px 93px;
   }
 }
 .filter {

@@ -21,7 +21,7 @@
   }
   &-info {
     @include s.d-flex($direction: column);
-    gap: 25px;
+    gap: 34px;
     &-title {
       @include s.d-flex(
         $direction: row,
@@ -64,10 +64,10 @@
       gap: 42px;
       &-column {
         @include s.d-flex($direction: column);
-        gap: 32px;
+        gap: 35px;
         &-div {
           @include s.d-flex($direction: column);
-          gap: 16px;
+          gap: 19px;
         }
         &-hint {
           font-weight: 400;
@@ -84,7 +84,7 @@
         }
         &-list {
           @include s.d-flex($direction: column);
-          gap: 12px;
+          gap: 15px;
           &-item {
             cursor: pointer;
             @include s.d-flex($direction: row, $align: center);
@@ -152,13 +152,16 @@
             }
           }
         }
+        &-list-stars {
+          gap: 9px;
+        }
       }
     }
     &-active {
-      padding: 24px 0 6px 0;
+      padding: 21px 0 6px 0;
       border-top: 1px solid #99999954;
       @include s.d-flex($direction: row, $align: center);
-      gap: 24px;
+      gap: 30px;
       &-title {
         font-weight: 400;
         font-size: 14px;
@@ -220,12 +223,12 @@
         }
       }
       &-list {
-        gap: 85px;
+        gap: 92px;
       }
     }
   }
   @media (min-width: s.$media_1366) {
-    padding: 15px 32px 19px 32px;
+    padding: 15px 32px 20px 37px;
     width: auto;
     &-info {
       &-title {
@@ -234,16 +237,17 @@
         }
       }
       &-list {
+        gap: 123px;
         @include s.d-flex($direction: row);
-        &-column-one {
-          margin-right: 30px;
+        &-column-categoties {
+          margin-left: 20px;
         }
       }
       &-list-column-list-regions {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        row-gap: 12px;
-        column-gap: 135px;
+        row-gap: 15px;
+        column-gap: 142px;
       }
     }
   }
