@@ -5,10 +5,10 @@
     <link rel="icon" type="image/svg+xml" href="/ClubTravel/assets/favicon-VQID8EvX.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Результаты поиска</title>
-    <script type="module" crossorigin src="/ClubTravel/assets/vendor-Dr0TTguT.js"></script>
-    <script type="module" crossorigin src="/ClubTravel/assets/main-E3o4TDDT.js"></script>
-    <link rel="stylesheet" crossorigin href="/ClubTravel/assets/vendor-D-h6ppoZ.css">
-    <link rel="stylesheet" crossorigin href="/ClubTravel/assets/main-DdOgiP9z.css">
+    <script type="module" crossorigin src="/ClubTravel/assets/vendor-d6aZdYq-.js"></script>
+    <script type="module" crossorigin src="/ClubTravel/assets/main-YLNixO4d.js"></script>
+    <link rel="stylesheet" crossorigin href="/ClubTravel/assets/vendor-BZa1Rt81.css">
+    <link rel="stylesheet" crossorigin href="/ClubTravel/assets/main-CsDkrUnk.css">
   </head>
   <body>
     <header class="header">
@@ -322,7 +322,7 @@
                   <p class="filter__extended-info-list-column-name">
                     Категория размещения
                   </p>
-                  <ul class="filter__extended-info-list-column-list">
+                  <ul class="filter__extended-info-list-column-list filter__extended-info-list-column-list-stars">
                     <li
                       class="filter__extended-info-list-column-list-item"
                       data-value="Budget"
@@ -516,7 +516,7 @@
                   <p class="filter__extended-info-list-column-name">
                     Цена на одного человека
                   </p>
-                  <div class="filter__extended-info-list-column-list filter-price-list">
+                  <div class="filter__extended-info-list-column-list filter__extended-info-list-column-list-price filter-price-list">
                     <div class="slider filter-price-slider">
                       <div class="track filter-price-track"></div>
                       <div class="range filter-price-range"></div>
@@ -538,7 +538,7 @@
                   </div>
                 </div>
               </div>
-              <div class="filter__extended-info-list-column">
+              <div class="filter__extended-info-list-column filter__extended-info-list-column-categoties">
                 <div
                   class="filter__extended-info-list-column-div filter__extended-categoties"
                   data-extended="regions"
@@ -561,8 +561,56 @@
         </div>
       </div>
     </section>
-    <p>resultList</p>
-    <p>calendar</p>    <section class="tourbooking">
+    <!-- <p>calendar</p> -->
+    <section class="container result-filter">
+      <div class="result-filter__info">
+        <h1 class="result-filter__info-title"></h1>
+        <button class="result-filter__info-calendar">
+          <svg>
+            <use href="/ClubTravel/assets/sprite-xjNdH9vZ.svg#icon-calendar-euro"></use>
+          </svg>
+          Цены на календаре
+        </button>
+        <div class="result-filter__info-sort">
+          <p>Сортировать:</p>
+          <ul class="result-filter__info-sort-controls">
+            <li
+              class="result-filter__info-sort-controls-control result-filter-sort-by"
+            >
+              <div class="result-filter__info-sort-controls-control-current">
+                <span>По умолчанию</span>
+                <svg>
+                  <use href="/ClubTravel/assets/sprite-xjNdH9vZ.svg#icon-more"></use>
+                </svg>
+              </div>
+    
+              <ul class="result-filter__info-sort-controls-control-dropdown">
+                <li data-sort="">По умолчанию</li>
+                <li data-sort="price">Цена</li>
+              </ul>
+            </li>
+            <li
+              class="result-filter__info-sort-controls-control result-filter-sort-order"
+            >
+              <div class="result-filter__info-sort-controls-control-current">
+                <span>Возрастающий</span>
+                <svg>
+                  <use href="/ClubTravel/assets/sprite-xjNdH9vZ.svg#icon-more"></use>
+                </svg>
+              </div>
+    
+              <ul class="result-filter__info-sort-controls-control-dropdown">
+                <li data-order="asc">Возрастающий</li>
+                <li data-order="desc">Убывающий</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <ul class="result-filter__list">
+      </ul>
+    </section>
+    <section class="tourbooking">
       <div class="tourbooking__container container">
         <h3 class="tourbooking__title">
           НЕТ ВРЕМЕНИ <br />
