@@ -7,10 +7,11 @@
     <title>Горящие предложения</title>
   </head>
   <body>
-    {{> header }}
-		{{> heroBase class="herobase"}} 
-    {{> infoHotel}}
-    {{> tourBooking}}
+    {{> header }} 
+    {{> heroBase class="herobase"}} 
+    {{> filterSection title="горящие предложения" svg="/img/sprite.svg#icon-fast-time"}} 
+    {{> tableHot}}
+    {{> tourBooking}} 
     {{> footer}}
     <script type="module" src="/js/main.js"></script>
   </body>
