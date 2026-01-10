@@ -1,0 +1,12 @@
+@use "../../basic/globals.scss" as s;
+
+.tabletHot__table-tbody-row {
+  & .tabletHot__table-two {
+    display: none;
+  }
+  &.is-open {
+    .tabletHot__table-two {
+      display: block;
+    }
+  }
+}

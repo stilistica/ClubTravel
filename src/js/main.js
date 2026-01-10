@@ -33,6 +33,8 @@ import "./module/pages/home-page/hotHome.js";
 // winer/summer hotels 
 import "./module/pages/home-page/sliderWinSum.js";
 
+// hotPage 
+import "./module/pages/hotPage/tableHot.js";
 
 import "./module/pages/auth/login.js";
 import "./module/pages/auth/register.js";
