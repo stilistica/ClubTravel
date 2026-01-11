@@ -437,7 +437,7 @@
     }
   }
   @media (min-width: s.$media_1366) {
-    padding: 0 96px 80px 97px;
+    padding: 40px 96px 80px 97px;
     gap: 35px;
     &__info {
       &.active {
@@ -644,10 +644,10 @@
     }
   }
   @media (min-width: s.$media_1440) {
-    padding: 0 98px 80px 98px;
+    padding: 40px 98px 80px 98px;
   }
   @media (min-width: s.$media_1920) {
-    padding: 0 150px 80px 150px;
+    padding: 40px 150px 80px 150px;
   }
 }
 
