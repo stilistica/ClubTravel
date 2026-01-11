@@ -1,9 +1,8 @@
 @use "../../basic/globals.scss" as s;
 
 .filter-container {
-  padding-bottom: 17px;
   @media (min-width: s.$media_768) {
-    padding: 0 103px 40px 93px;
+    padding: 0 103px 0px 93px;
   }
 }
 .filter {
@@ -15,12 +14,19 @@
   box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
 
   &__title {
+    @include s.d-flex($direction: row, $align: center);
+    gap: 9px;
     padding: 19px 0px 14.5px 40px;
     h1 {
       font-weight: 700;
       font-size: 18px;
       letter-spacing: 0.07em;
       text-transform: uppercase;
+    }
+    svg {
+      width: 26px;
+      height: 26px;
+      fill: #f15d28;
     }
   }
 

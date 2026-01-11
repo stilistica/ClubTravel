@@ -1,7 +1,7 @@
 @use "../../basic/globals.scss" as s;
 
 .result-filter {
-  padding: 0 17px 80px 23px;
+  padding: 17px 17px 80px 23px;
   @include s.d-flex($direction: column);
   gap: 53px;
 
@@ -346,7 +346,7 @@
     }
   }
   @media (min-width: s.$media_768) {
-    padding: 0 65px 80px 65px;
+    padding: 40px 65px 80px 65px;
     gap: 35px;
 
     &__info {

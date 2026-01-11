@@ -30,6 +30,9 @@
 @use "./layout/homepage/hothome.scss" as *;
 @use "./layout/homepage/sliderWinSum.scss" as *;
 
+//hotPage
+@use "./layout/hotpage/tableHot.scss" as *;
+
 // newsPage
 @use "./newsPage/news-section.scss" as *;
 

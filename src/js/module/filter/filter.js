@@ -662,9 +662,9 @@ function renderActiveFilters() {
       const values = filtersState[key];
       if (!Array.isArray(values) || values.length === 0) return "";
 
-      const listItems = values
-        .map((value) => `<li>${filterLabes[key]?.[value] || value}</li>`)
-        .join("");
+      // const listItems = values
+      //   .map((value) => `<li>${filterLabes[key]?.[value] || value}</li>`)
+      //   .join("");
 
       return `
         <div class="filter__extended-info-active-filter-item">

@@ -1,9 +1,15 @@
 <section class="container filter-container">
   <div class="filter">
     <div class="filter__title">
+      {{#if svg}}
+      <svg>
+        <use href="{{svg}}"></use>
+      </svg>
       <h1>{{title}}</h1>
+      {{else}}
+      <h1>{{title}}</h1>
+      {{/if}}
     </div>
-    {{> filter}} 
-    {{> filterExtended }}
+    {{> filter}} {{> filterExtended }}
   </div>
 </section>
