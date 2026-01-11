@@ -76,7 +76,7 @@ function renderHotTableRow(option) {
 
   return `
   <div class="tabletHot__table-tbody-row" data-option-id="${id}">
-  <ul>
+  <ul class="tabletHot__table-tbody-row-list">
     <li>${startDate}</li>
 		<li>${departureCity}</li>
 		<li>${destination}</li>
@@ -175,15 +175,14 @@ function renderTwoRowHot(hotel) {
 
   return `
     <div class="tabletHot__table-two-hotels-tbody-row" data-hotel-id="${id}">
-      <ul>
-      <li >${name}</li>
+      <ul class="tabletHot__table-two-hotels-tbody-row-list">
+      <li class="tabletHot__table-two-hotels-tbody-row-list-link">${name}</li>
       <li>${category}</li>
       <li>${meals}</li>
       <li>${tourPackage}</li>
-      <li><span>${price}€</span>/чел</li>
+      <li>от <span>${price}€</span>/чел</li>
       <li>
-        <button class="button-org tabletHot__table-two-hotels-tbody-btn"
-        style="--btn-width: 160px; --btn-height: 42px"
+        <button class="tabletHot__table-two-hotels-tbody-btn"
         data-hotel-id="${id}"
         >
           <p>открыть предложения</p>
@@ -227,7 +226,7 @@ function initHotHotelOptionsClicks() {
 
     container.innerHTML = renderThirdTableHot(hotel);
     row.classList.add("is-open");
-    btn.querySelector("p").textContent = "закрыть предложения";
+    btn.querySelector("p").textContent = "скрыть предложения";
   });
 }
 function renderThirdTableHot(hotel) {
@@ -246,19 +245,22 @@ function renderThirdRowHot(option, hotel) {
   const meals = mealsMap?.[option.meals] || option.meals || "-";
   const tourPackage =
     packageMap?.[option.tourPackage] || option.tourPackage || "-";
-
   const price = option.price || hotel.tour_option?.minPrice || "-";
 
+
   return `
-    <ul class="tabletHot__table-three-tbody-item" data-hotel-option-id="${id}">
-      <li>${name}</li>
+    <ul class="tabletHot__table-three-tbody-row" data-hotel-option-id="${id}">
+      <li class="tabletHot__table-three-tbody-row-name">
+          ➞  
+          ${name}
+      </li>
       <li>${category}</li>
       <li>${meals}</li>
       <li>${tourPackage}</li>
       <li><span>${price}€</span>/чел</li>
       <li>
         <button class="button-org tabletHot__table-three-tbody-btn"
-        style="--btn-width: 160px; --btn-height: 42px"
+        style="--btn-width: 160px; --btn-height: 28px"
         data-hotel-option-id="${id}"
         >
           выбрать
