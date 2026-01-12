@@ -1,0 +1,14 @@
+@use "../../basic/globals.scss" as s;
+
+.result-filter__calendar {
+  margin-top: 24px;
+
+  &[hidden] {
+    display: none;
+  }
+}
+.calendar-day-price {
+  font-size: 10px;
+  margin-top: 2px;
+  color: #f68521;
+}
