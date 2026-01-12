@@ -9,7 +9,6 @@
     display: none;
 
     &.active {
-
       @include s.d-flex($direction: column);
       gap: 16px;
     }
@@ -152,6 +151,53 @@
         }
       }
     }
+    &-desc {
+      // margin-left: -90px;
+      @include s.d-flex($direction: row, $align: center);
+      gap: 10px;
+
+      // padding-left: 20px;
+      // border-left: 1px solid #55555530;
+
+      font-weight: 400;
+      // font-size: 24px;
+      font-size: 16px;
+      svg {
+        width: 25px;
+        height: 25px;
+        fill: #3e7739;
+        opacity: 0.5;
+      }
+    }
+    &-calendar-close {
+      // max-width: 174px;
+      max-width: 320px;
+
+      @include s.d-flex($direction: row, $align: center);
+      gap: 15px;
+      padding: 11px 23px 12px 16px;
+      border: 1px solid s.$color__primary;
+      border-radius: 6px;
+      background: s.$color__white;
+      color: s.$color__primary;
+
+      transition: all 0.5s ease;
+      svg {
+        width: 20px;
+        height: 20px;
+        fill: s.$color__primary;
+
+        transition: fill 0.5s ease;
+      }
+      &:hover {
+        border: 1px solid s.$color__white;
+        background: s.$color__primary;
+        color: s.$color__white;
+        svg {
+          fill: s.$color__white;
+        }
+      }
+    }
   }
   &__list {
     @include s.d-flex($direction: column);
@@ -163,8 +209,6 @@
       letter-spacing: 0.04rem;
     }
     &-card {
-
-
       @include s.d-flex($direction: column);
       &-base {
         @include s.d-flex($direction: column);
@@ -350,7 +394,6 @@
     gap: 35px;
 
     &__info {
-
       &-title {
         font-size: 24px;
       }
@@ -371,6 +414,17 @@
             }
           }
         }
+      }
+      &-desc {
+        // margin-left: -90px;
+
+        // padding-left: 20px;
+        // border-left: 1px solid #55555530;
+
+        font-size: 24px;
+      }
+      &-calendar-close {
+        max-width: 190px;
       }
     }
     &__list {
@@ -551,6 +605,12 @@
           }
         }
       }
+      &-desc {
+        margin-left: -90px;
+
+        padding-left: 20px;
+        border-left: 1px solid #55555530;
+      }
     }
     &__list {
       @include s.d-flex($direction: column);
@@ -650,7 +710,6 @@
     padding: 40px 150px 80px 150px;
   }
 }
-
 
 // table
 @media (max-width: 900px) {

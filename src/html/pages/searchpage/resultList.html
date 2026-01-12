@@ -1,4 +1,3 @@
-<!-- {{> calendar}} -->
 <section class="container result-filter">
   <div class="result-filter__info">
     <h1 class="result-filter__info-title"></h1>
@@ -44,6 +43,22 @@
       </ul>
     </div>
   </div>
-  <ul class="result-filter__list">
-  </ul>
+  {{> calendar}}
+  <ul class="result-filter__list"></ul>
 </section>
+
+<div class="result-filter__info">
+  <h1 class="result-filter__info-title"></h1>
+  <p class="result-filter__info-desc">
+    <svg>
+      <use href="/img/sprite.svg#icon-calendar-euro"></use>
+    </svg>
+    Сравнение цен на календаре
+  </p>
+  <button class="result-filter__info-calendar-close">
+    <svg>
+      <use href="/img/sprite.svg#icon-list"></use>
+    </svg>
+    Список отелей
+  </button>
+</div>

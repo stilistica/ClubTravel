@@ -105,7 +105,7 @@ function renderFilterInfo(hotels) {
 }
 
 // логіка з сортуванням списку
-function initSortList() {
+export function initSortList() {
   const controls = document.querySelectorAll(
     ".result-filter__info-sort-controls-control"
   );
