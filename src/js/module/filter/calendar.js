@@ -1,5 +1,9 @@
+import Swiper from "swiper/bundle";
+import "swiper/css";
 import flatpickr from "flatpickr";
-import "flatpickr/dist/flatpickr.css";
+// import "flatpickr/dist/flatpickr.css";
+import "flatpickr/dist/themes/airbnb.css";
+import { Russian } from "flatpickr/dist/l10n/ru.js";
 import sprite from "/img/sprite.svg";
 import { initSortList } from "./renderHotels";
 
@@ -9,6 +13,10 @@ const calendarBlock = document.querySelector(".result-filter__calendar");
 let isCalendarOpen = false;
 const infoDefaultHTML = infoBlock.innerHTML;
 let savedInfoTitle = "";
+
+let swiperInstance = null;
+let calendarInstances = [];
+let selectedDate = null;
 
 const infoCalendarHTML = `
   <h1 class="result-filter__info-title"></h1>
@@ -50,7 +58,7 @@ if (infoBlock) {
 
       calendarBlock.hidden = false;
 
-      // mountCalendar();
+      mountCalendar();
     }
     if (calendarCloseBtn && isCalendarOpen) {
       isCalendarOpen = false;
@@ -67,3 +75,153 @@ if (infoBlock) {
     }
   });
 }
+function isSameMonth(dateA, dateB) {
+  return (
+    dateA.getFullYear() === dateB.getFullYear() &&
+    dateA.getMonth() === dateB.getMonth()
+  );
+}
+
+function mountCalendar() {
+  const calendarWrap = document.querySelector(".result-filter__calendar");
+  const resultsWrap = document.querySelector(
+    ".result-filter__calendar-results"
+  );
+
+  calendarWrap.hidden = false;
+  if (swiperInstance) return;
+
+  const monthsCount = 12;
+  const today = new Date();
+
+  resultsWrap.innerHTML = "";
+  calendarInstances = [];
+
+  // swiper markup
+  const swiperEl = document.createElement("div");
+  swiperEl.className = "swiper";
+
+  const wrapperEl = document.createElement("div");
+  wrapperEl.className = "swiper-wrapper";
+
+  swiperEl.append(wrapperEl);
+  resultsWrap.append(swiperEl);
+
+  for (let i = 0; i < monthsCount; i++) {
+    const slideEl = document.createElement("div");
+    slideEl.className = "swiper-slide";
+
+    // контейнер для календаря
+    const calendarEl = document.createElement("div");
+    calendarEl.className = "calendar";
+
+    slideEl.append(calendarEl);
+    wrapperEl.append(slideEl);
+
+    const monthDate = new Date(today.getFullYear(), today.getMonth() + i, 1);
+
+    const fp = flatpickr(calendarEl, {
+      locale: Russian,
+      inline: true,
+      defaultDate: null,
+      showMonths: 1,
+      minDate: "today",
+
+      prevArrow: "",
+      nextArrow: "",
+
+      onReady: (_, __, instance) => {
+        instance.jumpToDate(monthDate, false);
+
+        instance.clear();
+      },
+
+      onChange: ([date], _, instance) => {
+        if (!date) return;
+
+        selectedDate = date;
+
+        calendarInstances.forEach((item) => {
+          if (item.fp !== instance) {
+            item.fp.clear();
+          }
+        });
+
+        calendarInstances.forEach((item) => {
+          updateCalendarSelection(item);
+        });
+
+        console.log("Selected date:", selectedDate);
+      },
+    });
+
+    const calendarItem = {
+      fp,
+      monthDate,
+      calendarEl,
+    };
+
+    calendarInstances.push(calendarItem);
+
+    // якщо дата вже вибрана — одразу синхронізуємо
+    updateCalendarSelection(calendarItem);
+  }
+
+  swiperInstance = new Swiper(swiperEl, {
+    breakpoints: {
+      0: {
+        slidesPerView: 1,
+        spaceBetween: 20,
+      },
+      620: {
+        slidesPerView: 2,
+        spaceBetween: 20,
+      },
+      930: {
+        slidesPerView: 3,
+        spaceBetween: 20,
+      },
+      1366: {
+        slidesPerView: 4,
+        spaceBetween: 26,
+      },
+      1920: {
+        slidesPerView: 5,
+        spaceBetween: 30,
+      },
+    },
+  });
+}
+
+function updateCalendarSelection(calendarItem) {
+  const { fp, monthDate, calendarEl } = calendarItem;
+
+  const selectedDayEls = calendarEl.querySelectorAll(
+    ".flatpickr-day.is-selected"
+  );
+
+  selectedDayEls.forEach((el) => el.classList.remove("is-selected"));
+
+  if (!selectedDate) return;
+
+  // якщо вибрана дата не з цього місяця — нічого не підсвічуємо
+  if (!isSameMonth(selectedDate, monthDate)) return;
+
+  const targetDateStr = selectedDate.getDate().toString();
+
+  const dayEl = calendarEl.querySelector(
+    `.flatpickr-day:not(.prevMonthDay):not(.nextMonthDay)[aria-label*="${targetDateStr}"]`
+  );
+
+  if (dayEl) {
+    dayEl.classList.add("is-selected");
+  }
+}
+
+function destroyCalendar() {
+  const calendarWrap = document.querySelector(".result-filter__calendar");
+  calendarWrap.hidden = true;
+}
+
+
+
