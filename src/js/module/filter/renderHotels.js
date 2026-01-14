@@ -10,7 +10,7 @@ const sortState = {
   sortBy: "",
   order: "asc",
 };
-let currentHotels = [];
+export let currentHotels = [];
 
 document.addEventListener("DOMContentLoaded", () => {
   initSortList();
@@ -105,7 +105,7 @@ function renderFilterInfo(hotels) {
 }
 
 // логіка з сортуванням списку
-function initSortList() {
+export function initSortList() {
   const controls = document.querySelectorAll(
     ".result-filter__info-sort-controls-control"
   );

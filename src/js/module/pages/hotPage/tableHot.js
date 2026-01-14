@@ -3,7 +3,7 @@ import { formatDate, renderCategoryStars } from "../home-page/hotHome";
 import sprite from "/img/sprite.svg";
 
 const hotTable = document.querySelector(".tabletHot");
-const tbody = hotTable.querySelector(".tabletHot__table-tbody");
+const tbody = document.querySelector(".tabletHot__table-tbody");
 
 let arrTourOptions = [];
 let allHotHotels = [];
