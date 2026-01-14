@@ -1,20 +1,30 @@
 @use "../../basic/globals.scss" as s;
 
 .result-filter__calendar {
+  @include s.d-flex($direction: column);
+  gap: 40px;
   &[hidden] {
     display: none;
   }
+  &-text {
+    display: none;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #cecece;
+
+    font-weight: 400;
+    font-size: 24px;
+
+    span {
+      font-weight: 700;
+    }
+  }
 }
-.calendar-day-price {
-  font-size: 10px;
-  margin-top: 2px;
-  color: #f68521;
-}
+
 .result-filter__calendar-results {
   & .swiper-wrapper {
   }
   & .swiper-slide {
-      @include s.d-flex($direction: column, $justify: center, $align: center);
+    @include s.d-flex($direction: column, $justify: center, $align: center);
 
     padding: 5px 5px 10px 5px;
   }
@@ -29,27 +39,49 @@
   width: 258px !important;
 }
 .flatpickr-calendar .dayContainer {
-  min-width: none !important;
+  min-width: 250px !important;
   max-width: none !important;
-  width: 100%;
+  width: 258px;
   display: grid !important;
   grid-template-columns: repeat(7, 1fr) !important;
 }
 /* Загальний вигляд клітинки */
 .flatpickr-calendar .flatpickr-day {
   width: auto !important;
+  height: 54px;
+
   background: #fff;
   color: s.$color__text;
   border: 1px solid #e2e2e2;
   transition: 0.2s ease;
+  & .calendar-day-price {
+    margin-top: -16px;
+    font-weight: 400;
+    font-size: 12px;
+    text-align: center;
+    color: #000;
+  }
+  &.nextMonthDay {
+    & .calendar-day-price {
+      display: none;
+    }
+  }
+  &.prevMonthDay {
+    & .calendar-day-price {
+      display: none;
+    }
+  }
 }
 
 /* Disabled дні */
 .flatpickr-calendar .flatpickr-day.disabled,
 .flatpickr-calendar .flatpickr-day.flatpickr-disabled {
   background: #f1f1f1;
-  color: #999;
+  color: #b4b4b4;
   cursor: not-allowed;
+  & .calendar-day-price {
+    display: none;
+  }
 }
 
 /* Hover тільки для активних */
@@ -79,10 +111,16 @@
   box-shadow: 0 3px 10px 0 rgba(247, 143, 31, 0.5);
   border-color: #f68521;
 
+  & .calendar-day-price {
+    color: s.$color__white;
+  }
   &:hover {
     background: #f68521;
     color: #fff;
     box-shadow: 0 3px 10px 0 rgba(247, 143, 31, 0.5);
     border-color: #f68521;
+    & .calendar-day-price {
+      color: s.$color__white;
+    }
   }
 }

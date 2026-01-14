@@ -10,7 +10,7 @@ const sortState = {
   sortBy: "",
   order: "asc",
 };
-let currentHotels = [];
+export let currentHotels = [];
 
 document.addEventListener("DOMContentLoaded", () => {
   initSortList();
