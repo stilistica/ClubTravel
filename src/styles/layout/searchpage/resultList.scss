@@ -769,13 +769,6 @@
 .result-filter__list-card-details-table {
   padding: 18px 15px 10px 15px;
   width: 100%;
-  // tr {
-  //   @include s.d-flex(
-  //     $direction: row,
-  //     $justify: space-between,
-  //     $align: center
-  //   );
-  // }
   th,
   td {
     width: 100%;
@@ -791,7 +784,6 @@
     color: #666;
   }
   td {
-    // padding: 12px 0 12px 0;
     padding: 8px;
     font-weight: 400;
     font-size: 14px;
@@ -800,9 +792,6 @@
       color: #222;
     }
   }
-  // tbody tr:not(:last-child) {
-  //   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-  // }
 }
 @media (min-width: 900px) {
   .result-filter__list-card-details-table {
@@ -820,7 +809,7 @@
       width: 100%;
       text-align: left;
       vertical-align: middle;
-      white-space: nowrap;
+      white-space: wrap;
     }
     th {
       padding-bottom: 8px;
@@ -830,7 +819,7 @@
       color: #666;
     }
     td {
-      padding: 12px 0 12px 0;
+      padding: 12px 0px 12px 0;
       font-weight: 400;
       font-size: 16px;
       span {
