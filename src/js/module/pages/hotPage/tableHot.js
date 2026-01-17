@@ -239,7 +239,8 @@ function renderThirdTableHot(hotel) {
   `;
 }
 function renderThirdRowHot(option, hotel) {
-  const id = option.id;
+  const optionId = option.id;
+  const hotelId = hotel.id;
   const name = hotel.nameHotel;
   const category = renderCategoryStars(hotel.category);
   const meals = mealsMap?.[option.meals] || option.meals || "-";
@@ -249,7 +250,7 @@ function renderThirdRowHot(option, hotel) {
 
 
   return `
-    <ul class="tabletHot__table-three-tbody-row" data-hotel-option-id="${id}">
+    <ul class="tabletHot__table-three-tbody-row" data-hotel-option-id="${optionId}">
       <li class="tabletHot__table-three-tbody-row-name">
           ➞  
           ${name}
@@ -261,8 +262,8 @@ function renderThirdRowHot(option, hotel) {
       <li>
         <button class="button-org tabletHot__table-three-tbody-btn"
         style="--btn-width: 160px; --btn-height: 28px"
-        data-hotel-option-id="${id}"
-        >
+        data-hotel-id="${hotelId}"
+        data-option-id="${optionId}"        >
           выбрать
         </button>
       </li>
