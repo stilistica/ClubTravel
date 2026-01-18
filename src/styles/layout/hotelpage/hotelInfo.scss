@@ -1,0 +1,196 @@
+@use "../../basic/globals.scss" as s;
+
+.info-hotel {
+  @include s.d-flex($direction: column);
+  gap: 70px;
+  &__wrapper {
+    position: relative;
+    padding: 0 97px 0 99px;
+    &-div {
+      @include s.d-flex($direction: row, $justify: space-between);
+    }
+    &-absolute {
+      position: absolute;
+      top: -126px;
+
+      padding: 17px 14px 13px 19px;
+      border-radius: 8px;
+      background: s.$color__white;
+      box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
+
+      @include s.d-flex($direction: column);
+      gap: 6px;
+      &-name {
+        @include s.d-flex($direction: row);
+        gap: 13px;
+
+        font-weight: 700;
+        font-size: 26px;
+        & .filter__extended-info-list-column-list-item-stars {
+          @include s.d-flex($direction: row);
+          gap: 4px;
+          svg {
+            fill: #f5c213;
+          }
+        }
+      }
+      &-place {
+        @include s.d-flex($direction: row, $align: center);
+        gap: 9px;
+
+        font-weight: 400;
+        font-size: 14px;
+        svg {
+          width: 16px;
+          height: 16px;
+          fill: s.$color__green;
+          opacity: 0.5;
+        }
+      }
+    }
+    &-one {
+      max-width: 730px;
+      margin-top: 40px;
+      @include s.d-flex($direction: column);
+      gap: 50px;
+      &-base {
+        @include s.d-flex($direction: column);
+        gap: 35px;
+        &-images {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          grid-template-rows: auto auto;
+          gap: 16px;
+          img {
+            border-radius: 8px;
+
+            width: 169px;
+            height: 97px;
+          }
+          img:first-child {
+            grid-column: 1 / -1;
+
+            width: 730px;
+            height: 499px;
+          }
+        }
+        &-text {
+          margin-left: -2px;
+          @include s.d-flex($direction: column);
+          gap: 18px;
+          h3 {
+            font-weight: 400;
+            font-size: 18px;
+          }
+          p {
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 1.5;
+            letter-spacing: 0.025em;
+          }
+        }
+      }
+      &-more {
+        margin-left: -2px;
+        display: grid;
+        grid-template-columns: repeat(2, 292px);
+        column-gap: 76px;
+        row-gap: 34px;
+
+        div {
+          @include s.d-flex($direction: column);
+          gap: 18px;
+          letter-spacing: 0.04rem;
+          p {
+            font-weight: 400;
+            font-size: 18px;
+          }
+          ul {
+            @include s.d-flex($direction: column);
+            gap: 0.5px;
+            li {
+              line-height: 1.15rem;
+
+              font-weight: 400;
+              font-size: 14px;
+            }
+          }
+        }
+        &-loc {
+          grid-column: 1;
+          grid-row: 1;
+        }
+
+        &-food {
+          grid-column: 2;
+          grid-row: 1;
+        }
+
+        &-beach {
+          grid-column: 1;
+          grid-row: 2;
+        }
+
+        &-sport {
+          grid-column: 2;
+          grid-row: 2 / 4;
+        }
+
+        &-kids {
+          grid-column: 1;
+          grid-row: 3;
+        }
+
+        &-rooms {
+          grid-column: 1;
+          grid-row: 4;
+        }
+
+        &-service {
+          grid-column: 2;
+          grid-row: 4;
+        }
+      }
+    }
+    &-two {
+      margin-top: -27px;
+      width: 371px;
+      @include s.d-flex($direction: column);
+      gap: 48px;
+      &-info {
+        padding: 24px;
+        @include s.d-flex($direction: column);
+        gap: 32px;
+
+        border-radius: 10px;
+        background: s.$color__white;
+        box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.1);
+        &-one {
+          @include s.d-flex($direction: column);
+          gap: 24px;
+          &-title {
+            @include s.d-flex(
+              $direction: row,
+              $justify: space-between,
+              $align: center
+            );
+            letter-spacing: 0.04rem;
+
+            h2 {
+              font-weight: 400;
+              font-size: 20px;
+            }
+            a {
+              font-weight: 400;
+              font-size: 14px;
+              color: s.$color__primary;
+              opacity: 0.5;
+            }
+          }
+        }
+      }
+    }
+  }
+  &__more {
+  }
+}
