@@ -46,6 +46,8 @@ if (window.location.pathname.endsWith("searchPage.html")) {
     }
     updateUrlFromFilters(filtersState);
   }
+} else if (window.location.pathname.endsWith("hotelPage.html")) {
+  localStorage.removeItem("filtersState");
 } else {
   localStorage.removeItem("filtersState");
   window.history.replaceState({}, "", window.location.pathname);
@@ -289,7 +291,7 @@ if (searchButton) {
 
     updateUrlFromFilters(filtersState);
 
-    renderHotelsList(filteredHotels)
+    renderHotelsList(filteredHotels);
     // console.log(filteredHotels);
   });
 }
