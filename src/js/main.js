@@ -37,6 +37,10 @@ import "./module/pages/home-page/sliderWinSum.js";
 // hotPage 
 import "./module/pages/hotPage/tableHot.js";
 
+// hotelPage
+import "./module/pages/hotelPage/hotelInfo.js"
+
+// auth
 import "./module/pages/auth/login.js";
 import "./module/pages/auth/register.js";
 import "./module/pages/auth/forgot.js";
