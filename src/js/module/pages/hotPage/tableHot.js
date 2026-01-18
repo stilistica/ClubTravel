@@ -260,7 +260,7 @@ function renderThirdRowHot(option, hotel) {
       <li>${tourPackage}</li>
       <li><span>${price}€</span>/чел</li>
       <li>
-        <button class="button-org tabletHot__table-three-tbody-btn"
+        <button class="button-org choose-btn-hotel tabletHot__table-three-tbody-btn"
         style="--btn-width: 160px; --btn-height: 28px"
         data-hotel-id="${hotelId}"
         data-option-id="${optionId}"        >

@@ -262,7 +262,7 @@ function renderHotelOptionRow(hotel, option) {
     <td data-label="Стоимость"><span>${price}€</span>/чел</td>
     <td>
       <button
-        class="button-org choose-btn result-filter__list-card-details-btn"
+        class="button-org choose-btn-hotel result-filter__list-card-details-btn"
         style="--btn-width: 160px; --btn-height: 42px"
         data-hotel-id="${hotelId}"
         data-option-id="${optionId}"
