@@ -5,8 +5,10 @@ export async function fetchTours() {
   return data.data;
 }
 
-export async function fetchHotels() {
-  const { data } = await api.get("/hotels?populate=*");
+export async function fetchHotels(page = 1, pageSize = 30) {
+  const { data } = await api.get(
+    `/hotels?populate=*&pagination[page]=${page}&pagination[pageSize]=${pageSize}`
+  );
   return data;
 }
 
