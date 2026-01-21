@@ -202,4 +202,9 @@
       }
     }
   }
+  @media (min-width: s.$media_1920) {
+    &__div {
+      padding: 82px 150px 69px 150px;
+    }
+  }
 }
