@@ -120,10 +120,204 @@
       <div class="info-hotel__wrapper-two-info-one">
         <div class="info-hotel__wrapper-two-info-one-title">
           <h2>Выбранный тур</h2>
-          <a href="{{link 'html/pages/searchPage.html'}}">изменить</a>
+          <a href="{{searchLink}}">изменить</a>
+        </div>
+        <ul class="info-hotel__wrapper-two-info-one-list">
+          <li class="info-hotel__wrapper-two-info-one-list-item">
+            <svg>
+              <use href="{{sprite}}#icon-calendar"></use>
+            </svg>
+            {{startDate}} | {{days}}
+          </li>
+          <li class="info-hotel__wrapper-two-info-one-list-item">
+            <svg>
+              <use href="{{sprite}}#icon-airplane"></use>
+            </svg>
+            Вылет из {{departureCity}}
+          </li>
+          <li class="info-hotel__wrapper-two-info-one-list-item">
+            <svg>
+              <use href="{{sprite}}#icon-food"></use>
+            </svg>
+            {{meals}}
+          </li>
+          <li class="info-hotel__wrapper-two-info-one-list-item">
+            <svg>
+              <use href="{{sprite}}#icon-house"></use>
+            </svg>
+            {{cate}}
+          </li>
+        </ul>
+        <div class="info-hotel__wrapper-two-info-one-price">
+          <h2><span>{{price}}€</span>/чел</h2>
+          <p>
+            <span>Цена на одного человека </span>действительна при размещении в
+            двухместном номере. Цена зависит от количества мест и может
+            измениться.
+          </p>
         </div>
       </div>
-      <div class="info-hotel__wrapper-two-info-two"></div>
+      <div class="info-hotel__wrapper-two-info-two">
+        <div class="info-hotel__wrapper-two-info-two-amount">
+          <h3>Количество отдыхающих</h3>
+          <div class="info-hotel__wrapper-two-info-two-amount-wrapper">
+            <div
+              class="info-hotel__wrapper-two-info-two-amount-wrapper__trigger"
+            >
+              <p>
+                Взрослых: <span class="info-hotel__adults">1</span>; детей:
+                <span class="info-hotel__children">0</span>
+              </p>
+              <svg>
+                <use href="{{sprite}}#icon-more"></use>
+              </svg>
+            </div>
+            <ul
+              class="info-hotel__wrapper-two-info-two-amount-wrapper__dropdown"
+            >
+              <li
+                class="info-hotel__wrapper-two-info-two-amount-wrapper__dropdown-item"
+              >
+                Взрослых:
+                <div
+                  class="info-hotel__wrapper-two-info-two-amount-wrapper__dropdown-item-variant"
+                >
+                  <svg
+                    class="info-hotel__wrapper-two-info-two-amount-wrapper__dropdown-item-variant-prev info-hotel-adults-minus"
+                  >
+                    <use href="{{sprite}}#icon-more"></use>
+                  </svg>
+                  <span class="info-hotel__dropdown-adults-value">1</span>
+                  <svg
+                    class="info-hotel__wrapper-two-info-two-amount-wrapper__dropdown-item-variant-next info-hotel-adults-plus"
+                  >
+                    <use href="{{sprite}}#icon-more"></use>
+                  </svg>
+                </div>
+              </li>
+              <li
+                class="info-hotel__wrapper-two-info-two-amount-wrapper__dropdown-item"
+              >
+                Детей:
+                <div
+                  class="info-hotel__wrapper-two-info-two-amount-wrapper__dropdown-item-variant"
+                >
+                  <svg
+                    class="info-hotel__wrapper-two-info-two-amount-wrapper__dropdown-item-variant-prev info-hotel-children-minus"
+                  >
+                    <use href="{{sprite}}#icon-more"></use>
+                  </svg>
+                  <span class="info-hotel__dropdown-children-value">0</span>
+                  <svg
+                    class="info-hotel__wrapper-two-info-two-amount-wrapper__dropdown-item-variant-next info-hotel-children-plus"
+                  >
+                    <use href="{{sprite}}#icon-more"></use>
+                  </svg>
+                </div>
+              </li>
+            </ul>
+            <ul
+              class="info-hotel__wrapper-two-info-two-amount-wrapper__info"
+            ></ul>
+          </div>
+        </div>
+      </div>
+      <div class="info-hotel__wrapper-two-info-three">
+        <p class="info-hotel__wrapper-two-info-three-price">
+          Общая стоимость тура: <span class="info-hotel__total-price">€</span>
+        </p>
+        <button
+          class="button-org info-hotel__wrapper-two-info-three-btn"
+          style="--btn-width: 100%; --btn-height: 42px"
+        >
+          Бронировать
+        </button>
+        <div class="info-hotel__wrapper-two-info-three-police">
+          <svg>
+            <use href="{{sprite}}#icon-lock"></use>
+          </svg>
+          <p>
+            Ваши данные надежно защищены и обрабатываются согласно с
+            <span>условиями обработки личных данных</span>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="info-hotel__wrapper-two-why">
+      <h3>ПОЧЕМУ БРОНИРОВАТЬ ТУР У НАС?</h3>
+      <ul class="info-hotel__wrapper-two-why-list">
+        <li class="info-hotel__wrapper-two-why-list-item">
+          <div class="info-hotel__wrapper-two-why-list-item-icon">
+            <svg>
+              <use href="{{sprite}}#icon-check"></use>
+            </svg>
+          </div>
+          <p>Только отобранные отели</p>
+        </li>
+        <li class="info-hotel__wrapper-two-why-list-item">
+          <div class="info-hotel__wrapper-two-why-list-item-icon">
+            <svg>
+              <use href="{{sprite}}#icon-check"></use>
+            </svg>
+          </div>
+          <p>Все туроператоры на одном сайте</p>
+        </li>
+        <li class="info-hotel__wrapper-two-why-list-item">
+          <div class="info-hotel__wrapper-two-why-list-item-icon">
+            <svg>
+              <use href="{{sprite}}#icon-check"></use>
+            </svg>
+          </div>
+          <p>Прозрачно и безопасно</p>
+        </li>
+        <li class="info-hotel__wrapper-two-why-list-item">
+          <div class="info-hotel__wrapper-two-why-list-item-icon">
+            <svg>
+              <use href="{{sprite}}#icon-check"></use>
+            </svg>
+          </div>
+          <p>Без наценок</p>
+        </li>
+      </ul>
+    </div>
+    <div class="info-hotel__wrapper-two-contacts">
+      <h2 class="info-hotel__wrapper-two-contacts-title">
+        ЕСТЬ ВОПРОСЫ ПО ОТЕЛЮ ИЛИ <span>ХОТИТЕ ПОДОБРАТЬ ТУР?</span>
+      </h2>
+      <div class="info-hotel__wrapper-two-contacts-info">
+        <p class="info-hotel__wrapper-two-contacts-info-text">
+          Вам поможет наш консультант <span>Марина Каасик</span>
+        </p>
+        <div class="info-hotel__wrapper-two-contacts-info-image">
+          <img src="{{imgContacts}}" />
+        </div>
+        <ul class="info-hotel__wrapper-two-contacts-info-list">
+          <li>
+            <svg>
+              <use href="{{sprite}}#icon-phone"></use>
+            </svg>
+						<p>+372 <span>6 130 633</span></p>
+          </li>
+          <li>
+            <svg>
+              <use href="{{sprite}}#icon-mail"></use>
+            </svg>
+						<p>contact@email.ee</p>
+          </li>
+          <li>
+            <svg>
+              <use href="{{sprite}}#icon-messanger"></use>
+            </svg>
+						<p>Написать в Messenger</p>
+          </li>
+          <li>
+            <svg>
+              <use href="{{sprite}}#icon-clock"></use>
+            </svg>
+						<p>Пн - Пт <span>10.00 - 18.00</span></p>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>

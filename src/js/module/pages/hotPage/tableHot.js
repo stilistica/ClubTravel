@@ -13,7 +13,7 @@ const cityMap = {
   riga: "Рига",
   vilnius: "Вильнус",
 };
-const mealsMap = {
+export const mealsMap = {
   no_meals: "Без питания",
   breakfast: "Завтрак",
   breakfast_dinner: "Завтрак и ужин",
