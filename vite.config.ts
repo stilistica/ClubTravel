@@ -104,9 +104,9 @@ export default defineConfig(({ command }) => {
       },
     },
 
-    // server: {
-    //   port: 5174,
-    // },
+    server: {
+      port: 5174,
+    },
     // envPrefix: "APP_",
     // server: {
     //   open: true,
