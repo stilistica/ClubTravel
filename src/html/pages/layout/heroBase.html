@@ -1,4 +1,14 @@
 <section class="{{class}} hero">
-	<div class="hero__image"></div>
-	<div class="hero__wave"></div>
+  <div class="hero__image">
+    <picture>
+      <source media="(min-width: 768px)" srcset="{{desktopImg}}" />
+      <img
+        src="/img/hero/hero-mob.webp"
+        alt="hero"
+        fetchpriority="high"
+        decoding="async"
+      />
+    </picture>
+  </div>
+  <div class="hero__wave"></div>
 </section>
