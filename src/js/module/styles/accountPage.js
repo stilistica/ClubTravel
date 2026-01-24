@@ -1,0 +1,1 @@
+import "@/styles/accountSection/account-section.scss";

@@ -9,7 +9,6 @@
 
 // Components
 @use "./components/consultant-card.scss" as *;
-@use "./components/slider.scss" as *;
 
 @use "./layout/header.scss" as *;
 @use "./layout/mob-menu.scss" as *;
@@ -19,45 +18,50 @@
 @use "./layout/footer.scss" as *;
 
 // filter
-@use "./layout/filter/filter.scss" as *;
-@use "./layout/filter/filterExteded.scss" as *;
+// @use "./layout/filter/filter.scss" as *;
+// @use "./layout/filter/filterExteded.scss" as *;
 
 // searchPage
-@use "./layout/searchpage/resultList.scss" as *;
-@use "./layout/searchpage/calendar.scss" as *;
+// @use "./layout/searchpage/resultList.scss" as *;
+// @use "./layout/searchpage/calendar.scss" as *;
 
 //homePage
-@use "./homepage/news-home.scss" as *;
-@use "./layout/homepage/hothome.scss" as *;
-@use "./layout/homepage/sliderWinSum.scss" as *;
+// @use "./homepage/news-home.scss" as *;
+// @use "./layout/homepage/hothome.scss" as *;
+// @use "./layout/homepage/sliderWinSum.scss" as *;
 
 //hotPage
-@use "./layout/hotpage/tableHot.scss" as *;
+// @use "./layout/hotpage/tableHot.scss" as *;
 
 //hotelPage
-@use "./layout/hotelpage/hotelInfo.scss" as *;
+// @use "./layout/homepage/hothome.scss" as *;
+// @use "./layout/hotelpage/hotelInfo.scss" as *;
 
 // newsPage
-@use "./newsPage/news-section.scss" as *;
+// @use "./newsPage/news-section.scss" as *;
 
 // directionsSection
-@use "./directionsSection/direction.scss" as *;
+// @use "./directionsSection/direction.scss" as *;
 
 // bookingSection
-@use "./bookingSection/booking.scss" as *;
+// @use "./bookingSection/booking.scss" as *;
 
 // contactsPage
-@use "./layout/contactspage/contactssection.scss" as *;
+// @use "./layout/contactspage/contactssection.scss" as *;
 
 // errorPage
-@use "./layout/errorpage/errorpage.scss" as *;
+// @use "./layout/errorpage/errorpage.scss" as *;
 
 // Auth
-@use "./auth/login.scss" as *;
-@use "./auth/registerSection.scss" as *;
-@use "./auth/forgotSection.scss" as *;
+// @use "./auth/login.scss" as *;
+// @use "./auth/registerSection.scss" as *;
+// @use "./auth/forgotSection.scss" as *;
 
-@use "./accountSection/account-section.scss" as *;
+// accountPage
+// @use "./accountSection/account-section.scss" as *;
+
+// textPage
+// @use "./layout/textpage/textSection.scss" as *;
 
 // під всіма use
 @import "normalize.css";
