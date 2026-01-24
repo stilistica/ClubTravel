@@ -102,7 +102,6 @@ export default defineConfig(({ command }) => {
           },
         },
       },
-      target: "es2018"
     },
 
     server: {
