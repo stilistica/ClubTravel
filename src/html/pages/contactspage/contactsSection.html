@@ -16,28 +16,26 @@
     <div class="contactsSection__wrapper-form">
       <form onsubmit="event.preventDefault()">
         <div>
-          <label>Имя (необязательно)</label>
-          <input type="text" name="name" />
+          <label for="name">Имя (необязательно)</label>
+          <input id="name" type="text" name="name" />
         </div>
 
         <div>
-          <label>Номер телефона *</label>
-          <input type="tel" name="phone" required />
+          <label for="phone">Номер телефона *</label>
+          <input id="phone" type="tel" name="phone" required />
         </div>
 
         <div>
-          <label>E-mail *</label>
-          <input type="email" name="email" required />
+          <label for="email">E-mail *</label>
+          <input id="email" type="email" name="email" required />
         </div>
 
         <div>
-          <label>Сообщение (необязательно)</label>
-          <textarea name="message"></textarea>
+          <label for="message">Сообщение (необязательно)</label>
+          <textarea id="message" name="message"></textarea>
         </div>
 
         {{> button text="Отправить" type="submit" width="100%" height="42px"}}
-				<!-- {{> button text="Подробнее" href="/about"}} -->
-
       </form>
     </div>
   </div>
@@ -48,6 +46,7 @@
       allowfullscreen=""
       loading="lazy"
       referrerpolicy="no-referrer-when-downgrade"
+      title="Map showing our office location"
     ></iframe>
   </div>
 </section>
