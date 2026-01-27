@@ -1,15 +1,29 @@
 @use "../basic/globals.scss" as s;
 
 .register {
-  background-image: url(../../img/backgraund-mob.webp);
-  background-repeat: no-repeat;
-  background-position: center top;
-  background-size: cover;
+    position: relative;
+    &-image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    z-index: -1;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+  }
+  // background-image: url(../../img/backgraund-mob.webp);
+  // background-repeat: no-repeat;
+  // background-position: center top;
+  // background-size: cover;
   max-width: 1920px;
   height: 812px;
   padding: 127px 0 108px;
   @media (min-width: s.$media_1366) {
-    background-image: url(../../img/backgraund-big.webp);
+    // background-image: url(../../img/backgraund-big.webp);
     height: 800px;
     padding: 120px 0 107px;
   }

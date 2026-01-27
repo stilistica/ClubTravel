@@ -1,4 +1,15 @@
 <section class="register">
+  <div class="register-image">
+    <picture>
+      <source media="(min-width: 768px)" srcset="/img/backgraund-big.webp" />
+      <img
+        src="/img/backgraund-mob.webp"
+        alt="hero"
+        fetchpriority="high"
+        decoding="async"
+      />
+    </picture>
+  </div>
   <div class="login__container container">
     {{> form 
       title='Зарегистрируйтесь используя соц.сети' 
