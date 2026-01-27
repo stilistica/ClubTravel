@@ -2,7 +2,12 @@
   <div class="result-filter__list-card-base">
     <div class="result-filter__list-card-base-one">
       <div class="result-filter__list-card-base-one-image">
-        <img src="{{img}}" alt="{{name}}" />
+        <img
+          src="{{img}}"
+          alt="{{name}}"
+          fetchpriority="high"
+          decoding="async"
+        />
       </div>
       <div class="result-filter__list-card-base-one-info">
         <div class="result-filter__list-card-base-one-info-text">
@@ -22,6 +27,7 @@
         <a
           href="{{hotelLink}}"
           class="result-filter__list-card-base-one-info-link"
+          aria-label="hotelLink"
         >
           Подробнее об отеле
           <svg>
@@ -74,6 +80,7 @@
         <button
           class="button-org result-filter__list-card-base-two-card-btn"
           style="--btn-width: 100%; --btn-height: 42px"
+          aria-label="open"
         >
           Открыть
         </button>
