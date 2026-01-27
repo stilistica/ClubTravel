@@ -2,13 +2,13 @@
   <div class="login__form-wrapper {{wrapperClass}}">
     <h3 class="login__form-title">{{title}}</h3>
     {{#if showSocial}}
-    <button class="login__form-btn-facebook" type="button">
+    <button class="login__form-btn-facebook" type="button" aria-label="Facebook">
       <svg width="24" height="24">
         <use href="/img/sprite.svg#icon-icon-facebook"></use>
       </svg>
       Войти с помощью Facebook
     </button>
-    <a href="#" class="login__form-btn-google" type="button">
+    <a href="#" class="login__form-btn-google" type="button" aria-label="Google">
       <svg width="24" height="24">
         <use href="/img/sprite.svg#icon-icon-google"></use>
       </svg>
@@ -20,40 +20,42 @@
       <p class="login__form-text">или</p>
       {{/if}} {{#if showEmail}}
       <div class="login__form-input">
-        <p>E-mail</p>
+        <label for="email">E-mail</label>
         <input
           class="login__form-input-email"
           type="email"
           name="email"
+          id="email"
           required
         />
       </div>
       {{/if}} {{#if showPassword}}
       <div class="login__form-input">
         <div class="login__form-input-text">
-          <p>Пароль</p>
+          <label for="password">Пароль</label>
           {{#if forgotLink}}
           <a
             href="{{link 'html/pages/forgotPassPage.html'}}"
             class="login__form-input-link"
+            aria-label="Forgot Password"
           >
             Забыли пароль?
           </a>
           {{/if}}
         </div>
-        <input type="password" name="password" required />
+        <input id="password" type="password" name="password" required />
       </div>
       {{/if}} {{#if showRepeatPassword}}
       <div class="login__form-input">
-        <p>Повторите пароль</p>
-        <input type="password" name="passwordRepeat" required />
+        <label for="passwordRepeat">Повторите пароль</label>
+        <input id="passwordRepeat" type="password" name="passwordRepeat" required />
       </div>
       {{/if}}
       <div class="login__btns-wrapper">
         {{#if secondaryLinkUrl}}
-        <a href="{{link secondaryLinkUrl}}"> {{secondaryLinkText}} </a>
+        <a href="{{link secondaryLinkUrl}}" aria-label="{{secondaryLinkText}}"> {{secondaryLinkText}} </a>
         {{/if}}
-        <button type="submit" class="login__btn-register enter {{btnClass}}">
+        <button type="submit" class="login__btn-register enter {{btnClass}}" aria-label="{{submitText}}">
           {{submitText}}
         </button>
       </div>
