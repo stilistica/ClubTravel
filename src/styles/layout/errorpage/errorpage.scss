@@ -1,11 +1,24 @@
 @use "../../basic/globals.scss" as s;
 
 .errorpage-bgr {
+  position: relative;
   width: 100%;
   min-height: 417px;
 
-  background-image: url("/img/backgraund-big.webp");
-  @include s.bgr();
+  &-image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+  }
+  // background-image: url("/img/backgraund-big.webp");
+  // @include s.bgr();
 
   @media (min-width: s.$media_768) {
     height: 589px;
