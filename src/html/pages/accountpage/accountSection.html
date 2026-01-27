@@ -4,23 +4,28 @@
       <div class="account__wrapper-left">
         <div class="account__left">
           <div class="account__photo">
-            <img src="/img/user-photo.webp" alt="Photo users" />
+            <img
+              src="/img/user-photo.webp"
+              alt="Photo users"
+              fetchpriority="high"
+              decoding="async"
+            />
           </div>
           <p class="account__name">Еле Колонаева</p>
           <div class="account__btns-wrapper">
-            <button class="account__btn active">
+            <button class="account__btn active" aria-label="Мои заказы">
               <svg width="24" height="24">
                 <use href="/img/sprite.svg#icon-ticket"></use>
               </svg>
               Мои заказы
             </button>
-            <button class="account__btn">
+            <button class="account__btn" aria-label="История платежей">
               <svg width="24" height="24">
                 <use href="/img/sprite.svg#icon-payment-card"></use>
               </svg>
               История платежей
             </button>
-            <button class="account__btn">
+            <button class="account__btn" aria-label="Настройки">
               <svg width="24" height="24">
                 <use href="/img/sprite.svg#icon-settings"></use>
               </svg>
@@ -28,7 +33,7 @@
             </button>
           </div>
           <hr class="account__line" />
-          <button class="account__btn-exit">
+          <button class="account__btn-exit" aria-label="Выход">
             <svg width="24" height="24">
               <use href="/img/sprite.svg#icon-exit"></use>
             </svg>
