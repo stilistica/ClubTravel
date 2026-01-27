@@ -5,11 +5,15 @@
     <link rel="icon" type="image/svg+xml" href="/ClubTravel/assets/favicon-VQID8EvX.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Авторизация</title>
+    <meta
+      name="description"
+      content="Contact Club Travel to book your next trip, ask questions about tours, or get help with reservations."
+    />
     <script type="module" crossorigin src="/ClubTravel/assets/vendor-BLDgGOtP.js"></script>
     <script type="module" crossorigin src="/ClubTravel/assets/main-CrVlKqrl.js"></script>
     <link rel="stylesheet" crossorigin href="/ClubTravel/assets/vendor-BEoj7IFs.css">
     <link rel="stylesheet" crossorigin href="/ClubTravel/assets/main-BpbFZEtq.css">
-    <link rel="stylesheet" crossorigin href="/ClubTravel/assets/auth-DniDChI6.css">
+    <link rel="stylesheet" crossorigin href="/ClubTravel/assets/auth-EltW4nbA.css">
   </head>
   <body>
     <header class="header">
@@ -144,59 +148,61 @@
         </div>
       </div>
     </header>
-    <section class="login">
-      <div class="login__container container">
-        <div class="login__form">
-          <div class="login__form-wrapper ">
-            <h3 class="login__form-title">Войдите используя соц.сети</h3>
-            <button class="login__form-btn-facebook" type="button">
-              <svg width="24" height="24">
-                <use href="/ClubTravel/assets/sprite-xjNdH9vZ.svg#icon-icon-facebook"></use>
-              </svg>
-              Войти с помощью Facebook
-            </button>
-            <a href="#" class="login__form-btn-google" type="button">
-              <svg width="24" height="24">
-                <use href="/ClubTravel/assets/sprite-xjNdH9vZ.svg#icon-icon-google"></use>
-              </svg>
-              Войти с помощью Google
-            </a>
-            <form id="loginForm">
-         
-              <div class="login__form-input">
-                <p>E-mail</p>
-                <input
-                  class="login__form-input-email"
-                  type="email"
-                  name="email"
-                  required
-                />
-              </div>
-               
-              <div class="login__form-input">
-                <div class="login__form-input-text">
-                  <p>Пароль</p>
-                  <a
-                    href="/ClubTravel/html/pages/forgotPassPage.html"
-                    class="login__form-input-link"
-                  >
-                    Забыли пароль?
-                  </a>
-                </div>
-                <input type="password" name="password" required />
-              </div>
-                     <div class="login__btns-wrapper">
-                <a href="/ClubTravel/html/pages/registerPage.html"> регистрация </a>
-                <button type="submit" class="login__btn-register enter ">
-                  вход
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
+    <main><section class="login">
+  <div class="login__container container">
+    <div class="login__form">
+      <div class="login__form-wrapper ">
+        <h3 class="login__form-title">Войдите используя соц.сети</h3>
+        <button class="login__form-btn-facebook" type="button" aria-label="Facebook">
+          <svg width="24" height="24">
+            <use href="/ClubTravel/assets/sprite-xjNdH9vZ.svg#icon-icon-facebook"></use>
+          </svg>
+          Войти с помощью Facebook
+        </button>
+        <a href="#" class="login__form-btn-google" type="button" aria-label="Google">
+          <svg width="24" height="24">
+            <use href="/ClubTravel/assets/sprite-xjNdH9vZ.svg#icon-icon-google"></use>
+          </svg>
+          Войти с помощью Google
+        </a>
+        <form id="loginForm">
      
+          <div class="login__form-input">
+            <label for="email">E-mail</label>
+            <input
+              class="login__form-input-email"
+              type="email"
+              name="email"
+              id="email"
+              required
+            />
+          </div>
+           
+          <div class="login__form-input">
+            <div class="login__form-input-text">
+              <label for="password">Пароль</label>
+              <a
+                href="/ClubTravel/html/pages/forgotPassPage.html"
+                class="login__form-input-link"
+                aria-label="Forgot Password"
+              >
+                Забыли пароль?
+              </a>
+            </div>
+            <input id="password" type="password" name="password" required />
+          </div>
+                 <div class="login__btns-wrapper">
+            <a href="/ClubTravel/html/pages/registerPage.html" aria-label="регистрация"> регистрация </a>
+            <button type="submit" class="login__btn-register enter " aria-label="вход">
+              вход
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
     <section class="footer">
       <div class="footer__div container">
         <div class="footer__div-info">
