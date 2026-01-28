@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Направления</title>
     <script type="module" crossorigin src="/ClubTravel/assets/vendor-BLDgGOtP.js"></script>
-    <script type="module" crossorigin src="/ClubTravel/assets/main-CrVlKqrl.js"></script>
+    <script type="module" crossorigin src="/ClubTravel/assets/main-BPgwNq4_.js"></script>
     <link rel="stylesheet" crossorigin href="/ClubTravel/assets/vendor-BEoj7IFs.css">
-    <link rel="stylesheet" crossorigin href="/ClubTravel/assets/main-BpbFZEtq.css">
+    <link rel="stylesheet" crossorigin href="/ClubTravel/assets/main-IMHHosdl.css">
     <link rel="stylesheet" crossorigin href="/ClubTravel/assets/directionsPage-pVdQGQdr.css">
     <link rel="stylesheet" crossorigin href="/ClubTravel/assets/filterExteded-J4xqDqxE.css">
   </head>
@@ -28,15 +28,16 @@
         <div class="header__top-bar">
           <ul class="header__top-bar-list ">
             <li class="header__top-bar-item">
-              <a href="#" class="header__top-bar-link">Страховки</a>
+              <a href="#" class="header__top-bar-link" aria-label="Страховки">Страховки</a>
             </li>
             <li class="header__top-bar-item">
-              <a href="#" class="header__top-bar-link">Визы</a>
+              <a href="#" class="header__top-bar-link" aria-label="Визы">Визы</a>
             </li>
             <li class="header__top-bar-item">
               <a
                 href="/ClubTravel/html/pages/contactsPage.html"
                 class="header__top-bar-link"
+                aria-label="Контакты"
                 >Контакты</a
               >
             </li>
@@ -83,6 +84,7 @@
         <a
           href="/ClubTravel/html/pages/searchPage.html"
           class="header__nav-item-link"
+          aria-label="Поиск тура"
           >Поиск тура
         </a>
       </li>
@@ -90,6 +92,7 @@
         <a
           href="/ClubTravel/html/pages/directionsPage.html"
           class="header__nav-item-link"
+          aria-label="Направления"
           >Направления
         </a>
       </li>
@@ -97,6 +100,7 @@
         <a
           href="/ClubTravel/html/pages/newsPage.html"
           class="header__nav-item-link  header__nav-item-company"
+          aria-label="link"
         >
           <svg width="24" height="24">
             <use href="/ClubTravel/assets/sprite-xjNdH9vZ.svg#icon-offer"></use>
@@ -108,6 +112,7 @@
         <a
           href="/ClubTravel/html/pages/hotPage.html"
           class="header__nav-item-link  header__nav-item-company"
+          aria-label="hotPage"
         >
           <svg width="24" height="24">
             <use href="/ClubTravel/assets/sprite-xjNdH9vZ.svg#icon-fast-time"></use>
@@ -119,11 +124,12 @@
         <a
           href="/ClubTravel/html/pages/bookingPage.html"
           class="header__nav-item-link"
+          aria-label="bookingPage"
           >Запрос тура
         </a>
       </li>
       <li class="header__nav-item">
-        <a href="#" class="header__nav-item-link">Авиабилеты </a>
+        <a href="#" class="header__nav-item-link" aria-label="Авиабилеты">Авиабилеты </a>
       </li>
     </ul>
     </nav>
@@ -232,8 +238,8 @@
             <div
               class="filter__section-form-item-variant__trigger filter__section-form-date__trigger"
             >
-              <span class="filter__section-form-date__trigger-value"
-                >Выберите дату</span
+              <label for="filter-date" class="filter__section-form-date__trigger-value"
+                >Выберите дату</label
               >
               <svg>
                 <use href="/ClubTravel/assets/sprite-xjNdH9vZ.svg#icon-calendar"></use>
@@ -275,9 +281,10 @@
     
               <li>
                 <div>
-                  <span>Взрослые</span>
+                  <label for="filter-adults">Взрослые</label>
                   <input
                     type="number"
+                    id="filter-adults"
                     name="filter-adults"
                     min="1"
                     placeholder="0"
@@ -285,9 +292,10 @@
                 </div>
     
                 <div>
-                  <span>Дети</span>
+                  <label for="filter-children">Дети</label>
                   <input
                     type="number"
+                    id="filter-children"
                     name="filter-children"
                     min="0"
                     placeholder="0"
@@ -299,7 +307,7 @@
         </div>
     
         <div class="filter__section-form-submit">
-          <button type="submit" class="button-form-search button-form-search-link">
+          <button type="submit" aria-label="Найти" class="button-form-search button-form-search-link">
             <svg>
               <use href="/ClubTravel/assets/sprite-xjNdH9vZ.svg#icon-search"></use>
             </svg>
@@ -309,7 +317,10 @@
       </div>
     </div>
      <div class="filter__extended">
-      <button class="filter__extended-btn">
+      <button
+        class="filter__extended-btn"
+        aria-label="Расширенный поиск"
+      >
         <svg>
           <use href="/ClubTravel/assets/sprite-xjNdH9vZ.svg#icon-zoom"></use>
         </svg>
@@ -319,7 +330,7 @@
         <div class="filter__extended-info-title">
           <h2>Расширенный поиск</h2>
           <hr />
-          <button class="filter__extended-info-title-close">
+          <button class="filter__extended-info-title-close" aria-label="Закрыть">
             <svg>
               <use href="/ClubTravel/assets/sprite-xjNdH9vZ.svg#icon-minus-circle"></use>
             </svg>
@@ -337,7 +348,9 @@
               <p class="filter__extended-info-list-column-name">
                 Категория размещения
               </p>
-              <ul class="filter__extended-info-list-column-list filter__extended-info-list-column-list-stars">
+              <ul
+                class="filter__extended-info-list-column-list filter__extended-info-list-column-list-stars"
+              >
                 <li
                   class="filter__extended-info-list-column-list-item"
                   data-value="Budget"
@@ -531,7 +544,9 @@
               <p class="filter__extended-info-list-column-name">
                 Цена на одного человека
               </p>
-              <div class="filter__extended-info-list-column-list filter__extended-info-list-column-list-price filter-price-list">
+              <div
+                class="filter__extended-info-list-column-list filter__extended-info-list-column-list-price filter-price-list"
+              >
                 <div class="slider filter-price-slider">
                   <div class="track filter-price-track"></div>
                   <div class="range filter-price-range"></div>
@@ -553,7 +568,9 @@
               </div>
             </div>
           </div>
-          <div class="filter__extended-info-list-column filter__extended-info-list-column-categoties">
+          <div
+            class="filter__extended-info-list-column filter__extended-info-list-column-categoties"
+          >
             <div
               class="filter__extended-info-list-column-div filter__extended-categoties"
               data-extended="regions"
@@ -684,7 +701,7 @@
 		              <use href="/ClubTravel/assets/sprite-xjNdH9vZ.svg#icon-mail"></use>
 		            </svg>
 		            <p>
-		              <a href="mailto:info@clubstravel.ee">info@clubstravel.ee</a>
+		              <a href="mailto:info@clubstravel.ee" aria-label="mail">info@clubstravel.ee</a>
 		            </p>
 		          </li>
 		        </ul>
@@ -725,6 +742,7 @@
           <a
             href="/ClubTravel/html/pages/searchPage.html"
             class="header__nav-item-link"
+            aria-label="Поиск тура"
             >Поиск тура
           </a>
         </li>
@@ -732,6 +750,7 @@
           <a
             href="/ClubTravel/html/pages/directionsPage.html"
             class="header__nav-item-link"
+            aria-label="Направления"
             >Направления
           </a>
         </li>
@@ -739,6 +758,7 @@
           <a
             href="/ClubTravel/html/pages/newsPage.html"
             class="header__nav-item-link "
+            aria-label="link"
           >
        Кампании
           </a>
@@ -747,6 +767,7 @@
           <a
             href="/ClubTravel/html/pages/hotPage.html"
             class="header__nav-item-link "
+            aria-label="hotPage"
           >
        Горящие предложения
           </a>
@@ -755,25 +776,27 @@
           <a
             href="/ClubTravel/html/pages/bookingPage.html"
             class="header__nav-item-link"
+            aria-label="bookingPage"
             >Запрос тура
           </a>
         </li>
         <li class="header__nav-item">
-          <a href="#" class="header__nav-item-link">Авиабилеты </a>
+          <a href="#" class="header__nav-item-link" aria-label="Авиабилеты">Авиабилеты </a>
         </li>
       </ul>
       <hr class="mob-menu__line-top" />
       <ul class="header__top-bar-list mob-menu__list">
         <li class="header__top-bar-item">
-          <a href="#" class="header__top-bar-link">Страховки</a>
+          <a href="#" class="header__top-bar-link" aria-label="Страховки">Страховки</a>
         </li>
         <li class="header__top-bar-item">
-          <a href="#" class="header__top-bar-link">Визы</a>
+          <a href="#" class="header__top-bar-link" aria-label="Визы">Визы</a>
         </li>
         <li class="header__top-bar-item">
           <a
             href="/ClubTravel/html/pages/contactsPage.html"
             class="header__top-bar-link"
+            aria-label="Контакты"
             >Контакты</a
           >
         </li>

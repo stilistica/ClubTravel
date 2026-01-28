@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Результаты поиска</title>
     <script type="module" crossorigin src="/ClubTravel/assets/vendor-BLDgGOtP.js"></script>
-    <script type="module" crossorigin src="/ClubTravel/assets/main-CrVlKqrl.js"></script>
+    <script type="module" crossorigin src="/ClubTravel/assets/main-BPgwNq4_.js"></script>
     <link rel="stylesheet" crossorigin href="/ClubTravel/assets/vendor-BEoj7IFs.css">
-    <link rel="stylesheet" crossorigin href="/ClubTravel/assets/main-BpbFZEtq.css">
+    <link rel="stylesheet" crossorigin href="/ClubTravel/assets/main-IMHHosdl.css">
     <link rel="stylesheet" crossorigin href="/ClubTravel/assets/searchPage-3Q8MT8Ce.css">
     <link rel="stylesheet" crossorigin href="/ClubTravel/assets/filterExteded-J4xqDqxE.css">
   </head>
@@ -28,15 +28,16 @@
         <div class="header__top-bar">
           <ul class="header__top-bar-list ">
             <li class="header__top-bar-item">
-              <a href="#" class="header__top-bar-link">Страховки</a>
+              <a href="#" class="header__top-bar-link" aria-label="Страховки">Страховки</a>
             </li>
             <li class="header__top-bar-item">
-              <a href="#" class="header__top-bar-link">Визы</a>
+              <a href="#" class="header__top-bar-link" aria-label="Визы">Визы</a>
             </li>
             <li class="header__top-bar-item">
               <a
                 href="/ClubTravel/html/pages/contactsPage.html"
                 class="header__top-bar-link"
+                aria-label="Контакты"
                 >Контакты</a
               >
             </li>
@@ -83,6 +84,7 @@
         <a
           href="/ClubTravel/html/pages/searchPage.html"
           class="header__nav-item-link"
+          aria-label="Поиск тура"
           >Поиск тура
         </a>
       </li>
@@ -90,6 +92,7 @@
         <a
           href="/ClubTravel/html/pages/directionsPage.html"
           class="header__nav-item-link"
+          aria-label="Направления"
           >Направления
         </a>
       </li>
@@ -97,6 +100,7 @@
         <a
           href="/ClubTravel/html/pages/newsPage.html"
           class="header__nav-item-link  header__nav-item-company"
+          aria-label="link"
         >
           <svg width="24" height="24">
             <use href="/ClubTravel/assets/sprite-xjNdH9vZ.svg#icon-offer"></use>
@@ -108,6 +112,7 @@
         <a
           href="/ClubTravel/html/pages/hotPage.html"
           class="header__nav-item-link  header__nav-item-company"
+          aria-label="hotPage"
         >
           <svg width="24" height="24">
             <use href="/ClubTravel/assets/sprite-xjNdH9vZ.svg#icon-fast-time"></use>
@@ -119,11 +124,12 @@
         <a
           href="/ClubTravel/html/pages/bookingPage.html"
           class="header__nav-item-link"
+          aria-label="bookingPage"
           >Запрос тура
         </a>
       </li>
       <li class="header__nav-item">
-        <a href="#" class="header__nav-item-link">Авиабилеты </a>
+        <a href="#" class="header__nav-item-link" aria-label="Авиабилеты">Авиабилеты </a>
       </li>
     </ul>
     </nav>
@@ -232,8 +238,8 @@
             <div
               class="filter__section-form-item-variant__trigger filter__section-form-date__trigger"
             >
-              <span class="filter__section-form-date__trigger-value"
-                >Выберите дату</span
+              <label for="filter-date" class="filter__section-form-date__trigger-value"
+                >Выберите дату</label
               >
               <svg>
                 <use href="/ClubTravel/assets/sprite-xjNdH9vZ.svg#icon-calendar"></use>
@@ -275,9 +281,10 @@
     
               <li>
                 <div>
-                  <span>Взрослые</span>
+                  <label for="filter-adults">Взрослые</label>
                   <input
                     type="number"
+                    id="filter-adults"
                     name="filter-adults"
                     min="1"
                     placeholder="0"
@@ -285,9 +292,10 @@
                 </div>
     
                 <div>
-                  <span>Дети</span>
+                  <label for="filter-children">Дети</label>
                   <input
                     type="number"
+                    id="filter-children"
                     name="filter-children"
                     min="0"
                     placeholder="0"
@@ -299,7 +307,7 @@
         </div>
     
         <div class="filter__section-form-submit">
-          <button type="submit" class="button-form-search button-form-search-link">
+          <button type="submit" aria-label="Найти" class="button-form-search button-form-search-link">
             <svg>
               <use href="/ClubTravel/assets/sprite-xjNdH9vZ.svg#icon-search"></use>
             </svg>
@@ -309,7 +317,10 @@
       </div>
     </div>
      <div class="filter__extended">
-      <button class="filter__extended-btn">
+      <button
+        class="filter__extended-btn"
+        aria-label="Расширенный поиск"
+      >
         <svg>
           <use href="/ClubTravel/assets/sprite-xjNdH9vZ.svg#icon-zoom"></use>
         </svg>
@@ -319,7 +330,7 @@
         <div class="filter__extended-info-title">
           <h2>Расширенный поиск</h2>
           <hr />
-          <button class="filter__extended-info-title-close">
+          <button class="filter__extended-info-title-close" aria-label="Закрыть">
             <svg>
               <use href="/ClubTravel/assets/sprite-xjNdH9vZ.svg#icon-minus-circle"></use>
             </svg>
@@ -337,7 +348,9 @@
               <p class="filter__extended-info-list-column-name">
                 Категория размещения
               </p>
-              <ul class="filter__extended-info-list-column-list filter__extended-info-list-column-list-stars">
+              <ul
+                class="filter__extended-info-list-column-list filter__extended-info-list-column-list-stars"
+              >
                 <li
                   class="filter__extended-info-list-column-list-item"
                   data-value="Budget"
@@ -531,7 +544,9 @@
               <p class="filter__extended-info-list-column-name">
                 Цена на одного человека
               </p>
-              <div class="filter__extended-info-list-column-list filter__extended-info-list-column-list-price filter-price-list">
+              <div
+                class="filter__extended-info-list-column-list filter__extended-info-list-column-list-price filter-price-list"
+              >
                 <div class="slider filter-price-slider">
                   <div class="track filter-price-track"></div>
                   <div class="range filter-price-range"></div>
@@ -553,7 +568,9 @@
               </div>
             </div>
           </div>
-          <div class="filter__extended-info-list-column filter__extended-info-list-column-categoties">
+          <div
+            class="filter__extended-info-list-column filter__extended-info-list-column-categoties"
+          >
             <div
               class="filter__extended-info-list-column-div filter__extended-categoties"
               data-extended="regions"
@@ -649,6 +666,7 @@
             <a
               href="/ClubTravel/html/pages/bookingPage.html"
               class="tourbooking__request-link"
+              aria-label="link bookingPage"
               >ЗАПОЛНИТЬ ЗАЯВКУ НА ПОИСК ТУРА</a
             >
           </div>
@@ -666,26 +684,31 @@
                       srcset="data:image/webp;base64,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"
                       media="(max-width: 767px)"
                     />
-                    <img src="data:image/webp;base64,UklGRiIPAABXRUJQVlA4IBYPAADQXgCdASoOAbUAPpFAm0qlo68rpPMcYeASCWMIkYwBsjADRG2CBernlS1OFneVD1biXnYtPGMpjwq007TIg+zt/yxSpgDy28qfFMgDploVRn/YBtSClFS8JXe4xF8H1NOUatsGwnuZ0MfL92Z+jL+zVrifS12nkqi1Jts9XEachUWNIJIQR9cHValHl4TC5VjwSIvCdcqyXwp+L/5MCF0de8cAxW8D3eYRAspiQL0aVWyljy7idLkeE4GqUOGr35EvAulRfIOP2+sfRPhiQ5HmPici10R6vXEJSXbNm3z232uL0Hdqws+w3WAN6opR4XB65GV00pEgJFYshOhMUTFBwxegzUlLkcC9lrIRRi4t2XSBZIlmdILzMiuupdr6diebltv0RT1BGuf25y/h2+hKy58V6e6V6fD1cvCBEnQkL/SxCLz0Ye8Ath36579F7D9gT/mnCrchOQbjJbkr26MCEsuo+DrPjm7xT557RYfVNBN2OCVovVlKxVKp3NEOIEapLlG1RWIKjphpVmLelEoa9QcVYn80KXu3R8TCePvoeiemtjU/+JFpqtpsnMgred2+5+OZ6u/UYy+gMVviZP5EQkCB2XDZl4xOreL36umcmmfGcPUXl3nZx1Fevt/Ah33Ja5KLHXGk/fhNX7TuRRIS7nWHK+a8fIh3EkVuUzpMzBwK6j9OZtJUqoNj3WTpxGD6l4YLBqjBGLk3jdT6ls2KetJd5lvKrnNt5EeFuJONupVWFnLLqRLeaj7kX4UyLIBsw7D6Ku/GGytc3fE3mAtZc6NQ+m1c7VEwev/fYotsJSdjvRxXloq6pmpgQwWehpr4GSLBrT1gDAwCeubWY9hTJ0EHRzCSQPoNxL3se3FWZO52fEDpsnKiJP6DveLjs6KRl1DirtbTIoWftbsXOBEuM7q5LrLsPPCIDFspHkUzBFXvhWwXA93xYYBlOfiIohE+gVenvw8yfY4ETHa39dm+kH+/pUmLfthh38NLRrFMEOJKhqoFIm2uvWsdUyRsoAD6W/V+761BOIj43H//TRQ3+N2zz0qdN1/9iePHdWKCbWCFhgr7UYtAi2jluh+MO7ks5YjyiKSnp420ez7V277X06Ajba7RRuQOFlGa5p7DUw55SF0pzU1i47FF28wrVAXdNk22IzsEua7DT3PqANwEK+tcEYwrIOeiUTFj5ygnHerOtzgLvIOvzJ872i1AEi63ET6raRovozYLaRfQwOkQ70p40gAKRlO9wW5SlKpKxmrayVJ7+PsSNIfsLYWg+KizhGKxkaEgtplhaaT9q+0fZx1IiL0xD3//kpxBArt9SsEnuIgKNFmTDz/2bu0O/5ecLQVC6GyeLvb6QH3RyZM9b5DTjeHS6l+BmW5lh8KSZQTQuObAHRU+lQ/WufxIVmw5a/AQ8cAL2y/qThUDBMzsPmitt7vsFbLfgwij3zoYLehEIRevkTaplqjdpWh9U7/jyVdnmqU8rJpNFedpD3M0m+ZgYyhvULM889zUJHntdmKiZ5dGomNHev8A2ZtTEXj67NFDHMaAO0629q4ykgRr5Cln2LUU2mog1wAH9QsTsQMmDoz9aGwTNUhAk+bG1BRLsScDAdWFaLv7ig8G4SflOR+0tWBh5+cgTZozd8EwDBro1VbWQdCrAwJ3b+vUgvNvRpPCS1DxDlq7HHXZslivapap+m1oUL6ULDi5oxVsU+TfYxe/ERnSmJdY+thOwv5awXTYgvrbJBOPdqaDfjY65s3GEmzXIvGK6+/19tgtNbu2yyJFHJQ4+ngAeGYhDeS4TKPHNCqbpPuwNtSh1DolZPiZ7SNlQQcZQocG/Fd5OA1VJSpC+VRDMtd6NPqxiyDnGxRxT8M272nVDnQ4IkSKZm2kO5iSz0Wos8a050xGYGIVt4wdaCtNMP1GNyaPQ7i4IoFvxcHbDq6IfPqLCkjJvPNM265ndcEb0dR8yBEF3gdLT8mP0CmrAMlXlVQnnbXHs24BKM+dltz/kMGQdqqbAwx2c9YIASUie7ql4U9mC2Ufo791J0RcZE0j1cF1QYcRRNKSHAXHng86feemTcrsNKId90crG50skYHpbwJHcU2s7ZhLxnWw2LK2LB9QTuXlKZ3fPdAyIc6A01lDknKFjcoPfoK+B1hfiHj7aanvLdFDRKFKTCUbhn89bd8EGmR9wwZ/nkIdKYjStUhyesJ3jF7Bu+PUjMXzMCcSKKDk4ESp7GJoNNxuDjFXZMjzPa9vP6GU/26GgWDSvxkI4/Q6xAEFv5Y/8fgfq/yvqXovfv9fyKNED6YbNwwkR6HhCsPctrb+yZ74JHKQj1BR5TsReZDeWJiHY/tw0E42NtKGVexwCigzQ15GP312Fn70fmRgV44YEbAalAuqOzWswYayCZk+MzFvzzXZXGJNg19OXiPcW9DGVWtnQcW+TvmOA8e+Ppi/E1BsKAgv0Y0X91xh4spZOeJHi0g6woAj2WSujCbDSz2uuvnTLuCSUyiZYick3N4CpKR+ZA7bP6AlL7solG2kf/L49JBjipHZg7DV3wvvYu7otJSc/Xjl9xmaVtXuW2o/jwnHrTPCj25qers/AhM/3txVwoncdT6ohiup2Ithju/IJYLo3Nyg4lp0bYco6JbZJRfmNeU1xnpFDZwgiYgmctbb7OMSrupdSBGvlLtu9OjAQl4353S9cNXxzs8N5JFxfRyyXXS0pHHsB5ZnitFY0q2Da4ZUvJR6G0xeWS3Jv4S6E01BExyTR3Zhl7Z0p5hLYsMbuimAfmIqp3GuLn53J0BH6KRPR324V7NzoVfSKZegXQTzdfgCbt5+m7F9LKiQiDMJjNBPbo/ZHz0cy7MpSKK/NAtPFu+qjr9m35/zYTL0oY2wz18XHopKdZUnxY6mhEMaUSnMgr8QpmCB9iHQrbTQV5uDu+cgGa2tvzJphqx1xL2UywGP10K1tyso1PpfX5nWDJ+E2a355LawpWROLZ4awAff3R28vanzC/oemyuP6sXpN0OEoBw0zznVa5jXGAGGWjxVjO46bH50E5bfxV8cDLgHGPlwik/WxvGAaI+6ONvC2wh197LAC9MJLpVbwfkP7pfdD243/hETVJGQzodDhnXksMU6y/ztrAuHY+yPkDhPZSiVwKC4t5QJcOBAB2SWXvWSUV6eT2uFv3RdV1vuO00zJjq0Mljvf0VAN/OFibUM7VqWxtqhjYIEzKBPJ0DDKkqJumQVu7jDFflT1lnAu5ZZT36nS+VGnQqrOKzU9FF/kyGgIMYAlYdb5ti3CjrqmeiCU5eeQ+e9o5RsncOpA24xXCu+tuYIDOySidyASocn8An5BTXKrjXC9JbUGnAN+Jnl4hUOk3cvfypfQ8xTDeGrloqnkNX9XxPwFWiEH92K7J4ehoX06x7y2zwoZWpRZKf8sh+CfX1ARIP9HRJEUcEoQJjPhLM8f2CqeEz59AO+kStC2xoApTZuOpVbNkeJSsVQW3yNxYLtNK9cZMhr4YFvUfRQ9i4bdgaa8cfIaRC5tj5p1Tnro37Zcv/z841I3ejZi/IbQESlDbN5pWapaeHY6x1CFQmrvp5xxPiKtS0c7aJIAXbUt+ASDyTTRInSgTTvi6vSC12BDmOf82naxpyjmogKNu4OiNNeWo3Ji8BPtK6Mt5zn7ivRus8ot486RH6hv0B4uXE3USIrxm4QYvS/PZiGcEUmLOayDiTncShgSVYZfpo5e3zaZlsGOXhx7q66t/HiCZ3HqgJTgtU9P8ISKxsmOcUaMJsc/bSfXU5Luz9J6NmF72UrUPgYvy+gRTS2QGaR8fviGiETMtT+BT4cTpM0Olfv0FEiJQZ01Hzt3LKl+aFNMUzlnFjVpQKxaq1ehrmag1iHxNP+hCw5HL4wfUbTNDptAeu6zmBMdJqYWJwa3MRs7tRf47d7ALPu32PreMWnOZwTvOeY6/H0V+qW+XMMx1VFaUfA5F9NHlYfYjyjXCRnoG9etVkgPgbajES+zFUAfRG68pHiMJRV2jP8YebZxzeKTINEQO58bR+TqNnx+yJaNMDulmDJ3uChAk7wwcRFAAGNlX1uO7G59ODyxUe30POxDnmbI4q1S6Qrzt5sNhsCP8k1xfBma8TuUorsqhlFJ2q6nAebBf5VW5jGJzKfYfWXNM93mm1YOAAfkdNXd+fUV1yL9rNgTvenorjqJnFrwjBcint7OPnHjPjeOg67qnK/5B/seqchG6I2HDrcUZ+S8XAsFOI1mcCI+RLdbtWJ/U1KAOQVllQDoSQTo9hPgrh+JAIyXh9+/QtbbJ1aUEdHtep+UkRrf1XIouDKaQBcqPbMvgjUGS/kOPel4+nowsLqITz2jOgT5Ja1G3vtC1tmAMVHaeKUXVq0Jt9m75te1owLL4TpHuwNJRpdq4QWkLumR4IYWo9EKDB7qaFjtMiuhbDSFPl305j1X+fWdG7d2TX/9ERaQWSM9lQ4dh+gub2cyjYu7zpwZPsGvH1a5uYPBIhWaeNYk6lXc6tKqAZ2TmswvCvwSRhB+OsIigMxIgpeaMSabzbfObQDk7nm+Z5UX40jfTCLFs05M6acESbGdoAvPwZH0LVs01TCxxknMs9pVg5qytoCpJ9yRQiPsTk8eh2EWdO9NlPRVQY+PW+Nt6fiZDtmYtFmlw+5lwtczaCKDCFLJsC1B/iFJu54KHdGJvWyrF74Y9jqfAJgW6TbtU3IOy53MR0tzQOpb4qImGjnKBfKOCV/3gSOfg8J+zHoUz7umrwMAvAqV+b2NJ6hKT5Y+mUUPzuokRcFTAEcJJ3g4jeOnnUUoTVswtZa5Ycf7UhTL2X1sVgkLMaTk7cI+KDGVO1y2wkaqrTu1TKOEPqpeQ59muSsg9DJefI5iEFFKnG6nFD9FzXljrNxEanWN6ABckEWODMwI81xMqgUHMln/9cdJl8ubYT5LGwA0gH6vNLphJp5Ok3AQGv06wtPR27dgMuGVbsNJ3zCtjQsLLzWqgA2Vf9nWQg4dO5eKmq87WRiPxMuLo+QWS9oGRmb9eg5Sv17DPkvrXfZ7qmQRBxQTEOdlnBXePhL9qehFiZkzcoy02EY2FzzMOSOLf8iNAs+hLUtQwSgpsCYLFt3fFJGbTJcCil+dGGEX9ER+rh+i3MBeIi2WBjKVazHo0ZsWO5LHmqu7PAA" alt="Photo consultanta" />
+                    <img
+                      src="data:image/webp;base64,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"
+                      alt="Photo consultanta"
+                      fetchpriority="high"
+                      decoding="async"
+                    />
                   </picture>
                 </div>
                 <div class="consultant-card__column">
                   <p class="consultant-card__name">Марина Каасик</p>
                   <p class="consultant-card__position">Специалист по подбору туров</p>
                   <div class="consultant-card__contacts">
-                    <a href="tel:+3726130633" class="consultant-card__link">
+                    <a href="tel:+3726130633" class="consultant-card__link" aria-label="tel">
                       <svg width="24" height="24">
                         <use href="/ClubTravel/assets/sprite-xjNdH9vZ.svg#icon-phone"></use>
                       </svg>
                       +372 6 130 633
                     </a>
-                    <a href="mailto:contact@email.ee" class="consultant-card__link">
+                    <a href="mailto:contact@email.ee" class="consultant-card__link" aria-lebel="mail">
                       <svg width="24" height="24">
                         <use href="/ClubTravel/assets/sprite-xjNdH9vZ.svg#icon-mail"></use>
                       </svg>
                       contact@email.ee
                     </a>
-                    <a href="#" class="consultant-card__link">
+                    <a href="#" class="consultant-card__link" aria-label="mess">
                       <svg width="24" height="24">
                         <use href="/ClubTravel/assets/sprite-xjNdH9vZ.svg#icon-messanger"></use>
                       </svg>
@@ -752,7 +775,7 @@
                   <use href="/ClubTravel/assets/sprite-xjNdH9vZ.svg#icon-mail"></use>
                 </svg>
                 <p>
-                  <a href="mailto:info@clubstravel.ee">info@clubstravel.ee</a>
+                  <a href="mailto:info@clubstravel.ee" aria-label="mail">info@clubstravel.ee</a>
                 </p>
               </li>
             </ul>
