@@ -64,8 +64,8 @@
         <div
           class="filter__section-form-item-variant__trigger filter__section-form-date__trigger"
         >
-          <span class="filter__section-form-date__trigger-value"
-            >Выберите дату</span
+          <label for="filter-date" class="filter__section-form-date__trigger-value"
+            >Выберите дату</label
           >
           <svg>
             <use href="/img/sprite.svg#icon-calendar"></use>
@@ -107,9 +107,10 @@
 
           <li>
             <div>
-              <span>Взрослые</span>
+              <label for="filter-adults">Взрослые</label>
               <input
                 type="number"
+                id="filter-adults"
                 name="filter-adults"
                 min="1"
                 placeholder="0"
@@ -117,9 +118,10 @@
             </div>
 
             <div>
-              <span>Дети</span>
+              <label for="filter-children">Дети</label>
               <input
                 type="number"
+                id="filter-children"
                 name="filter-children"
                 min="0"
                 placeholder="0"
@@ -131,7 +133,7 @@
     </div>
 
     <div class="filter__section-form-submit">
-      <button type="submit" class="button-form-search button-form-search-link">
+      <button type="submit" aria-label="Найти" class="button-form-search button-form-search-link">
         <svg>
           <use href="/img/sprite.svg#icon-search"></use>
         </svg>
