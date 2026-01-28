@@ -5,8 +5,12 @@
     <link rel="icon" type="image/svg+xml" href="/ClubTravel/assets/favicon-VQID8EvX.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Главная</title>
+    <meta
+      name="description"
+      content="Contact Club Travel to book your next trip, ask questions about tours, or get help with reservations."
+    />
     <script type="module" crossorigin src="/ClubTravel/assets/vendor-BLDgGOtP.js"></script>
-    <script type="module" crossorigin src="/ClubTravel/assets/main-BPgwNq4_.js"></script>
+    <script type="module" crossorigin src="/ClubTravel/assets/main-sdgplN6O.js"></script>
     <link rel="stylesheet" crossorigin href="/ClubTravel/assets/vendor-BEoj7IFs.css">
     <link rel="stylesheet" crossorigin href="/ClubTravel/assets/main-IMHHosdl.css">
     <link rel="stylesheet" crossorigin href="/ClubTravel/assets/main-Bv5v_wqN.css">
@@ -24,6 +28,8 @@
               height="67"
               src="/ClubTravel/assets/logo-DVICx08f.svg"
               alt="Image logo"
+              fetchpriority="high"
+              decoding="async"
             />
           </a>
         </div>
@@ -153,6 +159,7 @@
         </div>
       </div>
     </header>
+    <main>
     <section class="herohome hero">
       <div class="hero__image">
         <picture>
@@ -623,11 +630,11 @@
             </svg>
           </div>
         </div>
-          <a href="/ClubTravel/html/pages/newsPage.html" class="news-home__link"
+          <a href="/ClubTravel/html/pages/newsPage.html" class="news-home__link" aria-label="open newsPage"
             >Все кампании и новости
             <svg width="24" height="24">
-              <use href="/ClubTravel/assets/sprite-xjNdH9vZ.svg#icon-arrow-right"></use></svg
-          ></a>
+              <use href="/ClubTravel/assets/sprite-xjNdH9vZ.svg#icon-arrow-right"></use></svg>
+            </a>
       </div>
     </section>
     <div class="hothome container">
@@ -657,7 +664,7 @@
           <div class="swiper-wrapper"></div>
         </div>
       </div>
-      <a href="/ClubTravel/html/pages/hotPage.html" class="hothome__link">
+      <a href="/ClubTravel/html/pages/hotPage.html" class="hothome__link" aria-label="link hotPage">
         Все горящие предложения
         <svg>
           <use href="/ClubTravel/assets/sprite-xjNdH9vZ.svg#icon-arrow-right"></use>
@@ -673,6 +680,7 @@
         <div class="winter-summer-home__slider-buttons">
           <button
             class="winter-summer-home__slider-buttons-prev winter-homepage-prev"
+            aria-label="prev"
           >
             <svg>
               <use href="/ClubTravel/assets/sprite-xjNdH9vZ.svg#icon-prev-btn"></use>
@@ -680,6 +688,7 @@
           </button>
           <button
             class="winter-summer-home__slider-buttons-next winter-homepage-next"
+            aria-label="next"
           >
             <svg>
               <use href="/ClubTravel/assets/sprite-xjNdH9vZ.svg#icon-prev-btn"></use>
@@ -694,6 +703,7 @@
       <a
         href="/ClubTravel/html/pages/searchPage.html"
         class="winter-summer-home__link"
+        aria-label="link searchPage"
       >
         Все зимние туры
         <svg class="winter-summer-home__link-svg">
@@ -710,6 +720,7 @@
         <div class="winter-summer-home__slider-buttons">
           <button
             class="winter-summer-home__slider-buttons-prev summer-homepage-prev"
+            aria-label="prev"
           >
             <svg>
               <use href="/ClubTravel/assets/sprite-xjNdH9vZ.svg#icon-prev-btn"></use>
@@ -717,6 +728,7 @@
           </button>
           <button
             class="winter-summer-home__slider-buttons-next summer-homepage-next"
+            aria-label="next"
           >
             <svg>
               <use href="/ClubTravel/assets/sprite-xjNdH9vZ.svg#icon-prev-btn"></use>
@@ -731,6 +743,7 @@
       <a
         href="/ClubTravel/html/pages/searchPage.html"
         class="winter-summer-home__link"
+        aria-label="link searchPage"
       >
         Все летние туры
         <svg class="winter-summer-home__link-svg">
@@ -740,10 +753,10 @@
     </section>
     <section class="tourbooking">
       <div class="tourbooking__container container">
-        <h3 class="tourbooking__title">
+        <h2 class="tourbooking__title">
           НЕТ ВРЕМЕНИ <br />
           ИСКАТЬ ТУР?
-        </h3>
+        </h1>
         <p class="tourbooking__sub-title">
           Просто скажите нам как должен выглядеть отдых вашей мечты и мы найдём
           лучший тур для вас!
@@ -813,6 +826,7 @@
         </div>
       </div>
     </section>
+    </main>
     <section class="footer">
       <div class="footer__div container">
         <div class="footer__div-info">

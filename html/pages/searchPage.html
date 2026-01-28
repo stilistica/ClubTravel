@@ -5,8 +5,12 @@
     <link rel="icon" type="image/svg+xml" href="/ClubTravel/assets/favicon-VQID8EvX.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Результаты поиска</title>
+    <meta
+      name="description"
+      content="Contact Club Travel to book your next trip, ask questions about tours, or get help with reservations."
+    />
     <script type="module" crossorigin src="/ClubTravel/assets/vendor-BLDgGOtP.js"></script>
-    <script type="module" crossorigin src="/ClubTravel/assets/main-BPgwNq4_.js"></script>
+    <script type="module" crossorigin src="/ClubTravel/assets/main-sdgplN6O.js"></script>
     <link rel="stylesheet" crossorigin href="/ClubTravel/assets/vendor-BEoj7IFs.css">
     <link rel="stylesheet" crossorigin href="/ClubTravel/assets/main-IMHHosdl.css">
     <link rel="stylesheet" crossorigin href="/ClubTravel/assets/searchPage-3Q8MT8Ce.css">
@@ -22,6 +26,8 @@
               height="67"
               src="/ClubTravel/assets/logo-DVICx08f.svg"
               alt="Image logo"
+              fetchpriority="high"
+              decoding="async"
             />
           </a>
         </div>
@@ -151,22 +157,23 @@
         </div>
       </div>
     </header>
-		<section class="herobase hero">
-		  <div class="hero__image">
-		    <picture>
-		      <source media="(min-width: 768px)" srcset="/ClubTravel/assets/herobase-DPb54u1n.webp" />
-		      <img
-		        src="/ClubTravel/assets/hero-mob-BP_HBvj7.webp"
-		        alt="hero"
-		        fetchpriority="high"
-		        decoding="async"
-		        width="100%"
-		        height="100%"
-		      />
-		    </picture>
-		  </div>
-		  <div class="hero__wave"></div>
-		</section>
+		<main>
+    <section class="herobase hero">
+      <div class="hero__image">
+        <picture>
+          <source media="(min-width: 768px)" srcset="/ClubTravel/assets/herobase-DPb54u1n.webp" />
+          <img
+            src="/ClubTravel/assets/hero-mob-BP_HBvj7.webp"
+            alt="hero"
+            fetchpriority="high"
+            decoding="async"
+            width="100%"
+            height="100%"
+          />
+        </picture>
+      </div>
+      <div class="hero__wave"></div>
+    </section>
     <section class="container filter-container">
       <div class="filter">
         <div class="filter__title">
@@ -597,7 +604,7 @@
     <section class="container result-filter">
       <div class="result-filter__info">
         <h1 class="result-filter__info-title"></h1>
-        <button class="result-filter__info-calendar">
+        <button class="result-filter__info-calendar" aria-label="open calendar">
           <svg>
             <use href="/ClubTravel/assets/sprite-xjNdH9vZ.svg#icon-calendar-euro"></use>
           </svg>
@@ -649,10 +656,10 @@
       <ul class="result-filter__list"></ul>
     </section>    <section class="tourbooking">
       <div class="tourbooking__container container">
-        <h3 class="tourbooking__title">
+        <h2 class="tourbooking__title">
           НЕТ ВРЕМЕНИ <br />
           ИСКАТЬ ТУР?
-        </h3>
+        </h1>
         <p class="tourbooking__sub-title">
           Просто скажите нам как должен выглядеть отдых вашей мечты и мы найдём
           лучший тур для вас!
@@ -722,6 +729,7 @@
         </div>
       </div>
     </section>
+    </main>
     <section class="footer">
       <div class="footer__div container">
         <div class="footer__div-info">
