@@ -121,7 +121,7 @@ function renderSlideWSHome(hotel) {
             'html/pages/searchPage.html'}}"
 						class="button-org"
 						style="--btn-width: 100%; --btn-height: 42px;"
-            aria-label="open tour"
+            aria-label="link searchPage"
 						>Выбрать тур</a>
           </div>
         </div>

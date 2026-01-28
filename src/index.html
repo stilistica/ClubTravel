@@ -5,10 +5,15 @@
     <link rel="icon" type="image/svg+xml" href="/img/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Главная</title>
+    <meta
+      name="description"
+      content="Contact Club Travel to book your next trip, ask questions about tours, or get help with reservations."
+    />
   </head>
   <body>
 
     {{> header }}
+    <main>
     {{> heroBase 
       class="herohome"
       desktopImg="/img/hero/herohome.webp"}} 
@@ -18,6 +23,7 @@
     {{> sliderWSHome title="зимние туры" desc="Зима 2025 - 2026" text="Все зимние туры" class="winter"}}
     {{> sliderWSHome title="летние туры" desc="Лето 2025 - 2026" text="Все летние туры" class="summer"}}
     {{> tourBooking}} 
+    </main>
     {{> footer}}
 
     <!-- <img src="/img/image.jpg" /> -->
