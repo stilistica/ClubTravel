@@ -104,7 +104,7 @@ function renderSlideWSHome(hotel) {
   return `
         <div class="winter-summer-home__slider-swiper-slide swiper-slide">
           <div class="winter-summer-home__slider-swiper-slide-image">
-            <img src="${img}" alt="${destination}" />
+            <img src="${img}" alt="${destination}" fetchpriority="high" decoding="async" />
           </div>
           <div class="winter-summer-home__slider-swiper-slide-info">
             <div class="winter-summer-home__slider-swiper-slide-info-text">
@@ -121,6 +121,7 @@ function renderSlideWSHome(hotel) {
             'html/pages/searchPage.html'}}"
 						class="button-org"
 						style="--btn-width: 100%; --btn-height: 42px;"
+            aria-label="open tour"
 						>Выбрать тур</a>
           </div>
         </div>

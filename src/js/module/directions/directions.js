@@ -79,7 +79,7 @@ function renderTours(tours) {
 
       <img width="273" height="160" src="${t.image}" alt="${
         t.region || t.destination
-      }">
+      }" fetchpriority="high" decoding="async" />
 
       <div class="directions__tour-card-body">
 
@@ -116,7 +116,7 @@ function renderTours(tours) {
         <div class="directions__btn-wrapper">
         <a href="/ClubTravel/html/pages/hotelPage.html?id=${
           t.id
-        }"  class="directions__tour-card-btn">
+        }"  class="directions__tour-card-btn" alt="btn">
           ВЫБРАТЬ ТУР
         </a>
         </div>

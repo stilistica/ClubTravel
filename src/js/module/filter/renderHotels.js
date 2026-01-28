@@ -266,6 +266,7 @@ function renderHotelOptionRow(hotel, option) {
         style="--btn-width: 160px; --btn-height: 42px"
         data-hotel-id="${hotelId}"
         data-option-id="${optionId}"
+        aria-label="open tour"
       >
         выбрать
       </button>

@@ -91,6 +91,7 @@ function renderPagination(meta, currentItemsCount, onPageChange) {
         class="account__pagination-btn"
         ${page === 1 ? "disabled" : ""}
         data-action="prev"
+        aria-label="prev"
       >
         Назад
       </button>
@@ -105,6 +106,7 @@ function renderPagination(meta, currentItemsCount, onPageChange) {
         class="account__pagination-btn"
         ${page === pageCount ? "disabled" : ""}
         data-action="next"
+        aria-label="next"
       >
         Вперёд
       </button>

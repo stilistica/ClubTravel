@@ -87,6 +87,7 @@ function renderHotTableRow(option) {
 				class="tabletHot__table-tbody-btn"
 				style="--btn-width: 160px; --btn-height: 42px"
         data-option-id="${id}"
+        aria-label="open"
 			>
 				Открыть
 			</button>
@@ -184,6 +185,7 @@ function renderTwoRowHot(hotel) {
       <li>
         <button class="tabletHot__table-two-hotels-tbody-btn"
         data-hotel-id="${id}"
+        aria-label="open"
         >
           <p>открыть предложения</p>
           <svg>
@@ -263,7 +265,8 @@ function renderThirdRowHot(option, hotel) {
         <button class="button-org choose-btn-hotel tabletHot__table-three-tbody-btn"
         style="--btn-width: 160px; --btn-height: 28px"
         data-hotel-id="${hotelId}"
-        data-option-id="${optionId}"        >
+        data-option-id="${optionId}"
+        aria-label="open tour">
           выбрать
         </button>
       </li>

@@ -19,7 +19,10 @@ function renderNewsPage(items) {
 
     card.innerHTML = `
       <div class="news-home__image">
-        <img src="${imageUrl}" alt="${title}" />
+        <img src="${imageUrl}"
+        alt="${title}" 
+        fetchpriority="high"
+        decoding="async" />
 
         ${
           price
