@@ -80,6 +80,7 @@ if (filter) {
       minDate: "today",
       dateFormat: "Y-m-d",
       allowInput: false,
+      disableMobile: true,
 
       onChange(selectedDates) {
         if (!selectedDates.length) return;

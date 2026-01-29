@@ -43,7 +43,7 @@ if (infoBlock) {
   document.addEventListener("click", (e) => {
     const calendarOpenBtn = e.target.closest(".result-filter__info-calendar");
     const calendarCloseBtn = e.target.closest(
-      ".result-filter__info-calendar-close"
+      ".result-filter__info-calendar-close",
     );
     // open
     if (calendarOpenBtn && !isCalendarOpen) {
@@ -83,17 +83,17 @@ if (infoBlock) {
     }
   });
 }
-function isSameMonth(dateA, dateB) {
-  return (
-    dateA.getFullYear() === dateB.getFullYear() &&
-    dateA.getMonth() === dateB.getMonth()
-  );
-}
+// function isSameMonth(dateA, dateB) {
+//   return (
+//     dateA.getFullYear() === dateB.getFullYear() &&
+//     dateA.getMonth() === dateB.getMonth()
+//   );
+// }
 // рендер самого календаря зі свайпером
 function mountCalendar() {
   const calendarWrap = document.querySelector(".result-filter__calendar");
   const resultsWrap = document.querySelector(
-    ".result-filter__calendar-results"
+    ".result-filter__calendar-results",
   );
 
   calendarWrap.hidden = false;
@@ -135,6 +135,9 @@ function mountCalendar() {
       minDate: "today",
       prevArrow: "",
       nextArrow: "",
+      
+      disableMobile: true,
+      monthSelectorType: "static",
       onDayCreate: (dObj, dStr, instance, dayElem) => {
         const date = dayElem.dateObj;
 
@@ -264,10 +267,10 @@ function getMinPriceForDate(date) {
 // оновлення дів з текстом
 function updateCalendarInfo(date, hotels) {
   const dateEl = infoTextWrapper?.querySelector(
-    ".result-filter__calendar-text-date"
+    ".result-filter__calendar-text-date",
   );
   const priceEl = infoTextWrapper?.querySelector(
-    ".result-filter__calendar-text-price"
+    ".result-filter__calendar-text-price",
   );
 
   if (!date || !infoTextWrapper || !dateEl || !priceEl) return;
@@ -288,7 +291,7 @@ function updateCalendarInfo(date, hotels) {
   dateEl.textContent = formatted;
 
   const minPrice = Math.min(
-    ...filteredHotels.map((hotel) => hotel.tour_option?.minPrice || Infinity)
+    ...filteredHotels.map((hotel) => hotel.tour_option?.minPrice || Infinity),
   );
   priceEl.textContent = minPrice === Infinity ? "—" : minPrice;
 }
