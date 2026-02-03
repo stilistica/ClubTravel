@@ -11,7 +11,6 @@ import imgContacts from "/img/booking/image-mob.webp";
 import { fetchHotels } from "../../api/hotels.js";
 import {
   formatDate,
-  getHotelImage,
   renderCategoryStars,
 } from "../home-page/hotHome";
 import HotelInfo from "/html/components/renderHotelInfo.html";
@@ -76,9 +75,8 @@ function renderHotelPage(hotel, option) {
   return HotelInfo({
     // id: hotel.id,
     sprite: sprite,
-    // imgOne: imgHotelOne,
-    imgOne: getHotelImage(hotel.image),
-
+    imgOne: imgHotelOne,
+    // imgOne: getHotelImage(hotel.image),
     imgTwo: imgHotelTwo,
     imgThree: imgHotelThree,
     imgFour: imgHotelFour,
@@ -97,11 +95,6 @@ function renderHotelPage(hotel, option) {
     price: option.price,
 
     searchLink: "html/pages/searchPage.html",
-
-    // days: hotel.tour_option?.days,
-    // description: hotel.description,
-    // hotelOptionsLength: hotel.hotel_options?.length,
-    // minPrice: hotel.tour_option?.minPrice,
   });
 }
 // логіка з інпутом
