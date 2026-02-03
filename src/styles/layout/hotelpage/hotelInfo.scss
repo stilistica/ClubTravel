@@ -622,6 +622,7 @@
 }
 .info-hotel__more {
   padding: 0 23px 20px 17px;
+  min-height: 300px;
 
   @include s.d-flex($direction: column);
   gap: 41px;
@@ -636,6 +637,7 @@
     padding: 0 65px 50px 65px;
   }
   @media (min-width: s.$media_1366) {
+    min-height: 400px;
     padding: 0 77px 92px 97px;
   }
   @media (min-width: s.$media_1920) {
