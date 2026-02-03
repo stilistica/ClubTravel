@@ -36,9 +36,9 @@ export function getHotelImage(image) {
   if (!image) return "/img/hot/image-one.webp";
 
   return (
-    `http://localhost:1337${image.url}` ||
-    `http://localhost:1337${image.formats?.small?.url}` ||
-    `http://localhost:1337${image.formats?.thumbnail?.url}` ||
+    // `http://localhost:1337${image.url}` ||
+    // `http://localhost:1337${image.formats?.small?.url}` ||
+    // `http://localhost:1337${image.formats?.thumbnail?.url}` ||
     image.formats?.small?.url ||
     image.formats?.thumbnail?.url ||
     image.url ||
@@ -98,7 +98,7 @@ if (containerHotPageSwiper) {
       return `
         <div class="hothome__slider-swiper-item swiper-slide">
           <div class="hothome__slider-swiper-item-one">
-            <img src="${img}" alt="${name}" fetchpriority="high" decoding="async"/>
+            <img src="${img}" alt="${name}" fetchpriority="high" decoding="async" width="380px" height="250px"/>
             <div class="hothome__slider-swiper-item-one-list">
             <div
               class="hothome__slider-swiper-item-one-list-item hothome__slider-swiper-item-one-list-date"

@@ -2,8 +2,9 @@ import { fetchNews } from "../api/newsHome";
 import api from "../api/axios";
 import sprite from "/img/sprite.svg";
 
+const wrapper = document.querySelector(".news-page__slider-wrapper");
+
 function renderNewsPage(items) {
-  const wrapper = document.querySelector(".news-page__slider-wrapper");
   if (!wrapper) return;
 
   wrapper.innerHTML = "";
@@ -63,7 +64,9 @@ function formatDate(dateString) {
   });
 }
 
-document.addEventListener("DOMContentLoaded", async () => {
-  const news = await fetchNews();
-  renderNewsPage(news);
-});
+if (wrapper) {
+  document.addEventListener("DOMContentLoaded", async () => {
+    const news = await fetchNews();
+    renderNewsPage(news);
+  });
+}

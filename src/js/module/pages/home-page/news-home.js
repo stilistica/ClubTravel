@@ -3,8 +3,9 @@ import { initSwipers } from "../../swiperNewHome/swiperNews";
 import api from "../../api/axios";
 import sprite from "/img/sprite.svg";
 
+const sliderWrapper = document.querySelector(".news-home__slider-wrapper");
+
 function createNewsHomeSwiper() {
-  const sliderWrapper = document.querySelector(".news-home__slider-wrapper");
   if (!sliderWrapper) return null;
 
   const prevBtn = sliderWrapper.querySelector(".news-home__button-prev");
@@ -83,11 +84,12 @@ function formatDate(dateString) {
     year: "numeric",
   });
 }
+if (sliderWrapper) {
+  document.addEventListener("DOMContentLoaded", async () => {
+    const news = await fetchNews();
 
-document.addEventListener("DOMContentLoaded", async () => {
-  const news = await fetchNews();
+    renderNewsHome(news);
 
-  renderNewsHome(news);
-
-  initSwipers();
-});
+    initSwipers();
+  });
+}

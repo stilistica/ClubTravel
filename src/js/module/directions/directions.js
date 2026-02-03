@@ -26,7 +26,7 @@ function mapTours(apiData) {
   });
 }
 const checkboxes = document.querySelectorAll(
-  ".directions__filters input[type='checkbox']"
+  ".directions__filters input[type='checkbox']",
 );
 
 let currentDestination = null;
@@ -47,18 +47,20 @@ async function loadTours() {
 }
 
 // обработка чекбоксов
-checkboxes.forEach((checkbox) => {
-  checkbox.addEventListener("change", () => {
-    // делаем активным только один
-    checkboxes.forEach((cb) => (cb.checked = false));
-    checkbox.checked = true;
+if (checkboxes) {
+  checkboxes.forEach((checkbox) => {
+    checkbox.addEventListener("change", () => {
+      // делаем активным только один
+      checkboxes.forEach((cb) => (cb.checked = false));
+      checkbox.checked = true;
 
-    currentDestination =
-      checkbox.value === "Все страны" ? null : checkbox.value;
+      currentDestination =
+        checkbox.value === "Все страны" ? null : checkbox.value;
 
-    loadTours();
+      loadTours();
+    });
   });
-});
+}
 
 function formatDate(date) {
   return new Date(date).toLocaleDateString("ru-RU", {
@@ -105,7 +107,7 @@ function renderTours(tours) {
               ${formatDate(d.start)} – ${formatDate(d.end)}
             </p>
               
-          `
+          `,
             )
             .join("")}
             </div>
@@ -122,8 +124,8 @@ function renderTours(tours) {
         </div>
       </div>
     </article>
-  `
+  `,
     )
     .join("");
 }
-loadTours();
+// loadTours();

@@ -87,10 +87,12 @@ function renderSlideWSHome(hotel) {
   // формування фото
   function getHotelImage(hot) {
     return (
-      `http://localhost:1337${hot.image.url}` ||
-      `http://localhost:1337${hot.image.formats?.small?.url}` ||
-      `http://localhost:1337${hot.tour_option?.imageTour?.url}` ||
+      // `http://localhost:1337${hot.image.url}` ||
+      // `http://localhost:1337${hot.image.formats?.small?.url}` ||
+      // `http://localhost:1337${hot.tour_option?.imageTour?.url}` ||
       hot.image?.url ||
+      hot.image?.formats?.small?.url ||
+      hot.image?.formats?.thumbnail?.url ||
       hot.tour_option?.imageTour?.url ||
       hot.tour_option?.imageTour?.formats?.small?.url ||
       hot.tour_option?.imageTour?.formats?.thumbnail?.url
@@ -104,7 +106,7 @@ function renderSlideWSHome(hotel) {
   return `
         <div class="winter-summer-home__slider-swiper-slide swiper-slide">
           <div class="winter-summer-home__slider-swiper-slide-image">
-            <img src="${img}" alt="${destination}" fetchpriority="high" decoding="async" />
+            <img src="${img}" alt="${destination}" fetchpriority="high" decoding="async" width="280px" height="250px" />
           </div>
           <div class="winter-summer-home__slider-swiper-slide-info">
             <div class="winter-summer-home__slider-swiper-slide-info-text">

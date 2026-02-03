@@ -83,12 +83,7 @@ if (infoBlock) {
     }
   });
 }
-// function isSameMonth(dateA, dateB) {
-//   return (
-//     dateA.getFullYear() === dateB.getFullYear() &&
-//     dateA.getMonth() === dateB.getMonth()
-//   );
-// }
+
 // рендер самого календаря зі свайпером
 function mountCalendar() {
   const calendarWrap = document.querySelector(".result-filter__calendar");
