@@ -8,6 +8,7 @@
 .info-hotel__wrapper {
   position: relative;
   padding: 0 23px 0 17px;
+  min-height: 1500px;
   &-div {
     @include s.d-flex($direction: column);
     gap: 30px;
