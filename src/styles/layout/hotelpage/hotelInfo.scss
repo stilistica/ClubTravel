@@ -8,7 +8,7 @@
 .info-hotel__wrapper {
   position: relative;
   padding: 0 23px 0 17px;
-  min-height: 1500px;
+  min-height: 3600px;
   &-div {
     @include s.d-flex($direction: column);
     gap: 30px;
@@ -464,6 +464,7 @@
   }
   @media (min-width: s.$media_768) {
     padding: 0 65px 0 65px;
+    min-height: 2300px;
     &-div {
       @include s.d-flex($direction: row, $justify: space-between);
       gap: none;
@@ -501,6 +502,7 @@
   }
   @media (min-width: s.$media_1366) {
     padding: 0 97px 0 99px;
+    min-height: 1500px;
     &-one {
       width: auto;
       &-base {
