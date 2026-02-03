@@ -70,7 +70,7 @@ import{a as xt,J as ct,S as j,P as It,K as dt,f as At,r as ut,N as pt}from"./ven
   `:""}if(ot){const e=(await ft()).map(g=>{const o=g.nameHotel,i=g.region,s=g.tour?.destination,C=K(g.tour_option?.startDate),l=kt(g.hotel_options),u=Math.round(l-l*(30/100)),I=B(g.category);return`
         <div class="hothome__slider-swiper-item swiper-slide">
           <div class="hothome__slider-swiper-item-one">
-            <img src="${vt(g.image)}" alt="${o}" decoding="async" width="380" height="250"/>
+            <img src="${vt(g.image)}" alt="${o}" decoding="async" fetchpriority=high width="380" height="250"/>
             <div class="hothome__slider-swiper-item-one-list">
             <div
               class="hothome__slider-swiper-item-one-list-item hothome__slider-swiper-item-one-list-date"
