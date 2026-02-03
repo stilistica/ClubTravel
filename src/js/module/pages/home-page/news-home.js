@@ -33,9 +33,7 @@ function renderNewsHome(items) {
   items.forEach((item) => {
     const { title, price, date, images } = item;
 
-    // const imageUrl = images?.url ;
-    const BASE_URL = api.defaults.baseURL.replace(/\/api$/, "");
-    const imageUrl = images?.url ? BASE_URL + images.url : "";
+    const imageUrl = images?.url || images.formats?.thumbnail?.url || images.formats?.small?.url;
 
     const slide = document.createElement("div");
     slide.className = "swiper-slide";
@@ -43,7 +41,7 @@ function renderNewsHome(items) {
     slide.innerHTML = `
       <div class="news-home__card">
         <div class="news-home__image">
-          <img src="${imageUrl}" alt="${title}" fetchpriority="high" decoding="async" />
+          <img src="${imageUrl}" alt="${title}" fetchpriority="high" decoding="async" width="379px" height="250px"/>
 
           ${
             price

@@ -8,12 +8,10 @@ function renderNewsPage(items) {
   if (!wrapper) return;
 
   wrapper.innerHTML = "";
-  const BASE_URL = api.defaults.baseURL.replace(/\/api$/, "");
 
   items.forEach((item) => {
     const { title, price, date, images } = item;
-    // const imageUrl = images?.url;
-    const imageUrl = images?.url ? BASE_URL + images.url : "";
+    const imageUrl = images?.url || images.formats?.thumbnail?.url || images.formats?.small?.url;
 
     const card = document.createElement("div");
     card.className = "news-home__card";
@@ -23,7 +21,9 @@ function renderNewsPage(items) {
         <img src="${imageUrl}"
         alt="${title}" 
         fetchpriority="high"
-        decoding="async" />
+        decoding="async" 
+        width="379px"
+        height="250px"/>
 
         ${
           price
