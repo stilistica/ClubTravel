@@ -5,13 +5,11 @@ import sprite from "/img/sprite.svg";
 const sliderWrapper = document.querySelector(".news-home__slider-wrapper");
 
 if (sliderWrapper) {
-  document.addEventListener("DOMContentLoaded", async () => {
-    const news = await fetchNews();
+  const news = await fetchNews();
 
-    renderNewsHome(news);
+  renderNewsHome(news);
 
-    initSwipers();
-  });
+  initSwipers();
 }
 
 function createNewsHomeSwiper() {
@@ -42,7 +40,10 @@ function renderNewsHome(items) {
   items.forEach((item) => {
     const { title, price, date, images } = item;
 
-    const imageUrl = images?.url || images.formats?.thumbnail?.url || images.formats?.small?.url;
+    const imageUrl =
+      images?.url ||
+      images.formats?.thumbnail?.url ||
+      images.formats?.small?.url;
 
     const slide = document.createElement("div");
     slide.className = "swiper-slide";

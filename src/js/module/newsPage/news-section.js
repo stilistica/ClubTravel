@@ -20,10 +20,9 @@ function renderNewsPage(items) {
       <div class="news-home__image">
         <img src="${imageUrl}"
         alt="${title}" 
-        fetchpriority="high"
         decoding="async" 
-        width="379px"
-        height="250px"/>
+        width="379"
+        height="250"/>
 
         ${
           price
