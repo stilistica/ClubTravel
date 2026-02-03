@@ -1,9 +1,18 @@
 import { fetchNews } from "../../api/newsHome";
 import { initSwipers } from "../../swiperNewHome/swiperNews";
-import api from "../../api/axios";
 import sprite from "/img/sprite.svg";
 
 const sliderWrapper = document.querySelector(".news-home__slider-wrapper");
+
+if (sliderWrapper) {
+  document.addEventListener("DOMContentLoaded", async () => {
+    const news = await fetchNews();
+
+    renderNewsHome(news);
+
+    initSwipers();
+  });
+}
 
 function createNewsHomeSwiper() {
   if (!sliderWrapper) return null;
@@ -41,7 +50,7 @@ function renderNewsHome(items) {
     slide.innerHTML = `
       <div class="news-home__card">
         <div class="news-home__image">
-          <img src="${imageUrl}" alt="${title}" fetchpriority="high" decoding="async" width="379px" height="250px"/>
+          <img src="${imageUrl}" alt="${title}" decoding="async" width="379" height="250"/>
 
           ${
             price
@@ -80,14 +89,5 @@ function formatDate(dateString) {
     day: "numeric",
     month: "long",
     year: "numeric",
-  });
-}
-if (sliderWrapper) {
-  document.addEventListener("DOMContentLoaded", async () => {
-    const news = await fetchNews();
-
-    renderNewsHome(news);
-
-    initSwipers();
   });
 }

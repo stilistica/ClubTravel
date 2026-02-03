@@ -98,7 +98,7 @@ if (containerHotPageSwiper) {
       return `
         <div class="hothome__slider-swiper-item swiper-slide">
           <div class="hothome__slider-swiper-item-one">
-            <img src="${img}" alt="${name}" fetchpriority="high" decoding="async" width="380px" height="250px"/>
+            <img src="${img}" alt="${name}" decoding="async" width="380" height="250"/>
             <div class="hothome__slider-swiper-item-one-list">
             <div
               class="hothome__slider-swiper-item-one-list-item hothome__slider-swiper-item-one-list-date"
