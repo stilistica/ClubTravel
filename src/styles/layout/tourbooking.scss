@@ -17,6 +17,8 @@
 
   &__container {
     padding: 0 10px;
+        @include s.d-flex($direction: column, $align: center);
+
     @media (min-width: s.$media_1366) {
       padding: 0 128px 0 203px;
     }

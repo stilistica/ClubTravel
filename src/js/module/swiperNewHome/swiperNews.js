@@ -26,8 +26,30 @@ export function initSwipers() {
       },
 
       breakpoints: {
-        768: { slidesPerView: 2, spaceBetween: 20 },
-        1024: { slidesPerView: 3, spaceBetween: 27 },
+        0: {
+          slidesPerView: 1,
+          spaceBetween: 20,
+        },
+        620: {
+          slidesPerView: 2,
+          spaceBetween: 20,
+        },
+        768: {
+          slidesPerView: 2,
+          spaceBetween: 23,
+        },
+        1366: {
+          slidesPerView: 3,
+          spaceBetween: 27,
+        },
+        1440: {
+          slidesPerView: 3,
+          spaceBetween: 28,
+        },
+        1920: {
+          slidesPerView: 4,
+          spaceBetween: 31,
+        },
       },
     });
   });
